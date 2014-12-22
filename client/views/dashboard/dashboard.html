@@ -3,8 +3,8 @@
 		<div class="row" id="champion-messages">
 			<div class="col-md-3">
 				{{> add}}
-				<!-- {{> addWithModal}}
-				{{> favorites}} -->
+				 {{> addWithModal}}
+				<!--{{> favorites}} -->
 			</div>
 			<div class="col-md-9">
 				{{> alert}}
@@ -25,11 +25,11 @@
 					{{> afQuickField name="profile.picture"}}
 			</div>
 				{{#autoForm id="add" collection="Posts" type="insert"}}
-			<!--	{{> afQuickField name="title"}} -->
+				{{> afQuickField name="title"}} 
 				{{> afQuickField name="content"}}
 				<!-- {{> afQuickField name="picture"}} -->
-			<!--	{{> afQuickField name="picture"}}
-				 {{> afFileUpload name="picture" collection="Attachments"}} -->
+				{{> afQuickField name="picture"}}
+			<!--	 {{> afFileUpload name="picture" collection="Attachments"}} -->
 				<button type="submit" class="btn btn-primary">Add Post</button>
 				{{/autoForm}}
 			</div>
