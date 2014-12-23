@@ -1,4 +1,5 @@
 AutoForm.hooks
 	add:
-		onError: (operation,error)->
-			App.alertError(error)
+		onError: (operation,error,template)->
+		#	App.alertError(error)
+			Alert.error(error)

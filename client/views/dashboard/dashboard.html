@@ -4,7 +4,7 @@
 			<div class="col-md-3">
 				{{> add}}
 				 {{> addWithModal}}
-				<!--{{> favorites}} -->
+				{{> favorites}}
 			</div>
 			<div class="col-md-9">
 				{{> alert}}
@@ -17,19 +17,21 @@
 
 <template name="add">
 	<div class="panel panel-default">
+	
 			<div class="panel-heading">
 				<h3 class="panel-title">Add a Post</h3>
 			</div>
 			<div class="panel-body">
-				<div class="col-md-4">
-					{{> afQuickField name="profile.picture"}}
-			</div>
+				
+			
 				{{#autoForm id="add" collection="Posts" type="insert"}}
-				{{> afQuickField name="title"}} 
+				
+		
+				{{> afQuickField name="title"}}
 				{{> afQuickField name="content"}}
 				<!-- {{> afQuickField name="picture"}} -->
 				{{> afQuickField name="picture"}}
-			<!--	 {{> afFileUpload name="picture" collection="Attachments"}} -->
+				<!-- {{> afFileUpload name="picture" collection="Attachments"}} -->
 				<button type="submit" class="btn btn-primary">Add Post</button>
 				{{/autoForm}}
 			</div>
@@ -42,7 +44,7 @@
 				<h3 class="panel-title">Add with a modal</h3>
 			</div>
 			<div class="panel-body">
-				<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" operation="insert" fields="title,content,picture">Add a new post</a>
+				<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" operation="insert" fields="content">Add a new post</a>
 			</div>
 	</div>
 </template>
@@ -60,13 +62,22 @@
 					</h3>
 				</div>
 				<div class="panel-body">
+					
+				
+					
 					<p class="text-center">
 						{{#with getDoc picture 'Attachments'}}
-							<img src="{{url}}" class="img-thumbnail img-rounded">
+						
+							<img src="{{url}}" class="img-thumbnail">
+						
+						
+					
+						
 						{{/with}}
 					</p>
+					
 					<div class="media">
-						<a class="pull-left" href="#">
+						<a class="pull-left" href="pathFor profile">
 							{{> profileThumb _id=owner}}
 						</a>
 						<div class="media-body">
