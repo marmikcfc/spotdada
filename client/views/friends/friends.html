@@ -1,0 +1,87 @@
+<template name="friends">
+    <ul class="nav nav nav-pills" style="margin-bottom: 15px;">
+        <li class="active"><a  href="#my_friends" data-toggle="tab">My Friends</a></li>
+        <li><a href="#my_invites" data-toggle="tab">My Invitations</a></li>
+        <li><a href="#invites" data-toggle="tab">Incoming</a></li>
+
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="my_friends">
+            {{my_friends}}
+        </div>
+        <div class="tab-pane fade" id="my_invites">
+            {{my_invites}}
+        </div>
+
+        <div class="tab-pane fade" id="invites">
+            {{invites}}
+        </div>
+    </div>
+</template>
+
+<template name="my_friends">
+    {{#each my_friends}}
+        <div class="row">
+            <div class="col-lg-12 each_friend_in_list">
+                <div class="col-lg-2">
+                    <a href="{{pathFor 'wall'}}">
+                        <img src="{{avatar_url _id}}" alt="image" class="img-thumbnail" style="height: 82px;width: 82px;"/>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <p> {{profile.name}} <span class="text-muted pull-right">{{status.online}}</span></p>
+                    <p> {{emails_address emails}}</p>
+                </div>
+                <div class="col-lg-4">
+                    <p><a href="javascript:;" class="delete_friend">Delete from friends</a></p>
+                    <p><a href="{{pathFor 'conversation'}}" class="start_chat">Start Chat</a></p>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</template>
+<template name="my_invites">
+    {{#each my_invites}}
+        <div class="row">
+            <div class="col-lg-12 each_friend_in_list">
+                <div class="col-lg-2">
+                    <a href="{{pathFor 'wall'}}">
+                        <img src="{{avatar_url _id}}" alt="image" class="img-thumbnail" style="height: 82px;width: 82px;"/>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <p> {{profile.name}} <span class="text-muted pull-right">{{status.online}}</span></p>
+                    <p> {{ emails_address emails}}</p>
+                </div>
+                <div class="col-lg-4">
+                    <p><a href="javascript:;" class="cancel_friend_request">Cancel Friend Request</a></p>
+                    <p><a href="javascript:;" class="start_chat">Start Chat</a></p>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</template>
+<template name="invites">
+    {{#each invites}}
+        <div class="row">
+            <div class="col-lg-12 each_friend_in_list">
+                <div class="col-lg-2">
+                    <a href="{{pathFor 'wall'}}">
+                        <img src="{{avatar_url _id}}" alt="image" class="img-thumbnail" style="height: 82px;width: 82px;"/>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <p> {{profile.name}} <span class="text-muted pull-right">{{status.online}}</span></p>
+                    <p> {{ emails_address emails}}</p>
+                </div>
+                <div class="col-lg-4">
+                    <p><a href="javascript:;" class="decline_friendship">Decline Friend Request</a></p>
+                    <p><a href="javascript:;" class="accept_friendship">Accept Friendship</a></p>
+                    <p><a href="javascript:;" class="start_chat">Start Chat</a></p>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</template>
+
+

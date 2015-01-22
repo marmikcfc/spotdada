@@ -1,0 +1,17 @@
+<template name="friends_audio">
+    <h3>Radio</h3>
+    {{#each radios}}
+        <a href="javascript:;" class="select_radio">{{name}}</a>
+        <br>
+    {{/each}}
+
+    <h3><a href="javascript:;" class="my_music">My Music</a></h3>
+    <h3>Friends list</h3>
+    {{#each friends}}
+        <div class="friend_audio_box">
+            <img src="{{avatar_url _id}}" alt="image" class="img-thumbnail" style="height: 55px;width: 55px;"/>
+            <span>{{profile.name}}</span>
+        </div>
+    {{/each}}
+
+</template>

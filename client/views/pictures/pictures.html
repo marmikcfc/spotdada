@@ -1,0 +1,32 @@
+<template name='pictures'>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Select files to upload:</h3>
+        </div>
+        <div class="panel-body">
+            <input name="files" type="file" class="fileUploader" multiple>
+        </div>
+    </div>
+    {{#each files}}
+    <ul class="list">
+        <li>
+            {{#with progress}}
+            <div class="progress upload_progress">
+                <div  role="progressbar" class="progress-bar bar {{barAStyle}}"  aria-valuenow="{{progressA}}%;" style="width: {{progressA}}%;">{{progressA}}%</div>
+            </div>
+            {{/with}}
+
+            <div class="btn-group-justified">
+                <a class="btn btn-danger btn-sm deleteFile">Delete</a>
+                <a class="btn btn-primary btn-sm asAvatar">As Avatar</a>
+            </div>
+
+            <img src="{{cfsFileUrl 'imageUrl'}}" alt="{{_id}}" >
+
+        </li>
+    </ul>
+    {{else}}
+
+    No files uploaded.
+    {{/each}}
+</template>

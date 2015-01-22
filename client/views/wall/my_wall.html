@@ -1,0 +1,89 @@
+<template name="my_wall">
+
+    <div class="row">
+        <div class="col-lg-12 ">
+            <h6 class="wall_profile_header">{{currentUser.profile.name}} <strong class="pull-right">online</strong></h6>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="avatar_box">
+                {{#if avatar}}
+                    <img src="{{avatar.url store='images'}}" class="avatar" style="max-height: 170px;max-width: 170px;"/>
+                {{else}}
+                    <img src="/img/deactivated_100.gif" class="def_avatar"/>
+                {{/if}}
+                <span class="my_avatar">Upload New Avatar</span>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            {{#if on_mind currentUser.profile.on_mind}}
+                <a class="change_status text-muted">{{currentUser.profile.on_mind}}</a>
+            {{else}}
+                <a class="change_status text-muted">Change Status</a>
+            {{/if}}
+            <div class="change_status_box slow_hidden">
+                <input type="text" class="form-control change_status_box_input pull-left" value="{{currentUser.profile.on_mind}}"/>
+                <button class="btn btn-success btn-sm change_status_box_save">Save</button>
+            </div>
+            <h6 class="wall_profile_header"><a href="javascript:;" class="show_all_wall_images pull-right"><strong>Show all pictures</strong></a></h6>
+            <div class="row">
+                {{#each wallImages}}
+                    <div class="col-lg-4">
+                        <img src="{{url store='images'}}" class="wall_image" height="100" width="100"/>
+                        <button class="btn btn-warning btn-xs remove_image">x</button>
+                        <button class="btn btn-success btn-xs asAvatar">As Avatar</button>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h4 class="wall_records_header">Last records <span class="pull-right"><a class="switch_wall">Show only {{currentUser.profile.name}} records</a> </span></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-11">
+            <textarea  class="form-control wall_textarea" rows="1" cols="45" placeholder="Whats New?"></textarea>
+        </div>
+        <div class="col-lg-1">
+            <i class="fa fa-chevron-down pull-right fa-2x"></i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button class="btn btn-info btn-sm new_wall slow_hidden">Send</button>
+            <a class="append_to_wall slow_hidden pull-right">Append</a>
+            <div class="slow_hidden wall_append_box">
+                <a>Image</a>
+                <a>Video</a>
+            </div>
+        </div>
+    </div>
+    {{#each wall}}
+    <div class="row">
+        <div class="col-lg-12 each_wall_in_list">
+            <div class="col-lg-2">
+                <a href="{{pathFor 'wall' _id=sender}}">
+                    <img src="{{avatar_url sender}}" alt="image" class="img-thumbnail" height="50" width="50"/>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <div class="col-lg-12">
+                    <p>{{senderName}}</p>
+                </div>
+                <p> {{message}}</p>
+            </div>
+            <div class="col-lg-4">
+                <i class="fa fa-trash-o remove_wall pull-right "></i>
+                {{prettifyDate created_at}}
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</template>
