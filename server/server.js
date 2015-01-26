@@ -1,6 +1,6 @@
-//Meteor.publish("conversations", function() {
-  //  return Conversations.find({ members: {$in: [this.userId] }}, {limit: 10, sort: {created_at: -1} });
-//});
+Meteor.publish("conversations", function() {
+    return Conversations.find({ members: {$in: [this.userId] }}, {limit: 10, sort: {created_at: -1} });
+});
 
 Meteor.publish("people", function() {
 
