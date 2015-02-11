@@ -2,7 +2,7 @@
 Meteor.methods
   follow: (target) ->
     check @userId, String
-    check target, Object
+    check target, String
 
     myself = Meteor.users.findOne Meteor.userId()
 

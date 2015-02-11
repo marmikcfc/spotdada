@@ -32,7 +32,9 @@ Template.profile.helpers
 Template.profile.events
   'click .follow': (e, template)->
     e.preventDefault()
-    target = template.data.username
+#    target = template.data.username
+    target=@user.fetch()[0].username
+    console.log("Username is "+target)
 
     Meteor.call "follow", target, (error, target)->
       if error
@@ -41,7 +43,8 @@ Template.profile.events
 
   'click .unfollow': (e, template)->
     e.preventDefault()
-    target = template.data.username
+#    target = template.data.username
+    target=@user.fetch()[0].username
 
     Meteor.call "unfollow", target, (error, target)->
       if error
