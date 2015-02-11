@@ -1,0 +1,12 @@
+<template name="commentItem">
+  <li class="list-group-item">
+    <p>
+      <span class="commenter"><b><a href="{{pathFor 'profile' username=this.commenter}}">{{commenter}}</a></b></span>
+      <span class="date">on {{readableDate}}</span>
+      {{#if commentAuthor}}
+        <span><button class="btn deleteComment">Delete</button></span>
+      {{/if}}
+    </p>
+    <p>{{commentBody}}</p>
+  </li>
+</template>

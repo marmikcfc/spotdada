@@ -1,0 +1,22 @@
+<template name="notifications">
+  <div class="dropdown">
+  <a class="menu-item-divided list-group-item each-list" data-toggle="collapse" aria-expanded="false" href="#collapseNotifications" aria-controls="collapseNotifications">
+    Notifications
+    {{#if notificationCount}}
+      <span class="badge badge-inverse">{{notificationCount}}</span>
+    {{/if}}
+    <b class="caret"></b>
+  </a>
+  <ul class="custom-dropdown collapse" id="collapseNotifications">
+    {{#if notificationCount}}
+      {{#each notifications}}
+        {{> notificationItem}}
+      {{/each}}
+    {{else}}
+      <a class="menu-item-divided list-group-item each-list" href="#">
+        No Notifications
+      </a>
+    {{/if}}
+  </ul>
+  </div>
+</template>

@@ -1,0 +1,32 @@
+/* Recipe Lists */
+.recipe-grid {
+  box-shadow: 1px 1px 5px;
+}
+
+.each-recipe {
+  width: 200px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.upvote {
+  margin-bottom: 10px;
+}
+
+
+/* Post Recipe */
+input[type="file"] {
+  visibility: hidden;
+}
+.post-image-button {
+  display: block;
+  border-radius: 5px;
+  border-color: blue;
+}
+
+
+/* postRecipe */
+.postRecipe {
+  margin: 30px;
+  padding-bottom: 30px;
+}

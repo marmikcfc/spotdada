@@ -1,0 +1,31 @@
+<template name="followingRecipes">
+ {{#if currentUser}}
+    {{#if hasRecipes}}
+      <div class="recipes row">
+        {{#each recipes}}
+          <div class="col-sm-4 col-md-3 recipe-grid">
+            <div class="each-recipe">
+              <p><a href="{{pathFor 'recipePage'}}"><strong>{{title}}</strong></a></p>
+              <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{author}}</a></p>
+              <p>Tags: <span class="badge">{{tags}}</span></p>
+              <p>{{pluralize commentsCount "comment"}}</p>
+              <p>{{pluralize votes "vote"}}</p>
+            </div>
+            <a href="#" class="upvote btn {{upvotedClass}}">{{#if canVote}}&#11014;{{else}}&#11015;{{/if}}</a>
+          </div>
+        {{/each}}
+      </div>
+      {{#if nextPath}}
+        <br>
+        <a class="btn btn-info" href="{{nextPath}}">Load more</a>
+      {{/if}}
+    {{else}}
+      <h3>No Projects To Show</h3>
+    {{/if}}
+    {{#unless ready}}
+      {{> loading}}
+    {{/unless}}
+  {{else}}
+    {{> home}}
+  {{/if}}
+</template>

@@ -1,0 +1,28 @@
+<template name="search">
+  <div class="postRecipe">
+    <h1>Search</h1>
+    <div class="form-group">
+      <div class="controls">
+        <input name="searchq" id="searchq" type="text" value="" placeholder="Tags, Title, Desc" class="form-control"/>
+      </div>
+    </div>
+
+    {{> searchResult}}
+  </div>
+</template>
+
+<template name="searchResult">
+  <div class="recipes row">
+    {{#each searchResult}}
+      <div class="col-sm-4 col-md-3 recipe-grid">
+        <div class="each-recipe">
+          <p><a href="{{pathFor 'recipePage'}}"><strong>{{title}}</strong></a></p>
+          <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{author}}</a></p>
+          <p>{{pluralize commentsCount "comment"}}</p>
+          <p>{{pluralize votes "vote"}}</p>
+        </div>
+        <a href="#" class="upvote btn {{upvotedClass}}">{{#if canVote}}&#11014;{{else}}&#11015;{{/if}}</a>
+      </div>
+    {{/each}}
+  </div>
+</template>
