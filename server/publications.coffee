@@ -1,70 +1,23 @@
-Meteor.publish 'recipes', (options)->
-  check options,
-    sort: Object
-    limit: Number
-  Recipes.find {}, options
+Meteor.publish "posts",(userId) ->
+  check userId, String
+  check userId, Match.Any
+  Posts.find({})
 
-Meteor.publish 'oneRecipe', (id)->
-  check id, String
-  Recipes.find id
 
-Meteor.publish 'comments', (recipeId)->
-  check recipeId, String
-  Comments.find 
-    recipeId: recipeId
+Meteor.publish "likes",() ->
+  check postId, String
+  check postId, Match.Any
+  Likes.find({post:postId})
+  Likes.find({})
 
-Meteor.publish 'notifications', ->
-  Notifications.find
-    userId: @userId
-    read: false
 
-Meteor.publish 'oneUser', (username)->
-  check username, String
-  Meteor.users.find 
-    username: username
+Meteor.publish "all-events", ->
+  Events.find {}
 
-Meteor.publish 'followers', (username)->
-  check username, String
-  Meteor.users.find
-    followings: username
+Meteor.publish "users-basic-info", ->
+  Meteor.users.find {},
+    fields:
+      _id: 1
+      emails: 1
+      profile: 1
 
-Meteor.publish 'followings', (username)->
-  check username, String
-  Meteor.users.find
-    followers: username
-
-Meteor.publish 'myRecipes', (username, options)->
-  check username, String
-  Recipes.find
-    author: username
-  , options
-###
-Meteor.publish 'myFollowers', (username)->
-  check username, String
-  Followers.find
-    username: username
-
-Meteor.publish 'myFollowings', (username)->
-  check username, String
-  Followings.find
-    username: username
-###
-
-### Followership
-Meteor.publish 'followingRecipes', (username, options)->
-  thisUser = Followings.findOne(username: username)
-  Recipes.find
-    author: 
-      $in: thisUser.followings
-  , options
-
-###
-Meteor.publish 'followingRecipes', (username, options)->
-  thisUser = Meteor.users.findOne(username: username)
-  if thisUser and thisUser.followings
-    Recipes.find
-      author: 
-        $in: thisUser.followings
-    , options
-  else
-    []

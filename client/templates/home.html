@@ -1,0 +1,13 @@
+<template name="home">
+    <div class="well well-lg">
+         <form action="" class="postStatus">
+          <label for="postStatus">Status</label>
+          <input type="text" name="postStatus" class="form-control input-lg" placeholder="What do you wanna Rant About>">
+         </form>
+    </div>
+    <div id="postList">
+      {{#each posts}}
+        {{>post}}
+      {{/each}}
+    </div>
+</template>

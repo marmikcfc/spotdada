@@ -1,0 +1,64 @@
+<template name="post">
+   <div class="panel panel-default">
+    <div class="panel-body">
+    
+      <div class="media">
+        <a class="media-left" href="/profile/{{userId}}">
+          <img src="{{userId}}.jpg" alt="" width="50px" class="img-circle">
+        </a>
+        <div class="media-body">
+         <h5 class="media-heading">
+           <a href="{{pathFor 'profile'}}{{userId}}">{{author}}</a>
+         </h5>
+          <h6 class="text-muted">
+           {{formatTime date}}
+         </h6>
+         <p>{{text}}</p>
+          <h6 class="">
+            {{#if ownLike}}
+              <a href="" class="unlikeBtn muted"><small>Je n'aime  plus</small></a>
+             {{else}}
+              <a href="" class="likeBtn muted"><small>J'aime</small></a>
+            {{/if}}
+            
+{{#if likeCount}}<span class="badge">{{likeCount}}</span> Personnes aiment{{/if}}
+          </h6>
+        </div>
+      </div>
+     </div>
+     <div class="panel-footer">     
+           
+       {{#each postComments}}
+          {{>postComment}}
+       {{/each}}
+
+       <form action="" class="postComment">
+       <input class="form-control" type="text" name="postComment" placeholder="Laisser une commentaire">
+       </form>
+     </div>
+</div>            
+</template>
+
+
+<template name="postComment">
+   
+    <div class="media">
+        <a class="media-left" href="#">
+          <img src="{{userId}}.jpg" alt="" width="40px" class="img-rounded">
+        </a>
+        <div class="media-body">
+          <h6 class="media-heading"><a href="{{pathFor 'profile'}}{{userId}}">{{author}}</a><span class="text-muted"> {{formatTime date}}</span></h6>
+         <p>{{text}}</p>
+          {{#if likeCount}}<span class="badge alert-success">{{likeCount}}</span> Personnes aiment{{/if}}
+          <h6 class="small">
+            {{#if ownLike}}
+              <a href="" class="unlikeBtn text-muted">Je n'aime  plus</a>
+             {{else}}
+              <a href="" class="likeBtn text-muted">J'aime</a>
+            {{/if}}
+
+          </h6>
+        </div>
+      </div>
+    
+</template>
