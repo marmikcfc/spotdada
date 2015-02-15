@@ -1,0 +1,19 @@
+<template name="notifications">
+    <div class="container col-md-10 col-md-offset-1">
+        <h1>Your Notifications</h1>
+        <hr>
+        <ul style="list-style: none;">
+            {{#each notifications}}
+                <li class="notification-in-page" style="{{#if isNew}}background-color: #217dbb;{{/if}}">
+                    <div class="col-md-2">
+                        <img src="//placehold.it/50" class="img-responsive img-circle"/>
+                    </div>
+                    <div class="col-md-10">
+                        <a class="col-md-9 notification-link" style="color: white" href="{{link}}">{{content}}</a>
+                        <small class="col-md-3">{{readableCreatedAt}}</small>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>

@@ -1,0 +1,110 @@
+<template name="event">
+    <div class="container col-md-12 row">
+        <!--<img class="img-responsive img-thumbnail" src="{{imageSrc}}" alt=""/>-->
+        <div class="col-md-2">
+            <div class="text-center">
+                {{#if owner.profile.avatar}}
+                    <img src="{{owner.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 100px;max-height: 100px">
+                {{else}}
+                    <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                {{/if}}
+
+                <p>Owner:
+                    <a href="/users/{{ownerId}}"><strong>{{ownerName}}</strong></a>
+                </p>
+                <p><strong>User's Bio:</strong> {{owner.profile.bio}}</p>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-12">
+                <h1 class="text-uppercase">{{name}}</h1>
+                {{#if isJoined}}
+                    <button class="btn btn-success pull-right" id="btn-unjoin-event">
+                        <i class="fa fa-check-circle"></i>
+                        <span>Going</span>
+                    </button>
+                {{else}}
+                    <button class="btn btn-default pull-right" id="btn-join-event">
+                        <i class="fa fa-check-circle"></i>
+                        <span>Join this event</span>
+                    </button>
+                {{/if}}
+            </div>
+            <hr>
+            <div class="col-md-6">
+                <i class="fa fa-calendar"></i> {{readableStartTime}} - {{readableEndTime}}
+            </div>
+            <div class="col-md-6">
+                <i class="fa fa-map-marker"></i> {{location}}
+            </div>
+            <div class="col-md-6">
+                <i class="fa fa-clock-o"></i> {{timeLeft}}
+            </div>
+            <div class="col-md-6">
+                <i class="fa fa-usd"></i> {{cost}}
+            </div>
+            <div class="col-md-12">
+                Tags:
+                {{#each tags}}
+                    <span class="tag">
+                        {{this}}
+                    </span>
+                {{/each}}
+            </div>
+            <div class="col-md-12 event-description well container">
+                <div class="event-description-image">
+                    <img class="img-responsive img-thumbnail" src="{{imageSrc}}" alt=""/>
+                </div>
+                <p>{{description}}</p>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <p>LIST OF ATTENDEES <span class="badge">{{attendeesLength}}</span></p>
+            <ul class="list-group">
+                {{#each attendeesList}}
+                    <li class="list-group-item">
+                        <a href="/users/{{_id}}">
+                            {{fullname}}
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="container col-md-8 col-md-offset-2 event-comments">
+        {{#if currentUser}}
+            <hr/>
+            <h3>Leave your comment</h3>
+        {{else}}
+        {{/if}}
+        {{#each comments}}
+            <div class="col-md-12">
+                <div class="col-md-2">
+                    {{#if getUserAvatar userId}}
+                        <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="max-width: 80px;max-height: 80px">
+                    {{else}}
+                        <img src="//placehold.it/80" class="avatar img-circle" alt="avatar">
+                    {{/if}}
+
+                </div>
+                <div class="well col-md-10">
+                    <a href="users/{{userId}}" class="text-uppercase">{{userFullname}}</a>
+                    <small>- {{createdAtReadable}}</small>
+                    <div class="container col-md-10">
+                        {{comment}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    {{#if currentUser}}
+        <div class="container col-md-8 col-md-offset-2 form-group event-add-comment">
+            <div class="input-group">
+                <input class="form-control" id="user-comment" placeholder="Enter your comment...">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" id="btn-send-comment" type="button">Send</button>
+            </span>
+            </div><!-- /input-group -->
+        </div>
+    {{/if}}
+</template>

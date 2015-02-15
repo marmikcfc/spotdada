@@ -21,3 +21,6 @@ Meteor.publish "users-basic-info", ->
       emails: 1
       profile: 1
 
+Meteor.publish "notifications", (userId) ->
+  Notifications.find userId: userId
+

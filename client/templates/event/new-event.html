@@ -1,0 +1,65 @@
+<template name="newEvent">
+    <div class="new-event col-md-8 col-md-offset-2 container-fluid">
+        <h1>Create a new event</h1>
+        <hr>
+        <form name="add-event-form">
+            <div class="form-group">
+                <label for="event-name">Name</label>
+                <input type="text" class="form-control" id="event-name" placeholder="Name" required="true">
+            </div>
+            <div class="form-group">
+                <label for="event-description">Description</label>
+                <textarea class="form-control" id="event-description" placeholder="Description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="event-tags">Tags</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="tagInput" placeholder="Enter a tag name">
+                                <span class="input-group-btn">
+                                    <button id="btn-add-tag" class="btn btn-primary" type="button">
+                                        Add
+                                    </button>
+                                </span>
+                </div>
+                <div class="tags-list" style="margin-top: 5px"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="user-password">Start Time</label>
+                <div class="input-group datetimepicker">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <input class="set-due-date form-control" id="event-start-time" type="text"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="user-password">End Time</label>
+                <div class="input-group datetimepicker">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <input class="set-due-date form-control" type="text" id="event-end-time"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="event-location">Location</label>
+                <input type="text" class="form-control" id="event-location" placeholder="Location" required="true"/>
+            </div>
+            <div class="form-group">
+                <label for="event-imageSrc">Image Link</label>
+                <input type="text" class="form-control" id="event-imageSrc" placeholder="Image Link"/>
+            </div>
+            <div class="form-group">
+                <label for="event-imageSrc">Images</label>
+                <span class="btn btn-primary btn-add-event-image"><i class="fa fa-plus-circle"></i> Add</span>
+                <span class="btn btn-danger btn-remove-event-image"><i class="fa fa-minus-circle"></i> Remove</span>
+
+            </div>
+            <div class="form-group">
+                <label for="event-cost">Cost</label>
+                <input type="text" class="form-control" id="event-cost" placeholder="Cost" required="true"/>
+            </div>
+        </form>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <button type="button" class="btn btn-primary" id="btn-submit-event">Submit</button>
+        </div>
+    </div>
+</template>

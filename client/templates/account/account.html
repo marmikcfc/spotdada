@@ -1,0 +1,92 @@
+<template name="account">
+    <div class="container">
+        <h1>User Profile</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="col-sm-12">
+                        {{#if currentUser.profile.avatar}}
+                            <img src="{{currentUser.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 200px;max-height: 200px">
+                        
+                        {{/if}}
+                    </div>
+                    <div class="col-sm-12 avatar-btns">
+                        <div class="col-sm-6">
+                        <span class="btn btn-primary btn-change-avatar">
+                            <i class="fa fa-picture-o"></i> Change
+                        </span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="btn btn-danger btn-remove-avatar">
+                                <i class="fa fa-trash-o"></i> Remove
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="file" id="avatar-upload" style="visibility:hidden;"/>
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+                <div class="alert alert-info alert-dismissable">
+                    <a class="panel-close close" data-dismiss="alert">×</a>
+                    <i class="fa fa-coffee"></i>
+                    <strong>Notice:</strong> Your account modifications will be updated in real-time.
+                </div>
+                <h3>Personal info</h3>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="username">Username</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="username" placeholder="Username" required="true" value="{{currentUser.username}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">First name</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" id="user-firstname" placeholder="Firstname" required="true" value="{{currentUser.profile.firstname}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Last name</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" id="user-lastname" placeholder="Lastname" required="true" value="{{currentUser.profile.lastname}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-birthday" class="col-lg-3 control-label">Birthday (mm/dd/yyyy)</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="user-birthday" required="true" value="{{currentUser.profile.birthday}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-gender" class="col-lg-3 control-label">Gender</label>
+                        <div class="col-lg-8">
+                            <select class="form-control" id="user-gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="user-bio">Biography</label>
+                        <div class="col-lg-8">
+                            <textarea class="form-control" id="user-bio" placeholder="Biography" value="{{currentUser.profile.bio}}"></textarea>
+                        </div>
+                    </div>
+                    <!--<div class="form-group">-->
+                    <!--<label class="col-md-3 control-label"></label>-->
+                    <!--<div class="col-md-8">-->
+                    <!--<input type="button" class="btn btn-primary" value="Save Changes">-->
+                    <!--<span></span>-->
+                    <!--<input type="reset" class="btn btn-default" value="Cancel">-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+
+</template>

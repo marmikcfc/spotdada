@@ -1,0 +1,90 @@
+.events-list{
+    margin-top: 10px;
+}
+
+.event-description{
+    margin-top: 5px;
+}
+
+.event-description-image{
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.search-input{
+    margin-bottom: 5px;
+}
+
+.events-tabs{
+    margin-top: 5px;
+}
+
+/* notification (in navbar) styles */
+.notification:after {
+    content: attr(data-count);
+    font-size: 12px;
+    background: #cc0001;
+    border-radius: 3px;
+    color: #fff;
+    z-index: 99999;
+    font-weight: 600;
+    padding: 3px 6px;
+    box-shadow: -1px 2px 3px rgba(0,0,0,.3), inset 0 2px 5px rgba(225,225,225,.3);
+    position: relative;
+    top: -57px;
+    left: 25px;
+}
+
+.notification>a>i {
+    font-size: 1.5em;
+}
+.notification{
+    height: 60px;
+}
+
+.notification ul{
+    background-color: #28415b;
+    width: 500px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.notification-in-menu{
+    vertical-align: middle;
+    height: 57px;
+    width: 100%;
+    padding-top: 4px;
+}
+/* notification-empty (when there's no unchecked notifications) styles */
+.notification-empty>a>i {
+    font-size: 1.5em;
+}
+.notification-empty{
+    height: 60px;
+}
+
+.notification-empty ul{
+    background-color: #28415b;
+    width: 500px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.notification-in-page{
+    height: 60px;
+    padding-top: 5px;
+}
+/* event tags styles */
+.tag{
+    background-color: #009871;
+    border-radius: 3px;
+    padding: 4px;
+    margin-right: 3px;
+}
+
+.dismiss-tag{
+    cursor: pointer;
+}
+
+/* TODO test */
+.avatar-btns{
+    margin-top: 5px;
+}
