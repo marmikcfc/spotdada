@@ -1,0 +1,25 @@
+<template name="followers">
+  {{#if followersList}}
+  <h3>Followers</h3>
+    <ul>
+      {{#each this}}
+        <li><a href="{{pathFor 'profile' username=username}}">{{username}}</a></li>
+      {{/each}}
+    </ul>  
+  {{else}}
+    <h3>Not followed by anyone yet</h3>
+  {{/if}}
+</template>
+
+<template name="followings">
+  {{#if followingsList}}
+    <h3>Followings</h3>
+    <ul>
+      {{#each this}}
+        <li><a href="{{pathFor 'profile' username=username}}">{{username}}</a></li>
+      {{/each}}
+    </ul>  
+  {{else}}
+    <h3>Not following anyone yet</h3>
+  {{/if}}
+</template>

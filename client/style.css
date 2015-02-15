@@ -88,3 +88,81 @@
 .avatar-btns{
     margin-top: 5px;
 }
+
+
+
+/* PROJECT */
+
+a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.thumbnail {
+  max-width: 250px;
+  max-height:250px;
+}
+
+#main {
+  padding-left: 3em;
+}
+
+
+.each-list,
+.list-group-item:first-child,
+.list-group-item:last-child  {
+  border-radius: 0;
+}
+
+.each-list:hover {
+  background: rgba(256,256,256,0.9);
+}
+
+.menu-item-divided.list-group-item.each-list.active-tab, 
+.menu-item-divided.list-group-item.each-list.active-tab:hover, 
+.menu-item-divided.list-group-item.each-list.active-tab:focus {
+  background: rgba(0, 192, 69, 0.3);
+}
+
+a > button.btn {
+  margin-top: 2px;
+  width: 100%;
+  border-radius: 0;
+}
+
+
+/* Project Lists */
+.project-grid {
+  box-shadow: 1px 1px 5px;
+}
+
+.each-project {
+  width: 200px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.upvote {
+  margin-bottom: 10px;
+}
+
+
+/* Post Project */
+input[type="file"] {
+  visibility: hidden;
+}
+.post-image-button {
+  display: block;
+  border-radius: 5px;
+  border-color: blue;
+}
+
+
+/* postProject */
+.postProject {
+  margin: 30px;
+  padding-bottom: 30px;
+}

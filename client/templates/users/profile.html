@@ -33,5 +33,50 @@
                 </div>
             </div>
         </div>
+
+{{#if projects}}
+    <div>
+      <div class="projects row">
+        {{#each projects}}
+          <div class="col-sm-4 col-md-3 project-grid">
+            <div class="each-project">
+              <p><a href="{{pathFor 'projectPage'}}"><strong>{{title}}</strong></a></p>
+              <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{author}}</a></p>
+              <p>{{pluralize commentsCount "comment"}}</p>
+              <p>{{pluralize votes "vote"}}</p>
+            </div>
+            {{#if currentUser}}
+              <a href="#" class="upvote btn {{upvotedClass}}">
+                {{#if canVote}}
+                  &#11014;
+                {{else}}
+                  &#11015;
+                {{/if}}
+              </a>
+            {{/if}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  {{else}}
+    <p>No Projects</p>
+  {{/if}}
+
+  {{#if notYourself}}
+    {{#if canFollow}}
+      <button class="btn btn-info follow">Follow</button>
+    {{else}}
+      <button class="btn btn-warning unfollow">Unfollow</button>
+    {{/if}}
+   
+
+  {{/if}}
+
+
+
     </div>
 </template>
+
+
+
+

@@ -7,6 +7,10 @@
 <!--                    <li><a href="{{pathFor 'home'}}">Flux</a></li>-->
                 </ul>
 
+<ul class="nav navbar-nav navbar-right">
+                    {{>loginButtons align="right"}}
+                </ul>
+                
  <ul class="nav navbar-nav navbar-right">
                         {{#if currentUser}}
                             <li>
@@ -61,10 +65,8 @@
                         {{/if}}
                     </ul> 
 
+
                 
-                <ul class="nav navbar-nav navbar-right">
-                    {{>loginButtons align="right"}}
-                </ul>
             </div>
         </div>
     </nav>
