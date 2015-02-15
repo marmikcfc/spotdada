@@ -1,0 +1,21 @@
+<template name="projectItem">
+  <div class="postRecipe">
+    <h2><a href="{{pathFor 'projectPage'}}">{{title}}</a></h2>
+    <p>{{{desc}}}</p>
+    <p>by <a href="{{pathFor 'profile' username=this.author}}">{{author}}</a></p>
+    <p>Date: {{submitted}}</p>
+    {{#if tags}}
+      <p>Tags:{{#each tags}}<span class="badge">{{this}}</span>{{/each}}</p>
+    {{/if}}
+    {{#if hasImage}}
+      <div class="image">
+        <img class="thumbnail" src="{{src}}"/>
+      </div>
+    {{/if}}
+    {{#if projectAuthor}}
+      <a href="{{pathFor 'projectEdit'}}" class="btn btn-primary">Edit</a>
+    {{/if}}
+  </div>   
+  <hr>
+  <p>{{pluralize commentsCount "comment"}}</p>
+</template>
