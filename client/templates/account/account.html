@@ -55,6 +55,48 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-lg-3 control-label">City</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="user-city" placeholder="City" required="true" value="{{currentUser.city}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Languages</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="language" placeholder="Languages spoken"  value="{{currentUser.lang}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Contact Number</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="cnnumber" placeholder="Phone number" value="{{currentUser.usernumber}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email ID</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="email" placeholder="Email ID" value="{{currentUser.usermail}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Vital Stats</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="vstat" placeholder="Actors can mention their vital stats" value="{{currentUser.uservs}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Are you interested in funding projects?</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="fund" placeholder="For Producers" value="{{currentUser.userfund}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">FWA membership number</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="fwa" placeholder="For Writer's" value="{{currentUser.userfwa}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="user-birthday" class="col-lg-3 control-label">Birthday (mm/dd/yyyy)</label>
                         <div class="col-lg-8">
                             <input type="text" class="form-control" id="user-birthday" required="true" value="{{currentUser.profile.birthday}}">
@@ -76,10 +118,17 @@
                             <textarea class="form-control" id="user-bio" placeholder="Biography" value="{{currentUser.profile.bio}}"></textarea>
                         </div>
                     </div>
+                     <div class="form-group">
+                        <label class="col-lg-3 control-label" for="user-org">Organisation/Designation</label>
+                        <div class="col-lg-8">
+                            <textarea class="form-control" id="user-org" placeholder="Organisation/Desgination" value="{{currentUser.profile.org}}"></textarea>
+                        </div>
+                    </div>
+
                     <!--<div class="form-group">-->
                     <!--<label class="col-md-3 control-label"></label>-->
                     <!--<div class="col-md-8">-->
-                    <!--<input type="button" class="btn btn-primary" value="Save Changes">-->
+                    <input type="button" class="btn btn-primary" value="Save Changes">
                     <!--<span></span>-->
                     <!--<input type="reset" class="btn btn-default" value="Cancel">-->
                     <!--</div>-->

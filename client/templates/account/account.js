@@ -8,7 +8,16 @@ Template.account.events({
                 "lastname": $("#user-lastname").val(),
                 "gender": $("#user-gender").val(),
                 "birthday": $("#user-birthday").val(),
-                "bio": $("#user-bio").val()
+                "bio": $("#user-bio").val(),
+                "city": $("#user-city").val(),
+                "lang": $("#language").val(),
+                "usernumber": $("#cnnumber").val(),
+                "usermail": $("#email").val(),
+                "uservs": $("#vstat").val(),
+                "userfund": $("#fund").val(),
+                "userfwa": $("#fwa").val(),
+                "org": $("#user-org").val()
+
             }
         };
         Meteor.users.update({_id: Meteor.userId()},

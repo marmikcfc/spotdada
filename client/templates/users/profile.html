@@ -10,10 +10,20 @@
                          {{/if}}
                         </div>
                         <div class="col-sm-6 col-md-8">
-                            <h4>{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</h4>
-                            <p><i class="fa fa-envelope-o"></i> {{currentUser.profile.email}}</p>
-                            <p><i class="fa fa-gift"></i> {{currentUser.profile.birthday}}</p>
-                            <p><i class="fa fa-info-circle"></i> {{currentUser.profile.bio}}</p>
+                            <h4>{{currentUser.firstname}} {{currentUser.lastname}}</h4>
+                            <p><i class="fa fa-envelope-o"></i> {{currentUser.email}}</p>
+                            <p><i class="fa fa-gift"></i> {{currentUser.birthday}}</p>
+                            <p><i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+                            <p>City<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+                            <p>Languages<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+                            <p>Ph Number<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+                            <p>Email<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+                            <p>Vital Stats<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+                            <p>Funding Interests<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+                            <p>FWA membership Number<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+                            <p>Organization<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+ 
+
                             <!-- Split button -->
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary">
@@ -34,7 +44,7 @@
             </div>
         </div>
 
-{{#if projects}}
+  {{#if projects}}
     <div>
       <div class="projects row">
         {{#each projects}}
@@ -71,12 +81,6 @@
    
 
   {{/if}}
-
-
-
+        
     </div>
 </template>
-
-
-
-
