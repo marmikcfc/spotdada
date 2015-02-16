@@ -87,6 +87,7 @@ Template.event.events({
         var self = this;
         var comment = $("#user-comment").val();
         var userId = Meteor.userId();
+        var username= userId.username;
         var userFullname = Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname;
         var commentData = {
             userId: userId,

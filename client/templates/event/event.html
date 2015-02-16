@@ -10,7 +10,7 @@
                 {{/if}}
 
                 <p>Owner:
-                    <a href="/users/{{ownerId}}"><strong>{{owner.profile.username}}</strong></a>
+                    <a href="/users/{{ownerId}}"><strong>{{ownerName}}</strong></a>
                 </p>
                 <p><strong>User's Bio:</strong> {{owner.profile.bio}}</p>
             </div>
@@ -72,7 +72,7 @@
         </div>
     </div>
     <div class="container col-md-8 col-md-offset-2 event-comments">
-        {{#if currentUser}}
+         {{#if currentUser}}
             <hr/>
             <h3>Leave your comment</h3>
         {{else}}
@@ -80,22 +80,25 @@
         {{#each comments}}
             <div class="col-md-12">
                 <div class="col-md-2">
-                      {{#if username.profile.avatar}}
-                    <img src="{{author.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 80px;max-height: 80px">
+                      {{#if getUserAvatar userId}}
+                    <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="max-width: 50px;max-height: 50px">
                 {{else}}
-                    <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                    <img src="//placehold.it/50" class="avatar img-circle" alt="avatar">
                 {{/if}}
-
                 </div>
                  <div class="well col-md-10">
-                     <a href="{{pathFor 'profile' username=this.username}}">{{username}}</a>
+                     <a href="{{pathFor 'profile' username   }}">{{userFullname}}</a>
                     <small>- {{createdAtReadable}}</small>
                     <div class="container col-md-10">
                         {{comment}}
                     </div>
                 </div>
             </div>
-        {{/each}}
+        {{/each}} 
+
+ 
+
+
     </div>
     {{#if currentUser}}
         <div class="container col-md-8 col-md-offset-2 form-group event-add-comment">
@@ -104,7 +107,7 @@
             <span class="input-group-btn">
                 <button class="btn btn-primary" id="btn-send-comment" type="button">Send</button>
             </span>
-            </div><!-- /input-group -->
+            </div>   /input-group
         </div>
-    {{/if}}
+    {{/if}} 
 </template>
