@@ -1,3 +1,5 @@
+Meteor.subscribe('users-basic-info')
+
 Template.post.helpers({
   'likeCount': () -> Likes.find({post:this._id}).count(),
   'postComments': () -> Posts.find({parent:this._id}),

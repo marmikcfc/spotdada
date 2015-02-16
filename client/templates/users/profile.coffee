@@ -27,6 +27,8 @@ Template.profile.helpers
       true
     else
       false
+  bio: ->
+    @user.fetch()[0].bio
 
 
 Template.profile.events

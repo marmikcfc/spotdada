@@ -11,8 +11,8 @@ Meteor.methods
     user = Meteor.user()
     Like = _.extend LikeAttributes, {
       userId: user._id
-#      author: user.username,
-#      date: new Date()
+#     author: user.username,
+      date: new Date()
     }
     
     LikeId = Likes.insert LikeAttributes

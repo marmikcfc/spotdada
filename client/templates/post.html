@@ -3,12 +3,16 @@
     <div class="panel-body">
     
       <div class="media">
-        <a class="media-left" href="/profile/{{userId}}">
-          <img src="{{userId}}.jpg" alt="" width="50px" class="img-circle">
-        </a>
+          <a class="media-left" href="{{pathFor 'profile' username=this.author}}">
+      {{#if getUserAvatar userId}}
+                    <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="max-width: 60px;max-height: 60px">
+                {{else}}
+                    <img src="//placehold.it/60" class="avatar img-circle" alt="avatar">
+                {{/if}}
+</a>
         <div class="media-body">
          <h5 class="media-heading">
-           <a href="{{pathFor 'profile'}}{{userId}}">{{author}}</a>
+           <a href="{{pathFor 'profile' username=this.author}}">{{author}}</a>
          </h5>
           <h6 class="text-muted">
            {{formatTime date}}
@@ -16,12 +20,12 @@
          <p>{{text}}</p>
           <h6 class="">
             {{#if ownLike}}
-              <a href="" class="unlikeBtn muted"><small>Je n'aime  plus</small></a>
+              <a href="" class="unlikeBtn muted"><small>Unlike</small></a>
              {{else}}
-              <a href="" class="likeBtn muted"><small>J'aime</small></a>
+              <a href="" class="likeBtn muted"><small>Like</small></a>
             {{/if}}
             
-{{#if likeCount}}<span class="badge">{{likeCount}}</span> Personnes aiment{{/if}}
+{{#if likeCount}}<span class="badge">{{likeCount}}</span> Persons likes this {{/if}}
           </h6>
         </div>
       </div>
@@ -33,7 +37,7 @@
        {{/each}}
 
        <form action="" class="postComment">
-       <input class="form-control" type="text" name="postComment" placeholder="Laisser une commentaire">
+       <input class="form-control" type="text" name="postComment" placeholder="Comment">
        </form>
      </div>
 </div>            
@@ -43,18 +47,22 @@
 <template name="postComment">
    
     <div class="media">
-        <a class="media-left" href="#">
-          <img src="{{userId}}.jpg" alt="" width="40px" class="img-rounded">
-        </a>
+        <a class="media-left" href="{{pathFor 'profile' username=this.author}}">
+      {{#if getUserAvatar userId}}
+                    <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="max-width: 50px;max-height: 50px">
+                {{else}}
+                    <img src="//placehold.it/50" class="avatar img-circle" alt="avatar">
+                {{/if}}
+</a>
         <div class="media-body">
-          <h6 class="media-heading"><a href="{{pathFor 'profile'}}{{userId}}">{{author}}</a><span class="text-muted"> {{formatTime date}}</span></h6>
+          <h6 class="media-heading"><a href="{{pathFor 'profile' username=this.author}}">{{author}}</a><span class="text-muted"> {{formatTime date}}</span></h6>
          <p>{{text}}</p>
-          {{#if likeCount}}<span class="badge alert-success">{{likeCount}}</span> Personnes aiment{{/if}}
+          {{#if likeCount}}<span class="badge alert-success">{{likeCount}}</span> Persons Like This{{/if}}
           <h6 class="small">
             {{#if ownLike}}
-              <a href="" class="unlikeBtn text-muted">Je n'aime  plus</a>
+              <a href="" class="unlikeBtn text-muted">Unilke</a>
              {{else}}
-              <a href="" class="likeBtn text-muted">J'aime</a>
+              <a href="" class="likeBtn text-muted">Like</a>
             {{/if}}
 
           </h6>

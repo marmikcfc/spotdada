@@ -1,0 +1,29 @@
+<template name="commentItem">
+  <li class="list-group-item">
+    <p>
+      <span class="commenter"><b>
+
+      <div class="col-md-2">
+                      {{#if commenter.profile.avatar}}
+                    <img src="{{commenter.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 60px;max-height: 60px">
+                {{else}}
+                    <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                {{/if}}
+
+                </div>
+
+                <div class="well col-md-10">
+                  <a href="{{pathFor 'profile' username=this.commenter}}">{{commenter}}</a> 
+                    <small>- {{ReadableDate}}</small>
+                    <div class="container col-md-10">
+                        {{commentBody}}
+                    </div>
+                </div>
+                </b> </span>
+      {{#if commentAuthor}}
+        <span><button class="btn deleteComment">Delete</button></span>
+      {{/if}}
+    </p>
+    
+  </li>
+</template>

@@ -10,7 +10,7 @@
                 {{/if}}
 
                 <p>Owner:
-                    <a href="/users/{{ownerId}}"><strong>{{ownerName}}</strong></a>
+                    <a href="/users/{{ownerId}}"><strong>{{owner.profile.username}}</strong></a>
                 </p>
                 <p><strong>User's Bio:</strong> {{owner.profile.bio}}</p>
             </div>
@@ -80,15 +80,15 @@
         {{#each comments}}
             <div class="col-md-12">
                 <div class="col-md-2">
-                    {{#if getUserAvatar userId}}
-                        <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="max-width: 80px;max-height: 80px">
-                    {{else}}
-                        <img src="//placehold.it/80" class="avatar img-circle" alt="avatar">
-                    {{/if}}
+                      {{#if username.profile.avatar}}
+                    <img src="{{author.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 80px;max-height: 80px">
+                {{else}}
+                    <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                {{/if}}
 
                 </div>
-                <div class="well col-md-10">
-                    <a href="users/{{userId}}" class="text-uppercase">{{userFullname}}</a>
+                 <div class="well col-md-10">
+                     <a href="{{pathFor 'profile' username=this.username}}">{{username}}</a>
                     <small>- {{createdAtReadable}}</small>
                     <div class="container col-md-10">
                         {{comment}}

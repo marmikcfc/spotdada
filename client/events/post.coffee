@@ -27,9 +27,9 @@ Template.post.events({
   'click a.unlikeBtn': (evt,tmpl) ->
     evt.preventDefault()
     
-    ###like = {
+    like = {
       post: this._id
-    }###
+    }
 #    console.log this._id
     
     # this._id is id of the current post
