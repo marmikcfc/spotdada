@@ -6,7 +6,7 @@
         <li><a href="{{pathFor 'events'}}">Events</a></li>
         <li><a href="{{ pathFor 'postRecipe' }}">Projects</a></li>
         <li><a href="{{pathFor 'search'}}">Browse Projects</a></li>
-        <li><a href="{{pathFor 'messages'}}">Followers</a></li>
-        <li><a href="{{pathFor 'messages'}}">Followings</a></li>
+        <li><a href="{{pathFor 'followers' username=currentUser}}">Followers</a></li>
+        <li><a href="{{pathFor 'followings' username=currentUser}}">Followings</a></li>
     </ul>
 </template>
