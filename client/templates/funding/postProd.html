@@ -1,0 +1,134 @@
+<template name="postProd">
+
+<h1>
+	
+Post-production
+
+ <form>
+    <label>
+      Name of Project
+      <input placeholder="What is the name of the movie?" id="name" name="proname">
+    </label>
+  <br>
+    <label>
+      Language
+      <select name="Language">
+        <option value="assamese">Assamese</option>
+          <option value="badaga">Badaga</option>
+          <option value="bengali">Bengali</option>
+          <option value="bhojpuri">Bhojpuri</option>
+          <option value="bihari">Bihari</option>
+          <option value="english">English</option>
+          <option value="gujarati">Gujarati</option>
+          <option value="haryanvi">Haryanvi</option>
+          <option value="hindi">Hindi</option>
+          <option value="kannada">Kannada</option>
+          <option value="kashmiri">Kashmiri</option>
+          <option value="konkani">Konkani</option>
+          <option value="kosli">Kosli</option>
+          <option value="malayalam">Malayalam</option>
+          <option value="manipuri">Manipuri</option>
+          <option value="marathi">Marathi</option>
+          <option value="oriya">Oriya</option>
+          <option value="punjabi">Punjabi</option>
+          <option value="rajasthani">Rajasthani</option>
+          <option value="tamil">Tamil</option>
+          <option value="telegu">Telugu</option>
+          <option value="tulu">Tulu</option>
+      </select>
+    </label><br>
+    <label>
+      Budget currently in place
+      <input placeholder="What is the current budget already in place?" id="cbudget" name="currbudget">
+    </label>
+    <label><br>
+      Directors 
+      <input placeholder="Name of the director" id="dir" name="dirlock">
+    </label>
+    <label><br>
+      Genre
+      <select name="Genre">
+          <option value="action">Action</option>
+          <option value="animation">Animation</option>
+          <option value="comedy">Comedy</option>
+          <option value="documentary">Documentary</option>
+          <option value="drama">Drama</option>
+          <option value="exp">Experimental</option>
+          <option value="family">Family</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="festival">Festivals</option>
+          <option value="horror">Horror</option>
+          <option value="music">Music Videos</option>
+          <option value="narrative">Narrative Film</option>
+          <option value="romance">Romance</option>
+          <option value="scify">Science Fiction</option>
+          <option value="sflim">Short Film</option>
+          <option value="television">Television</option>
+          <option value="thriller">Thriller</option>
+          <option value="webseries">Webseries</option>
+      </select>
+    </label><br>
+      <label>
+      Writers of the film
+      <input placeholder="Who are the writers of the film?" id="write" name="writer">
+    </label><br>
+    <label>
+      Cast of the film
+      <input placeholder="Who is the cast of the film?" id="cas" name="cast">
+    </label><br>
+    <label>
+      Banner of the film
+      <input placeholder="Who are the writers of the film?" id="ban" name="banner">
+    </label><br>
+    <label>
+      Music director
+      <input placeholder="Who is the Music Director of the film?" id="mdir" name="music">
+    </label><br>
+    <label>
+      Producer
+      <input placeholder="Who is the producer?" id="pro" name="producer">
+    </label><br>
+    <label>
+      Budget Required?
+      <input placeholder="What is the budget required?" id="budre" name="budrequired">
+    </label><br>
+    <label>Censor Details</label>
+     <input type="text" id="cen" name="censor" >
+    <label>
+        Your Name
+      <input type="text" id="uname" name="username" >
+    </label>
+      <label><br>
+        Your Email
+     <input type="text" id="umail" name="usermail">
+    </label>
+<br>
+    <label>
+        Your Number
+      <input type="text" id="uno" name="userno">
+    </label>
+    <button class="submitbtn">Submit Form</button>
+  </form>
+  <ul>
+{{#each display}}
+<li>Name: {{Projectname}},
+    Genre: {{Genre}},
+    Writers:{{Writers}},
+    Language:{{Language}},
+Director: {{Director}},
+Producer/s:{{Producer}},
+Music Director:{{MusicDirector}},
+Cast:{{Cast}},
+Banner:{{Banner}},
+Censor Details:{{Censor}},
+Current Budget : {{Budgetp}},
+Budget Required: {{Budgetr}},
+Username:{{Username}},
+Email:{{Email}},
+Contact:{{Contact}}</li>
+{{/each}}
+</ul>
+
+
+</h1>
+</template>

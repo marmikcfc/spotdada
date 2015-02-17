@@ -1,0 +1,221 @@
+<template name="fundings">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="container col-md-12">
+            <!-- Add event button -->
+            {{#if currentUser}}
+                <a class="btn btn-success" id="btn-add-event" href="{{pathFor 'preProd'}}">
+                    <i class="fa fa-plus-circle"></i> Add aa project in pre production stage
+                </a>
+
+                <a class="btn btn-success" id="btn-add-event" href="{{pathFor 'postProd'}}">
+                    <i class="fa fa-plus-circle"></i> Add aa project in post production stage
+                </a>
+
+            {{else}}
+                <!-- NOT LOGGED IN -->
+            {{/if}}
+            <ul class="nav nav-tabs events-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#sectionA">
+                        <i class="fa fa-list-ul"></i> All Projects
+                    </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#sectionB">
+                        <i class="fa fa-bookmark"></i> Post-Production
+                    </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#sectionC">
+                        <i class="fa fa-search"></i> Pre-production
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="sectionA" class="tab-pane fade in active">
+                    <h3>ALL EVENTS</h3>
+                    <div class="events-table">
+                        <table class="table table-striped table-responsive">
+                            <caption>Showing all the events</caption>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Start Time</th>
+                                <th>Location</th>
+                                <th>Cost</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each events}}
+                                <tr style="background-color: {{#if hasPassed _id}}darkred{{else}}{{/if}}">
+                                    <td class="col-md-1">
+                                        <a href="/events/{{_id}}" class="text-uppercase">
+                                            {{name}}
+                                        </a>
+                                    </td>
+                                    <td class="col-md-2">{{readableStartTime}}</td>
+                                    <td class="col-md-2">{{location}}</td>
+                                    <td class="col-md-1">{{cost}}</td>
+                                    <td class="col-md-5">
+                                        <div style="max-height: 100px; overflow-y: scroll">
+                                            {{description}}
+                                        </div>
+                                    </td>
+                                    <td class="col-md-1">
+                                        {{#if isJoined _id}}
+                                            <button class="btn btn-success pull-right" id="btn-unjoin-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
+                                                <i class="fa fa-check-circle"></i>
+                                                {{#if hasPassed _id}}
+                                                    <span>Gone</span>
+                                                {{else}}
+                                                    <span>Going</span>
+                                                {{/if}}
+                                            </button>
+                                        {{else}}
+                                            <button class="btn btn-default pull-right" id="btn-join-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
+                                                <i class="fa fa-check-circle"></i>
+                                                <span>Join</span>
+                                            </button>
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="sectionB" class="tab-pane fade">
+                    <h3>MY EVENTS</h3>
+                    <div class="events-table">
+                        <table class="table table-striped table-responsive">
+                            <caption>Showing your events</caption>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Start Time</th>
+                                <th>Location</th>
+                                <th>Cost</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Options</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each myEvents}}
+                                <tr style="background-color: {{#if hasPassed _id}}darkred{{else}}{{/if}}">
+                                    <td class="col-md-1">
+                                        <a href="/events/{{_id}}" class="text-uppercase">
+                                            {{name}}
+                                        </a>
+                                    </td>
+                                    <td class="col-md-2">{{readableStartTime}}</td>
+                                    <td class="col-md-2">{{location}}</td>
+                                    <td class="col-md-1">{{cost}}</td>
+                                    <td class="col-md-4">
+                                        <div style="max-height: 100px; overflow-y: scroll">
+                                            {{description}}
+                                        </div>
+                                    </td>
+                                    <td class="col-md-1">
+                                        {{#if isJoined _id}}
+                                            <button class="btn btn-success pull-right" id="btn-unjoin-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
+                                                <i class="fa fa-check-circle"></i>
+                                                {{#if hasPassed _id}}
+                                                    <span>Gone</span>
+                                                {{else}}
+                                                    <span>Going</span>
+                                                {{/if}}
+                                            </button>
+                                        {{else}}
+                                            <button class="btn btn-default pull-right" id="btn-join-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
+                                                <i class="fa fa-check-circle"></i>
+                                                <span>Join</span>
+                                            </button>
+                                        {{/if}}
+                                    </td>
+                                    <td class="col-md-1">
+                                        <button class="btn btn-danger pull-right" id="btn-remove-event" style="margin-top: 5px; margin-bottom: 5px;">
+                                            <i class="fa fa-trash-o"></i>
+                                            <span>Remove</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="sectionC" class="tab-pane fade">
+                    <h3>SEARCH FOR EVENTS</h3>
+                    <!-- Search input -->
+                    <div class="row search-input">
+                        <div class="col-md-3 pull-left">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" id="event-search-box" placeholder="Search For Events...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="events-table">
+                        <table class="table table-striped table-responsive">
+                            <caption>Result(s)</caption>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Start Time</th>
+                                <th>Location</th>
+                                <th>Cost</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each getEvents}}
+                                <tr style="background-color: {{#if hasPassed _id}}darkred{{else}}{{/if}}">
+                                    <td class="col-md-1">
+                                        <a href="/events/{{_id}}" class="text-uppercase">
+                                            {{name}}
+                                        </a>
+                                    </td>
+                                    <td class="col-md-2">{{readableStartTime}}</td>
+                                    <td class="col-md-2">{{location}}</td>
+                                    <td class="col-md-1">{{cost}}</td>
+                                    <td class="col-md-4">
+                                        <div style="max-height: 100px; overflow-y: scroll">
+                                            {{description}}
+                                        </div>
+                                    </td>
+                                    <td class="col-md-1">
+                                        {{#if isJoined _id}}
+                                            <button class="btn btn-success pull-right" id="btn-unjoin-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
+                                                <i class="fa fa-check-circle"></i>
+                                                {{#if hasPassed _id}}
+                                                    <span>Gone</span>
+                                                {{else}}
+                                                    <span>Going</span>
+                                                {{/if}}
+                                            </button>
+                                        {{else}}
+                                            <button class="btn btn-default pull-right" id="btn-join-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
+                                                <i class="fa fa-check-circle"></i>
+                                                <span>Join</span>
+                                            </button>
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

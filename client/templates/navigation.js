@@ -51,7 +51,7 @@ Template.navigation.rendered = function(){
     });
 };
 
-Template.layout.helpers({
+Template.navigation.helpers({
     activeNotificationCount: function(){
         var x = Notifications.find({isChecked: false}, {sort: {createdAt: -1}}).fetch();
         Session.set("currentNotifications", x.length);

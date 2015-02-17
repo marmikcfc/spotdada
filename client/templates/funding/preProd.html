@@ -1,0 +1,112 @@
+<template name="preProd">
+
+<h1>  Pre-Production </h1>
+	  <form>
+    <label>
+      Name of Project
+      <input placeholder="What is the name of the movie?" id="name" name="proname">
+    </label>
+  <br>
+    <label>
+      Language
+      <select name="Language">
+        <option value="assamese">Assamese</option>
+          <option value="badaga">Badaga</option>
+          <option value="bengali">Bengali</option>
+          <option value="bhojpuri">Bhojpuri</option>
+          <option value="bihari">Bihari</option>
+          <option value="english">English</option>
+          <option value="gujarati">Gujarati</option>
+          <option value="haryanvi">Haryanvi</option>
+          <option value="hindi">Hindi</option>
+          <option value="kannada">Kannada</option>
+          <option value="kashmiri">Kashmiri</option>
+          <option value="konkani">Konkani</option>
+          <option value="kosli">Kosli</option>
+          <option value="malayalam">Malayalam</option>
+          <option value="manipuri">Manipuri</option>
+          <option value="marathi">Marathi</option>
+          <option value="oriya">Oriya</option>
+          <option value="punjabi">Punjabi</option>
+          <option value="rajasthani">Rajasthani</option>
+          <option value="tamil">Tamil</option>
+          <option value="telegu">Telugu</option>
+          <option value="tulu">Tulu</option>
+      </select>
+    </label><br>
+    <label>
+      Budget currently in place
+      <input placeholder="What is the current budget already in place?" id="cbudget" name="currbudget">
+    </label>
+    <label><br>
+      Directors Locked in
+      <input placeholder="Name of the director locked in" id="dir" name="dirlock">
+    </label>
+    <label><br>
+      Genre
+      <select name="Genre">
+          <option value="action">Action</option>
+          <option value="animation">Animation</option>
+          <option value="comedy">Comedy</option>
+          <option value="documentary">Documentary</option>
+          <option value="drama">Drama</option>
+          <option value="exp">Experimental</option>
+          <option value="family">Family</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="festival">Festivals</option>
+          <option value="horror">Horror</option>
+          <option value="music">Music Videos</option>
+          <option value="narrative">Narrative Film</option>
+          <option value="romance">Romance</option>
+          <option value="scify">Science Fiction</option>
+          <option value="sflim">Short Film</option>
+          <option value="television">Television</option>
+          <option value="thriller">Thriller</option>
+          <option value="webseries">Webseries</option>
+      </select>
+    </label><br>
+      <label>
+      Writers of the film
+      <input placeholder="Who are the writers of the film?" id="write" name="writer">
+    </label>
+    <label>
+      Directors statement?
+      <input placeholder="What is the Directors statement?" id="dirst" name="dirstmnt">
+    </label><br>
+    <label>
+      Budget Required?
+      <input placeholder="What is the budget required?" id="budre" name="budrequired">
+    </label><br>
+    <label>Registered Synopsis of film</label>
+     <input type="text" id="rsyn" name="syn" >
+    <label>
+        Your Name
+      <input type="text" id="uname" name="username" >
+    </label>
+      <label><br>
+        Your Email
+     <input type="text" id="umail" name="usermail">
+    </label>
+<br>
+    <label>
+        Your Number
+      <input type="text" id="uno" name="userno">
+    </label>
+    <button class="submitbtn">Submit Form</button>
+  </form>
+  <ul>
+{{#each display}}
+<li>Name: {{Projectname}}
+    Genre: {{Genre}}
+    Writers:{{Writers}}
+Director: {{Director}},
+Synopsis:{{Synopsis}},
+Directors statement:{{Directorsstatement}},
+Current Budget : {{Budgetp}},
+Budget Required: {{Budgetr}},
+Username:{{Username}},
+Email:{{Email}},
+Contact:{{phone}}</li>
+{{/each}}
+</ul>
+</template>

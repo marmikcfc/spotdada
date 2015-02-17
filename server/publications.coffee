@@ -14,6 +14,12 @@ Meteor.publish "likes",() ->
 Meteor.publish "all-events", ->
   Events.find {}
 
+Meteor.publish "all-preprod", ->
+  preFund.find {}
+
+Meteor.publish "all-postprod", ->
+  postFund.find {}
+
 Meteor.publish "users-basic-info", ->
   Meteor.users.find {},
     fields:

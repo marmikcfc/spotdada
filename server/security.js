@@ -19,6 +19,33 @@ Events.allow({
     }
 });
 
+
+preFund.allow({
+    insert: function(userId, doc){
+        return userId;
+    },
+    remove: function(userId, doc){
+        return (userId === doc.ownerId);
+    },
+    update: function(userId, doc, fields, modifier){
+        return userId;
+    }
+});
+
+
+
+postFund.allow({
+    insert: function(userId, doc){
+        return userId;
+    },
+    remove: function(userId, doc){
+        return (userId === doc.ownerId);
+    },
+    update: function(userId, doc, fields, modifier){
+        return userId;
+    }
+});
+
 Notifications.allow({
     insert: function (userId, doc) {
         return userId;
