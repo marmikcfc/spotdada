@@ -18,6 +18,7 @@ Meteor.publish "users-basic-info", ->
   Meteor.users.find {},
     fields:
       _id: 1
+      username: 1
       emails: 1
       profile: 1
 
@@ -40,7 +41,7 @@ Meteor.publish 'comments', (projectId)->
 Meteor.publish 'notifications', ->
   Notifications.find
     userId: @userId
-    read: false
+    read:false
 
 Meteor.publish 'oneUser', (username)->
   check username, String
@@ -51,6 +52,7 @@ Meteor.publish 'followers', (username)->
   check username, String
   Meteor.users.find
     followings: username
+  
 
 Meteor.publish 'followings', (username)->
   check username, String
@@ -62,7 +64,7 @@ Meteor.publish 'myProjects', (username, options)->
   Projects.find
     author: username
   , options
-###
+
 Meteor.publish 'myFollowers', (username)->
   check username, String
   Followers.find
@@ -72,7 +74,6 @@ Meteor.publish 'myFollowings', (username)->
   check username, String
   Followings.find
     username: username
-###
 
 ### Followership
 Meteor.publish 'followingProjects', (username, options)->

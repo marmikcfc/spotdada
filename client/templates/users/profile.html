@@ -5,23 +5,23 @@
                 <div class="well well-sm">
                     <div class="row">
                         <div class="col-sm-6 col-md-4">
-                          {{#if currentUser.profile.avatar}}
-                            <img src="{{currentUser.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 200px;max-height: 200px">
+                          {{#if profile.avatar}}
+                            <img src="{{profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 200px;max-height: 200px">
                          {{/if}}
                         </div>
                         <div class="col-sm-6 col-md-8">
-                            <h4>{{currentUser.firstname}} {{currentUser.lastname}}</h4>
-                            <p><i class="fa fa-envelope-o"></i> {{currentUser.email}}</p>
-                            <p><i class="fa fa-gift"></i> {{currentUser.birthday}}</p>
-                            <p><i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
-                            <p>City<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
-                            <p>Languages<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
-                            <p>Ph Number<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
-                            <p>Email<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
-                            <p>Vital Stats<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
-                            <p>Funding Interests<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
-                            <p>FWA membership Number<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
-                            <p>Organization<i class="fa fa-info-circle"></i> {{currentUser.bio}}</p>
+                            <h4>{{profile.firstname}} {{profile.lastname}}</h4>
+                            <br> <h6> @{{username}}</h6>
+                            <p><i class="fa fa-envelope-o"></i> {{profile.usermail}}</p>
+                            <p><i class="fa fa-gift"></i> {{profile.birthday}}</p>
+                            <p><i class="fa fa-info-circle"></i> {{profile.bio}}</p>
+                            <p>City<i class="fa fa-info-circle"></i> {{profile.city}}</p>
+                            <p>Languages<i class="fa fa-info-circle"></i> {{profile.lang}}</p>
+                            <p>Ph Number<i class="fa fa-info-circle"></i> {{profile.usernumber}}</p>
+                            <p>Vital Stats<i class="fa fa-info-circle"></i> {{profile.uservs}}</p>
+                            <p>Funding Interests<i class="fa fa-info-circle"></i> {{profile.userfund}}</p>
+                            <p>FWA membership Number<i class="fa fa-info-circle"></i> {{profile.userfwa}}</p>
+                            <p>Organization<i class="fa fa-info-circle"></i> {{profile.org}}</p>
  
 
                             <!-- Split button -->
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-  {{#if projects}}
+{{#if projects}}
     <div>
       <div class="projects row">
         {{#each projects}}
@@ -81,6 +81,6 @@
    
 
   {{/if}}
-        
+  
     </div>
 </template>
