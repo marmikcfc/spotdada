@@ -1,18 +1,67 @@
 <template name="postProd">
 
-<h1>
-	
-Post-production
+<div class="new-event col-md-8 col-md-offset-2 container-fluid">
+        <h1>Create a new event</h1>
+        <hr>
+        <form name="add-event-form">
+            <div class="form-group">
+                <label for="event-name">Name of the Movie</label>
+                <input type="text" class="form-control" id="name" name="proname" placeholder="Name of the movie" required="true">
+            </div>
+            <div class="form-group">
+                <label for="event-description">Description</label>
+                <textarea class="form-control" id="rsyn" name="syn" placeholder="Registered Synopsis"></textarea>
+            </div>
 
- <form>
-    <label>
-      Name of Project
-      <input placeholder="What is the name of the movie?" id="name" name="proname">
-    </label>
-  <br>
-    <label>
-      Language
-      <select name="Language">
+
+            <div class="form-group">
+                <label for="event-name">Current Budget</label>
+                <input type="text" class="form-control" id="cbudget" name="currbudget" placeholder="Current Budget" required="true">
+            </div>
+
+            <div class="form-group">
+                <label for="event-name">Directior's Locked-in</label>
+                <input type="text" class="form-control" id="dir" name="dirlock" placeholder="Name of the Director" required="true">
+            </div>
+
+            <div class="form-group">
+                <label for="event-name">Writers of the film</label>
+                <input type="text" class="form-control" id="write" name="writer" placeholder="Who are the writers of the film?" required="true">
+            </div>
+
+            <div class="form-group">
+                <label for="event-name">Directors statement</label>
+                <input type="text" class="form-control" id="dirst" name="dirstmnt" placeholder="What is the Directors statement?" required="true">
+            </div>
+
+            <div class="form-group">
+                <label for="event-name">Budget Required?</label>
+                <input type="text" class="form-control" id="budre" name="budrequired" placeholder="What is the budget required?" required="true">
+            </div>
+            
+            <div class="form-group">
+                <label for="event-name">Cast of the film?</label>
+                <input type="text" class="form-control" id="cast" name="cast" placeholder="What is the cast?" required="true">
+            </div>
+            <div class="form-group">
+                <label for="event-name">Banner of the film?</label>
+                <input type="text" class="form-control" id="banner" name="banner" placeholder="What is the banner?" required="true">
+            </div>
+            <div class="form-group">
+                <label for="event-name">Producer of the film?</label>
+                <input type="text" class="form-control" id="producer" name="producer" placeholder="Who is the producer?" required="true">
+            </div>
+            <div class="form-group">
+                <label for="event-name">Music Director of the film?</label>
+                <input type="text" class="form-control" id="md" name="md" placeholder="Who is the music director?" required="true">
+            </div>
+            <div class="form-group">
+                <label for="event-name">Censor details of the film?</label>
+                <input type="text" class="form-control" id="censor" name="censor" placeholder="What are the censor details?" required="true">
+            </div>
+      <div class="form-group">
+                <label for="event-name">Language</label>
+      <select class="form-control" id="lang" name="Language">
         <option value="assamese">Assamese</option>
           <option value="badaga">Badaga</option>
           <option value="bengali">Bengali</option>
@@ -36,18 +85,13 @@ Post-production
           <option value="telegu">Telugu</option>
           <option value="tulu">Tulu</option>
       </select>
-    </label><br>
-    <label>
-      Budget currently in place
-      <input placeholder="What is the current budget already in place?" id="cbudget" name="currbudget">
-    </label>
-    <label><br>
-      Directors 
-      <input placeholder="Name of the director" id="dir" name="dirlock">
-    </label>
-    <label><br>
-      Genre
-      <select name="Genre">
+                     </div>
+
+
+
+        <div class="form-group">
+                <label for="event-name">Genre</label>
+     <select class="form-control" id="genre" name="Genre">
           <option value="action">Action</option>
           <option value="animation">Animation</option>
           <option value="comedy">Comedy</option>
@@ -67,68 +111,12 @@ Post-production
           <option value="thriller">Thriller</option>
           <option value="webseries">Webseries</option>
       </select>
-    </label><br>
-      <label>
-      Writers of the film
-      <input placeholder="Who are the writers of the film?" id="write" name="writer">
-    </label><br>
-    <label>
-      Cast of the film
-      <input placeholder="Who is the cast of the film?" id="cas" name="cast">
-    </label><br>
-    <label>
-      Banner of the film
-      <input placeholder="Who are the writers of the film?" id="ban" name="banner">
-    </label><br>
-    <label>
-      Music director
-      <input placeholder="Who is the Music Director of the film?" id="mdir" name="music">
-    </label><br>
-    <label>
-      Producer
-      <input placeholder="Who is the producer?" id="pro" name="producer">
-    </label><br>
-    <label>
-      Budget Required?
-      <input placeholder="What is the budget required?" id="budre" name="budrequired">
-    </label><br>
-    <label>Censor Details</label>
-     <input type="text" id="cen" name="censor" >
-    <label>
-        Your Name
-      <input type="text" id="uname" name="username" >
-    </label>
-      <label><br>
-        Your Email
-     <input type="text" id="umail" name="usermail">
-    </label>
-<br>
-    <label>
-        Your Number
-      <input type="text" id="uno" name="userno">
-    </label>
-    <button class="submitbtn">Submit Form</button>
-  </form>
-  <ul>
-{{#each display}}
-<li>Name: {{Projectname}},
-    Genre: {{Genre}},
-    Writers:{{Writers}},
-    Language:{{Language}},
-Director: {{Director}},
-Producer/s:{{Producer}},
-Music Director:{{MusicDirector}},
-Cast:{{Cast}},
-Banner:{{Banner}},
-Censor Details:{{Censor}},
-Current Budget : {{Budgetp}},
-Budget Required: {{Budgetr}},
-Username:{{Username}},
-Email:{{Email}},
-Contact:{{Contact}}</li>
-{{/each}}
-</ul>
+                     </div>
 
+        </form>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <button type="button" class="btn btn-primary" id="btn-submit-event">Submit</button>
+        </div>
+    </div>
 
-</h1>
 </template>

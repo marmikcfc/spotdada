@@ -11,19 +11,53 @@
                         </div>
                         <div class="col-sm-6 col-md-8">
                             <h4>{{profile.firstname}} {{profile.lastname}}</h4>
-                            <br> <h6> @{{username}}</h6>
+                            <br> <h6> @{{username}}</h6>  
+                              <span class="pm-editable">{{> privateMessageCreateEditableButton}} </span>
+
+                           {{#if profile.usermail}}    
                             <p><i class="fa fa-envelope-o"></i> {{profile.usermail}}</p>
+                            {{/if}}
+
+                             {{#if profile.birthday}}
                             <p><i class="fa fa-gift"></i> {{profile.birthday}}</p>
+                            {{/if}}
+
+                            {{#if profile.bio}}
                             <p><i class="fa fa-info-circle"></i> {{profile.bio}}</p>
+                            {{/if}}
+
+                             {{#if profile.city}}
+
                             <p>City<i class="fa fa-info-circle"></i> {{profile.city}}</p>
+
+                            {{/if}}
+
+                             {{#if profile.lang}}
                             <p>Languages<i class="fa fa-info-circle"></i> {{profile.lang}}</p>
+                            {{/if}}
+
+                             {{#if profile.usernumber}}
                             <p>Ph Number<i class="fa fa-info-circle"></i> {{profile.usernumber}}</p>
+                            {{/if}}
+
+                             {{#if profile.uservs}}
                             <p>Vital Stats<i class="fa fa-info-circle"></i> {{profile.uservs}}</p>
-                            <p>Funding Interests<i class="fa fa-info-circle"></i> {{profile.userfund}}</p>
+                            {{/if}}
+
+
+                             {{#if profile.userfund}}
+                            <p>Funding Interests<i class="fa fa-info-circle"></i> {{profile.userfund}}
+                            </p>
+                             {{/if}}
+
+                             {{#if profile.userfwa}}
                             <p>FWA membership Number<i class="fa fa-info-circle"></i> {{profile.userfwa}}</p>
+                             {{/if}}
+
+                              {{#if profile.org}}
                             <p>Organization<i class="fa fa-info-circle"></i> {{profile.org}}</p>
  
-
+                            {{/if}}
                             <!-- Split button -->
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary">

@@ -59,6 +59,8 @@ mongo@1.0.12-winr.4
 mrt:jquery-ui@1.9.2
 mrt:jquery-ui-bootstrap@1.8.16
 mrt:moment@2.8.1
+mrt:reactive-publish@0.1.6
+mrt:server-deps@0.1.2
 mrt:underscore-string-latest@2.3.3
 multiply:iron-router-progress@1.0.0
 natestrauser:font-awesome@4.2.0

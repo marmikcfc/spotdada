@@ -27,6 +27,7 @@ Meteor.publish "users-basic-info", ->
       username: 1
       emails: 1
       profile: 1
+      privateMessages:1
 
 
 Meteor.publish 'projects', (options)->
@@ -71,6 +72,7 @@ Meteor.publish 'myProjects', (username, options)->
     author: username
   , options
 
+###
 Meteor.publish 'myFollowers', (username)->
   check username, String
   Followers.find
@@ -80,6 +82,8 @@ Meteor.publish 'myFollowings', (username)->
   check username, String
   Followings.find
     username: username
+###
+
 
 ### Followership
 Meteor.publish 'followingProjects', (username, options)->

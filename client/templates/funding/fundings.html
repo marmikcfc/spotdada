@@ -4,11 +4,11 @@
             <!-- Add event button -->
             {{#if currentUser}}
                 <a class="btn btn-success" id="btn-add-event" href="{{pathFor 'preProd'}}">
-                    <i class="fa fa-plus-circle"></i> Add aa project in pre production stage
+                    <i class="fa fa-plus-circle"></i> Add a project in pre production stage
                 </a>
 
                 <a class="btn btn-success" id="btn-add-event" href="{{pathFor 'postProd'}}">
-                    <i class="fa fa-plus-circle"></i> Add aa project in post production stage
+                    <i class="fa fa-plus-circle"></i> Add a project in post production stage
                 </a>
 
             {{else}}
@@ -17,7 +17,7 @@
             <ul class="nav nav-tabs events-tabs">
                 <li class="active">
                     <a data-toggle="tab" href="#sectionA">
-                        <i class="fa fa-list-ul"></i> All Projects
+                        <i class="fa fa-list-ul"></i> Pre-Production
                     </a>
                 </li>
                 <li>
@@ -25,61 +25,58 @@
                         <i class="fa fa-bookmark"></i> Post-Production
                     </a>
                 </li>
-                <li>
-                    <a data-toggle="tab" href="#sectionC">
-                        <i class="fa fa-search"></i> Pre-production
-                    </a>
-                </li>
+               
             </ul>
             <div class="tab-content">
                 <div id="sectionA" class="tab-pane fade in active">
-                    <h3>ALL EVENTS</h3>
+                    <h3>Pre Production</h3>
                     <div class="events-table">
                         <table class="table table-striped table-responsive">
-                            <caption>Showing all the events</caption>
+                            <caption>Showing preproduction projects in need of funding</caption>
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Start Time</th>
-                                <th>Location</th>
-                                <th>Cost</th>
-                                <th>Description</th>
-                                <th>Status</th>
+                                <th>Genre</th>
+                                <th>Writers</th>
+                                <th>Director</th>
+                                <th>Synopsis</th>
+                                <th>Statement</th>
+                                <th>Current Budget</th>
+                                <th>Required Budget</th>
+                                <th>Language</th>
+                                <th>Posted By</th>
+                                <th>Contact No</th>
+                                <th>Email</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {{#each events}}
-                                <tr style="background-color: {{#if hasPassed _id}}darkred{{else}}{{/if}}">
+                            {{#each displayprefund}}
+                                <tr >
                                     <td class="col-md-1">
-                                        <a href="/events/{{_id}}" class="text-uppercase">
-                                            {{name}}
-                                        </a>
+                                           {{name}}
+                                        
                                     </td>
-                                    <td class="col-md-2">{{readableStartTime}}</td>
-                                    <td class="col-md-2">{{location}}</td>
-                                    <td class="col-md-1">{{cost}}</td>
+                                    <td class="col-md-1">{{gen}}</td>
+                                    <td class="col-md-1">{{write}}</td>
+                                    <td class="col-md-1">{{dir}}</td>
                                     <td class="col-md-5">
                                         <div style="max-height: 100px; overflow-y: scroll">
-                                            {{description}}
+                                            {{syn}}
                                         </div>
                                     </td>
-                                    <td class="col-md-1">
-                                        {{#if isJoined _id}}
-                                            <button class="btn btn-success pull-right" id="btn-unjoin-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
-                                                <i class="fa fa-check-circle"></i>
-                                                {{#if hasPassed _id}}
-                                                    <span>Gone</span>
-                                                {{else}}
-                                                    <span>Going</span>
-                                                {{/if}}
-                                            </button>
-                                        {{else}}
-                                            <button class="btn btn-default pull-right" id="btn-join-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
-                                                <i class="fa fa-check-circle"></i>
-                                                <span>Join</span>
-                                            </button>
-                                        {{/if}}
+
+                                    <td class="col-md-5">
+                                        <div style="max-height: 100px; overflow-y: scroll">
+                                            {{dirst}}
+                                        </div>
                                     </td>
+
+                                    <td class="col-md-1">{{cbud}}</td>
+                                    <td class="col-md-1">{{rbud}}</td>
+                                    <td class="col-md-1">{{lang}}</td>
+                                   <td class="col-md-2">{{ownerName}}</td>
+                                    <td class="col-md-2">{{email}}</td>
+                                    <td class="col-md-2">{{contact}}</td>
                                 </tr>
                             {{/each}}
                             </tbody>
@@ -87,128 +84,67 @@
                     </div>
                 </div>
                 <div id="sectionB" class="tab-pane fade">
-                    <h3>MY EVENTS</h3>
+                    <h3>Post Production</h3>
                     <div class="events-table">
                         <table class="table table-striped table-responsive">
-                            <caption>Showing your events</caption>
+                            <caption>Showing postproduction projects in need of funding</caption>
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Start Time</th>
-                                <th>Location</th>
-                                <th>Cost</th>
-                                <th>Description</th>
-                                <th>Status</th>
-                                <th>Options</th>
+                                <th>Genre</th>
+                                <th>Writers</th>
+                                <th>Director</th>
+                                <th>Synopsis</th>
+                                <th>Statement</th>
+                                <th>Current Budget</th>
+                                <th>Required Budget</th>
+                                <th>Language</th>
+                                <th>Cast</th>
+                                <th>Banner</th>
+                                <th>Producer</th>
+                                <th>Music Director</th>
+                                <th>Censor</th>
+                                <th>Posted By</th>
+                                <th>Contact No</th>
+                                <th>Email</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {{#each myEvents}}
-                                <tr style="background-color: {{#if hasPassed _id}}darkred{{else}}{{/if}}">
+                            {{#each displaypostfund}}
+                                <tr >
                                     <td class="col-md-1">
-                                        <a href="/events/{{_id}}" class="text-uppercase">
-                                            {{name}}
-                                        </a>
+                                           {{name}}
+                                        
                                     </td>
-                                    <td class="col-md-2">{{readableStartTime}}</td>
-                                    <td class="col-md-2">{{location}}</td>
-                                    <td class="col-md-1">{{cost}}</td>
-                                    <td class="col-md-4">
+                                    <td class="col-md-1">{{gen}}</td>
+                                    <td class="col-md-1">{{write}}</td>
+                                    <td class="col-md-1">{{dir}}</td>
+                                    <td class="col-md-5">
                                         <div style="max-height: 100px; overflow-y: scroll">
-                                            {{description}}
+                                            {{syn}}
                                         </div>
                                     </td>
-                                    <td class="col-md-1">
-                                        {{#if isJoined _id}}
-                                            <button class="btn btn-success pull-right" id="btn-unjoin-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
-                                                <i class="fa fa-check-circle"></i>
-                                                {{#if hasPassed _id}}
-                                                    <span>Gone</span>
-                                                {{else}}
-                                                    <span>Going</span>
-                                                {{/if}}
-                                            </button>
-                                        {{else}}
-                                            <button class="btn btn-default pull-right" id="btn-join-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
-                                                <i class="fa fa-check-circle"></i>
-                                                <span>Join</span>
-                                            </button>
-                                        {{/if}}
-                                    </td>
-                                    <td class="col-md-1">
-                                        <button class="btn btn-danger pull-right" id="btn-remove-event" style="margin-top: 5px; margin-bottom: 5px;">
-                                            <i class="fa fa-trash-o"></i>
-                                            <span>Remove</span>
-                                        </button>
-                                    </td>
-                                </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div id="sectionC" class="tab-pane fade">
-                    <h3>SEARCH FOR EVENTS</h3>
-                    <!-- Search input -->
-                    <div class="row search-input">
-                        <div class="col-md-3 pull-left">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" id="event-search-box" placeholder="Search For Events...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="events-table">
-                        <table class="table table-striped table-responsive">
-                            <caption>Result(s)</caption>
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Start Time</th>
-                                <th>Location</th>
-                                <th>Cost</th>
-                                <th>Description</th>
-                                <th>Status</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {{#each getEvents}}
-                                <tr style="background-color: {{#if hasPassed _id}}darkred{{else}}{{/if}}">
-                                    <td class="col-md-1">
-                                        <a href="/events/{{_id}}" class="text-uppercase">
-                                            {{name}}
-                                        </a>
-                                    </td>
-                                    <td class="col-md-2">{{readableStartTime}}</td>
-                                    <td class="col-md-2">{{location}}</td>
-                                    <td class="col-md-1">{{cost}}</td>
-                                    <td class="col-md-4">
+                                    <td class="col-md-5">
                                         <div style="max-height: 100px; overflow-y: scroll">
-                                            {{description}}
+                                            {{dirst}}
                                         </div>
                                     </td>
-                                    <td class="col-md-1">
-                                        {{#if isJoined _id}}
-                                            <button class="btn btn-success pull-right" id="btn-unjoin-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
-                                                <i class="fa fa-check-circle"></i>
-                                                {{#if hasPassed _id}}
-                                                    <span>Gone</span>
-                                                {{else}}
-                                                    <span>Going</span>
-                                                {{/if}}
-                                            </button>
-                                        {{else}}
-                                            <button class="btn btn-default pull-right" id="btn-join-event" style="margin-top: 5px; margin-bottom: 5px;" disabled="{{#if hasPassed _id}}true{{else}}{{/if}}">
-                                                <i class="fa fa-check-circle"></i>
-                                                <span>Join</span>
-                                            </button>
-                                        {{/if}}
-                                    </td>
+
+                                    <td class="col-md-1">{{cbud}}</td>
+                                    <td class="col-md-1">{{rbud}}</td>
+                                    <td class="col-md-1">{{lang}}</td>
+                                   <td class="col-md-2">{{ownerName}}</td>
+                                    <td class="col-md-2">{{email}}</td>
+
+                                <td class="col-md-1">{{cast}}</td>
+                                    <td class="col-md-1">{{banner}}</td>
+                                   <td class="col-md-2">{{producer}}</td>
+                                    <td class="col-md-2">{{md}}</td>
+                                    <td class="col-md-2">{{censor}}</td>
+
+                                    <td class="col-md-2">{{contact}}</td>
+
                                 </tr>
                             {{/each}}
                             </tbody>
