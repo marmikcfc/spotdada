@@ -12,6 +12,12 @@
         <img class="thumbnail" src="{{src}}"/>
       </div>
     {{/if}}
+
+    <video width="320" height="240" controls>
+  <source src="{{url}}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
     {{#if projectAuthor}}
       <a href="{{pathFor 'projectEdit'}}" class="btn btn-primary">Edit</a>
     {{/if}}

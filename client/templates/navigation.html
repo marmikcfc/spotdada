@@ -16,7 +16,7 @@
                             <li>
                                 <a>Hi, {{currentUser.username}}.</a>
                             </li>
-                            {{#if activeNotificationCount}}
+                        <!--    {{#if activeNotificationCount}}
                                 <li class="notification" data-count="{{activeNotificationCount}}">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                         <i class="fa fa-inbox"></i>
@@ -60,7 +60,9 @@
                                         </li>
                                     </ul>
                                 </li>
-                            {{/if}}
+                            {{/if}} -->
+
+<li class="notification" >    {{> notifications}}  </li>
                             <li class="new-page account-page"><a href="{{pathFor 'account'}}" id="btn-profile">Account</a></li>                           
                         {{/if}}
                     </ul> 

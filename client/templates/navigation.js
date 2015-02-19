@@ -27,7 +27,7 @@ Template.navigation.events({
         $('.home-page').addClass('active');
         Router.go('/');
     },
-    'click .notification-link': function(event){
+  /*  'click .notification-link': function(event){
         var self = this;
         Notifications.update({ _id: self._id },{ $set: { isChecked: true}}, function(err, doc){
             if (err) {
@@ -37,9 +37,9 @@ Template.navigation.events({
                 // done checking this notification
             }
         });
-    }
+    }*/
 });
-
+/*
 Template.navigation.rendered = function(){
     Tracker.autorun(function(){
         if (Session.get("currentNotifications")){
@@ -50,7 +50,7 @@ Template.navigation.rendered = function(){
         }
     });
 };
-
+*//*
 Template.navigation.helpers({
     activeNotificationCount: function(){
         var x = Notifications.find({isChecked: false}, {sort: {createdAt: -1}}).fetch();
@@ -67,4 +67,4 @@ Template.navigation.helpers({
         var self = this;
         return !self.isChecked;
     }
-});
+});*/

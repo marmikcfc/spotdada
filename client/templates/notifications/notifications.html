@@ -1,19 +1,22 @@
 <template name="notifications">
-    <div class="container col-md-10 col-md-offset-1">
-        <h1>Your Notifications</h1>
-        <hr>
-        <ul style="list-style: none;">
-            {{#each notifications}}
-                <li class="notification-in-page" style="{{#if isNew}}background-color: #217dbb;{{/if}}">
-                    <div class="col-md-2">
-                        <img src="//placehold.it/50" class="img-responsive img-circle"/>
-                    </div>
-                    <div class="col-md-10">
-                        <a class="col-md-9 notification-link" style="color: white" href="{{link}}">{{content}}</a>
-                        <small class="col-md-3">{{readableCreatedAt}}</small>
-                    </div>
-                </li>
-            {{/each}}
-        </ul>
-    </div>
+  <div class="dropdown">
+  <a class="menu-item-divided list-group-item each-list" data-toggle="collapse" aria-expanded="false" href="#collapseNotifications" aria-controls="collapseNotifications">
+    Notifications
+    {{#if notificationCount}}
+      <span class="badge badge-inverse">{{notificationCount}}</span>
+    {{/if}}
+    <b class="caret"></b>
+  </a>
+  <ul class="custom-dropdown collapse" id="collapseNotifications">
+    {{#if notificationCount}}
+      {{#each notifications}}
+        {{> notificationItem}}
+      {{/each}}
+    {{else}}
+      <a class="menu-item-divided list-group-item each-list" href="#">
+        No Notifications
+      </a>
+    {{/if}}
+  </ul>
+  </div>
 </template>
