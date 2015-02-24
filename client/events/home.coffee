@@ -1,4 +1,4 @@
-Template.home.events({
+Template.dashboard.events({
   'submit form.postStatus': (evt,tmpl) ->
     evt.preventDefault()
 

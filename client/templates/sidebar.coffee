@@ -4,3 +4,8 @@ Template.sidebar.helpers
       Meteor.user().username
     else
       null
+
+Template.sidebar.events
+  "click .msgnotifications-block": ->
+    "use strict"
+    setSessionForActiveNavTab "privateMessagesList"

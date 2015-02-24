@@ -1,0 +1,20 @@
+<template name="msgnotifications">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="fa fa-envelope"></span><span class="msgnotifications-link">Notifications</span>
+    </a>
+    {{#if msgnotificationCount}}
+        <span class="badge badge-inverse msgnotifications-counter">{{msgnotificationCount}}</span>
+    {{/if}}
+    <ul class="msgnotification dropdown-menu">
+        {{#if msgnotificationCount}}
+            {{#each msgnotifications}}
+                {{> msgnotification}}
+            {{/each}}
+            <li class="mark-all-msgnotifications-as-read">
+                <a href="#">Mark all notifications as read.</a>
+            </li>
+        {{else}}
+            <p class="no-msgnotifications">You got no notifications</p>
+        {{/if}}
+    </ul>
+</template>

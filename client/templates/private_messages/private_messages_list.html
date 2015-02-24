@@ -1,0 +1,24 @@
+<template name="privateMessagesList">
+    <div class="page-content">
+            <div class="panel-heading main-page-heading">
+                <h2 class="panel-title">Private messages</h2>
+            </div>
+
+            <div class="padding-20">
+                {{#if noPrivateMessages}}
+
+                    <a href="{{pathFor 'privateMessageCreate'}}">
+                        <button class="btn btn-sm btn-primary private-message-button">Start sending private messages!</button>
+                    </a>
+                {{else}}
+
+                 <a href="{{pathFor 'privateMessageCreate'}}">
+                        <button class="btn btn-sm btn-primary private-message-button">Send a new Private Message</button>
+                    </a>
+                    {{#each privateMessages}}
+                        {{> privateMessageItem}}
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+</template>
