@@ -113,10 +113,22 @@
       </select>
                      </div>
 
-        </form>
-        <div class="col-md-8 col-md-offset-2 text-center">
-            <button type="button" class="btn btn-primary" id="btn-submit-event">Submit</button>
+
+ <div class="form-group">
+        <label class="control-label" for="imageInput">Image</label>
+        <div class="controls post-image-button">
+         <button class="customImageUploadBtn btn btn-info" type="button">Image Upload</button>  
+
+         <input type="file" id="imageInput" name="imageInput" style="display:none" multiple />
         </div>
+          </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        </form>
+       
     </div>
 
 </template>

@@ -236,6 +236,21 @@ this.route('preFund', {
     });
 
 
+
+this.route('postFund', {
+        path: '/postfund/:postfundId',
+        data: function(){
+            var postfundId = this.params.postfundId;
+            Meteor.subscribe('users-basic-info');
+            Meteor.subscribe('all-postprod');
+            var res = postFund.findOne({_id: postfundId});
+           
+            return res;
+        }
+    });
+
+
+
 this.route('/events', {
   name: 'events'
 });
