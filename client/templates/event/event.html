@@ -5,8 +5,8 @@
             <div class="text-center">
                 {{#if owner.profile.avatar}}
                     <img src="{{owner.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 100px;max-height: 100px">
-                {{else}}
-                    <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                 {{else}}
+                    <img src="/default.jpg" class="avatar img-circle" alt="avatar">
                 {{/if}}
 
                 <p>Owner:
@@ -83,7 +83,7 @@
                       {{#if getUserAvatar userId}}
                     <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="max-width: 50px;max-height: 50px">
                 {{else}}
-                    <img src="//placehold.it/50" class="avatar img-circle" alt="avatar">
+                    <img src="/default.jpg" class="avatar img-circle" alt="avatar">
                 {{/if}}
                 </div>
                  <div class="well col-md-10">
@@ -107,7 +107,7 @@
             <span class="input-group-btn">
                 <button class="btn btn-primary" id="btn-send-comment" type="button">Send</button>
             </span>
-            </div>   /input-group
+            </div>   
         </div>
     {{/if}} 
 </template>

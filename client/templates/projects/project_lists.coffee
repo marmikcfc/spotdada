@@ -12,6 +12,8 @@ Template.projectLists.helpers
       true
     else
       false
+  hasImage: ->
+    @src isnt 'N/A'
 
 
 Template.projectLists.events

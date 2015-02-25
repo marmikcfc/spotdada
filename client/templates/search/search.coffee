@@ -19,6 +19,10 @@ Template.searchResult.helpers
     else 
       null
 
+  hasImage: ->
+    @src isnt 'N/A'
+
+
 Template.search.events
   'keyup input#searchq': (e)->
     Session.set("query", e.currentTarget.value)

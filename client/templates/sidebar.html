@@ -1,6 +1,12 @@
 <template name="sidebar">
     <ul class="nav nav-pills nav-stacked">
 
+
+ {{#if currentUser.profile.avatar}}
+                    <img src="{{currentUser.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="width: 100px;height: 100px">
+                {{else}}
+                  <img src="/default.jpg" class="avatar img-circle" alt="avatar" style="width: 100px;">
+                {{/if}}
         <li class="active"><a href="{{pathFor 'home'}}">Home</a></li>
        <!-- <li> <a href="{{pathFor 'privateMessagesList'}}">
                     <span class="fa fa-comments"></span><span class="messages-link">Messages</span>

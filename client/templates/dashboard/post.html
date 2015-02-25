@@ -5,9 +5,9 @@
       <div class="media">
           <a class="media-left" href="{{pathFor 'profile' username=this.author}}">
       {{#if getUserAvatar userId}}
-                    <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="max-width: 60px;max-height: 60px">
+                    <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="width: 70px;height: 70px">
                 {{else}}
-                    <img src="//placehold.it/60" class="avatar img-circle" alt="avatar">
+                  <img src="/default.jpg" class="avatar img-circle" alt="avatar" style="width: 70px;">
                 {{/if}}
 </a>
         <div class="media-body">
@@ -49,9 +49,9 @@
     <div class="media">
         <a class="media-left" href="{{pathFor 'profile' username=this.author}}">
       {{#if getUserAvatar userId}}
-                    <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="max-width: 50px;max-height: 50px">
+                    <img src="{{getUserAvatar userId}}" class="avatar img-rounded" alt="avatar" style="width: 50px;height: 50px">
                 {{else}}
-                    <img src="//placehold.it/50" class="avatar img-circle" alt="avatar">
+                    <img src="/default.jpg" class="avatar img-circle" alt="avatar" style="height: 50px">
                 {{/if}}
 </a>
         <div class="media-body">

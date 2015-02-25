@@ -35,6 +35,7 @@ return postFund.find()
             producer: $('#producer').val(),
             md: $('#md').val(),
             censor: $('#censor').val(),
+            tlink: $('#tlink').val(),
             ownerName: Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname,
             ownerId: Meteor.userId(),
             email:Meteor.user().profile.usermail,

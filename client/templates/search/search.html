@@ -16,6 +16,11 @@
     {{#each searchResult}}
       <div class="col-sm-4 col-md-3 project-grid">
         <div class="each-project">
+
+        {{#if hasImage}}
+<img src="{{src}}" height="100px" width="100px" />
+
+        {{/if}}
           <p><a href="{{pathFor 'projectPage'}}"><strong>{{title}}</strong></a></p>
           <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{author}}</a></p>
           <p>{{pluralize commentsCount "comment"}}</p>

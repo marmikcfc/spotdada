@@ -9,8 +9,10 @@
                     <div class="col-sm-12">
                         {{#if currentUser.profile.avatar}}
                             <img src="{{currentUser.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 200px;max-height: 200px">
-                        
-                        {{/if}}
+                        {{else}}
+                    <img src="/default.jpg" class="avatar img-circle" alt="avatar">
+                {{/if}}
+                
                     </div>
                     <div class="col-sm-12 avatar-btns">
                         <div class="col-sm-6">
