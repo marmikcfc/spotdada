@@ -93,26 +93,23 @@
       </select>
                      </div>
 
+
+      <div class="form-group">
+        <label class="control-label" for="imageInput">Image</label>
+        <div class="controls post-image-button">
+         <button class="customImageUploadBtn btn btn-info" type="button">Image Upload</button>  
+
+<!--         <input type="file" id="imageInput" name="imageInput" multiple />
+ -->        </div>
+          </div>
+
+
+
         </form>
         <div class="col-md-8 col-md-offset-2 text-center">
             <button type="button" class="btn btn-primary" id="btn-submit-event">Submit</button>
         </div>
     </div>
 
-<ul>
-{{#each display}}
-<li>Name: {{name}}
-    Genre: {{gen}}
-    Writers:{{write}}
-Director: {{dir}},
-Synopsis:{{syn}},
-Directors statement:{{dirst}},
-Current Budget : {{cbud}},
-Budget Required: {{rbud}},
-Language:{{lang}}
-Username:{{ownerName}},
-Email:{{email}},
-Contact:{{contact}}</li>
-{{/each}}
-</ul>
+
 </template>

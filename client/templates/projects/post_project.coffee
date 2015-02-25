@@ -19,7 +19,6 @@ Template.postRecipe.events
         desc: desc
         tags: tags
         src: e.target.result
-        url: e.fpfile.url
 
       Meteor.call "postInsert", project, (error, result) ->
         Router.go "projectPage", 

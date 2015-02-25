@@ -222,6 +222,20 @@ this.route('/postProd', {
   name: 'postProd'
 });
 
+
+this.route('preFund', {
+        path: '/prefund/:prefundId',
+        data: function(){
+            var prefundId = this.params.prefundId;
+            Meteor.subscribe('users-basic-info');
+            Meteor.subscribe('all-preprod');
+            var res = preFund.findOne({_id: prefundId});
+           
+            return res;
+        }
+    });
+
+
 this.route('/events', {
   name: 'events'
 });
