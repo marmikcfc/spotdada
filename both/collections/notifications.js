@@ -17,4 +17,31 @@ this.createCommentNotification = function(comment) {
       read: false
     });
   }
+
+/*events = events.findOne(comment.eventsId);
+   if (comment.userId !== events.userId) {
+    return Notifications.insert({
+      userId: events.userId,
+      projectId: events._id,
+      commenter: comment.commenter,
+      read: false
+    });
+  }*/
+};
+
+
+this.createEventCommentNotification = function() {
+/*events = events.findOne(ev.eventsId);
+   if (ev.userId !== events.userId) {
+    return Notifications.insert({
+      userId: events.userId,
+      projectId: events._id,
+      commentId:'',
+      commenter: ev.commenter,
+      read: false
+    });
+  }*/
+
+console.log("IT FIRES");
+
 };

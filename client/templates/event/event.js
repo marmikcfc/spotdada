@@ -1,5 +1,5 @@
 Meteor.subscribe('users-basic-info');
-
+Meteor.subscribe('Notifications');
 Template.event.rendered = function(){
     $('ul li.active').removeClass('active');
 };
@@ -32,6 +32,18 @@ Template.event.events({
                         // done inserting notification
                     }
                 });*/
+  /*Notifications.insert(notificationData, function(error){
+            if (err) {
+                alert(error);
+            }
+            else{
+
+                alert("Success");
+            }
+          
+        });
+*/
+
             }
         });
     },
@@ -104,7 +116,7 @@ Template.event.events({
                 // successfully submitted new comment
                 var fromUserFullname = Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname;
                 var updatedEvent = Events.findOne(self._id);
-                var notificationData = {
+             /*   var notificationData = {
                     fromUserId: Meteor.userId(),
                     fromUserFullname: fromUserFullname,
                     createdAt: new Date(),
@@ -112,13 +124,45 @@ Template.event.events({
                     content: fromUserFullname + ' has commented in your event page: ' + updatedEvent.name,
                     link: "/events/" + updatedEvent._id,
                     isChecked: false
+                };*/
+
+var username = Meteor.user().username
+                    var notificationData = {
+                    fromUserId: Meteor.userId(),
+                    eventsId: updatedEvent._id,
+                    comentId:'',
+                    commenter:username
+                   //fromUserFullname: fromUserFullname,
+                    //createdAt: new Date(),
+                    //userId: updatedEvent.ownerId,
+                    //content: fromUserFullname + ' has commented in your event page: ' + updatedEvent.name,
+                    //link: "/events/" + updatedEvent._id,
+                    //isChecked: false
+
                 };
-                Notifications.insert(notificationData, function(err, doc){
+
+/*Meteor.call('createEventCommentNotification', function(error) {
+        if (error) {
+          alert(error.reason)
+        }
+      });
+*/
+
+Notifications.insert({
+      userId: Meteor.userId(),
+      projectId: updatedEvent._id,
+      commentId:'',
+      commenter: username,
+      read: false
+    });
+
+
+               /* Notifications.insert(notificationData, function(err, doc){
                     if (err) console.log(err);
                     else {
                         // done inserting notification
                     }
-                });
+                });*/
             }
         });
         $("#user-comment").val(''); // reset the input

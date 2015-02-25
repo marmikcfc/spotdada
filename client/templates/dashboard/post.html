@@ -18,6 +18,12 @@
            {{formatTime date}}
          </h6>
          <p>{{text}}</p>
+
+ {{#if img}}
+
+ <img src="{{img}}" alt="avatar" style="max-width:300px; max-height: 300px">
+        {{/if}}
+
           <h6 class="">
             {{#if ownLike}}
               <a href="" class="unlikeBtn muted"><small>Unlike</small></a>
@@ -57,6 +63,8 @@
         <div class="media-body">
           <h6 class="media-heading"><a href="{{pathFor 'profile' username=this.author}}">{{author}}</a><span class="text-muted"> {{formatTime date}}</span></h6>
          <p>{{text}}</p>
+       
+
           {{#if likeCount}}<span class="badge alert-success">{{likeCount}}</span> Persons Like This{{/if}}
           <h6 class="small">
             {{#if ownLike}}

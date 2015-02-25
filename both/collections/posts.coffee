@@ -4,10 +4,10 @@ Meteor.methods
   'addPost': (postAttributes) ->
     check(Meteor.userId(), String)
 #    console.log(postAttributes)
-    check(postAttributes, {
-      text: String,
-      parent: Match.Any
-    })
+#    check(postAttributes, {
+#      text: String,
+#      parent: Match.Any
+#    })
     
     user = Meteor.user()
     post = _.extend postAttributes, {

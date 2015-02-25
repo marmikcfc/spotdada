@@ -15,7 +15,7 @@ Template.commentItem.events
       Meteor.call "removeComment", comment, (error, commentId)->
         if error
           throwError error.reason
-  getUserAvatar: (userId) ->
+#  getUserAvatar: (userId) ->
   
   #    console.log("INTO USER AVATAR");
-  Meteor.users.findOne(userId).profile.avatar
+#  Meteor.users.findOne(userId).profile.avatar

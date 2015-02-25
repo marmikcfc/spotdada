@@ -5,7 +5,13 @@
   <div class="well well-lg">
          <form action="" class="postStatus">
           <label for="postStatus">Status</label>
-          <input type="text" name="postStatus" class="form-control input-lg" placeholder="What do you wanna Rant About?">
+          <input type="text" name="postStatus" class="form-control input-lg" placeholder="What do you wanna Rant About?">  
+          <div class="controls post-image-button">
+         <button class="customImageUploadBtn btn btn-info" type="button"><span class="btn myFileInput btn-danger btn-file pull-left"><i class="glyphicon glyphicon-picture" style="font-size:20px;"></i>  </span> </button>  
+
+         <input type="file" id="imageInput" name="imageInput" style="display:none" multiple />
+        </div>
+          
          </form>
     </div>
     <div id="postList">
