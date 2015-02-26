@@ -2,13 +2,13 @@
         <li class="media">
             {{#if authorIsCurrentUser}}
                 {{#with user}}
-                    <a class="" href="{{pathFor 'profilePage'}}">
+                    <a class="" href="pathFor 'profile' username=this.author">
                         <img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}">
                     </a>
                 {{/with}}
             {{else}}
                 {{#with user}}
-                    <a class="pull-left" href="{{pathFor 'profilePage'}}">
+                    <a class="pull-left" href="pathFor 'profile' username=this.author">
                         <img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}">
                     </a>
                 {{/with}}
@@ -16,7 +16,7 @@
             <div class="media-body">
                 <h4 class="media-heading">
                     {{#with user}}
-                        <a href="{{pathFor 'profilePage'}}">{{username}}</a>
+                        <a href="pathFor 'profile' username=this.author">{{username}}</a>
                     {{/with}}
                 </h4>
 
@@ -39,7 +39,7 @@
                         <ul>
                             {{#each invitedUsers}}
                                 <li>
-                                    <a href="{{pathFor 'profilePage'}}">{{username}}</a>
+                                    <a href="pathFor 'profile' username=this.author">{{username}}</a>
                                 </li>
                                 {{#if invitationStatusParentContext '1'}}
                                     <span class="accepted">(accepted)</span>

@@ -1,7 +1,9 @@
 <template name="notifications">
   <div class="dropdown">
   <a class="menu-item-divided list-group-item each-list" data-toggle="collapse" aria-expanded="false" href="#collapseNotifications" aria-controls="collapseNotifications">
-    Notifications
+    <span class="glyphicon glyphicon-bell">
+      
+    </span>
     {{#if notificationCount}}
       <span class="badge badge-inverse">{{notificationCount}}</span>
     {{/if}}

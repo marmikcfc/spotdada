@@ -11,7 +11,7 @@
               <p>{{pluralize commentsCount "comment"}}</p>
               <p>{{pluralize votes "vote"}}</p>
             </div>
-            <a href="#" class="upvote btn {{upvotedClass}}">{{#if canVote}}&#11014;{{else}}&#11015;{{/if}}</a>
+            <a href="#" class="glyphicon glyphicon-exclamation-sign {{upvotedClass}}">{{#if canVote}}&#11014;{{else}}&#11015;{{/if}}</a>
           </div>
         {{/each}}
       </div>

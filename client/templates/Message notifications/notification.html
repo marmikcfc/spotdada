@@ -3,7 +3,7 @@
         <li class="msgnotification-item">
             {{#if msgnotificationType '1'}}
                 {{#with user}}
-                    <a href="{{pathFor 'profilePage'}}">
+                    <a href="{{pathFor 'profile' username=this.username}}">
                         <img src="{{avatar}}" alt="{{username}}" width="20" height="20"/>
                     </a>
                 {{/with}}
@@ -17,20 +17,7 @@
 
                 {{/with}}
             {{/if}}
-            {{#if msgnotificationType '2'}}
-                {{#with user}}
-                    <a href="{{pathFor 'productDashboard'}}">
-                        <img src="{{avatar}}" alt="{{username}}" width="20" height="20"/>
-                    </a>
-                {{/with}}
-                {{#with product}}
-                    <a href="{{pathFor 'productDashboard'}}" class="mark-msgnotification-as-read">
-                        {{#with msgnotification}}
-                        <span class="author">{{author}}</span><span class="rest-message">commented on a common project.</span>
-                        {{/with}}
-                    </a>
-                {{/with}}
-            {{/if}}
+         
         </li>
     </ul>
 </template>

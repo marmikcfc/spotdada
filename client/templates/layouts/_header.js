@@ -27,16 +27,19 @@ Template._header.events({
         $('.home-page').addClass('active');
         Router.go('/');
     },
-  /*  'click .notification-link': function(event){
-        var self = this;
-        Notifications.update({ _id: self._id },{ $set: { isChecked: true}}, function(err, doc){
+
+'click .messages-block': function () {
+        "use strict";
+        Meteor.call('markAllmsgNotificationsAsRead', Meteor.userId(), function (err) {
             if (err) {
-                console.log(err);
-            }
-            else {
-                // done checking this notification
+                throwAlert('error', error.reason, error.details);
+                return null;
             }
         });
+    }
+   /*'click .msgnotifications-block': function () {
+        "use strict";
+        setSessionForActiveNavTab('privateMessagesList');
     }*/
 });
 /*
@@ -50,21 +53,15 @@ Template.navigation.rendered = function(){
         }
     });
 };
-*//*
-Template.navigation.helpers({
-    activeNotificationCount: function(){
-        var x = Notifications.find({isChecked: false}, {sort: {createdAt: -1}}).fetch();
-        Session.set("currentNotifications", x.length);
-        return x.length;
-    },
-    notifications: function(){
-        return Notifications.find({}, {sort: {createdAt: -1}, limit: 10}).map(function(noti, num){
-            noti.timeGap = moment(new Date(noti.createdAt)).from(new Date());
-            return noti;
-        });
-    },
-    isNew: function(){
-        var self = this;
-        return !self.isChecked;
+*/
+Template._header.helpers({
+    msgnotificationCount: function () {
+        "use strict";
+        if (Meteor.user().msgnotifications === undefined || Meteor.user().msgnotifications.length === 0) {
+            return 0;
+        }
+        if (Meteor.user().msgnotifications.length > 0) {
+            return msgNotifications.find({_id: {$in: Meteor.user().msgnotifications}}).count();
+        }
     }
-});*/
+});

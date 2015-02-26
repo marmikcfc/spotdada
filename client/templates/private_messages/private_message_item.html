@@ -13,7 +13,7 @@
         </div>
         <div class="panel-body">
             {{#each participants}}
-                {{#with user}}<a href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}"
+                {{#with user}}<a href="pathFor 'profile' username=this.author"><img class="media-object img-rounded" src="{{avatar}}"
                                                                        alt="{{username}}"></a>{{/with}}
             {{/each}}
             {{#if noParticipants}}
