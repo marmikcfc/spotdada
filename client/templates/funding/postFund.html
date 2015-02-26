@@ -68,7 +68,6 @@
             </div>
 
 
-
 <div class="col-md-12">
                 Music Director: {{md}}
                
@@ -82,11 +81,27 @@
 
 
             <div class="col-md-12 event-description well container">
+                
+                {{#if src}}
                 <div class="event-description-image">
                     <img class="img-responsive img-thumbnail" src="{{src}}" alt=""/>
                 </div>
+                {{/if}}
                 <p>{{syn}}</p>
             </div>
+
+
+
+            <div class="col-md-12 event-description well container">
+                
+                {{#if tlink}}
+<iframe width="420" height="315"
+src="{{tlink}}">
+</iframe>
+                
+                {{/if}}
+            </div>
+
         </div>
         <!-- <div class="col-md-2">
             <p>LIST OF Interested <span class="badge">{{interestedLength}}</span></p>

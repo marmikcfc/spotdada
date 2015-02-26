@@ -186,14 +186,14 @@ box-shadow: -2px 2px 10px #DEDEDE; ">
       
 <div class="col-sm-4 col-md-3 project-grid" style=" padding: 10px;
 box-shadow: -2px 2px 10px #DEDEDE; ">
-<a href="/prefund/{{_id}}">
+<a href="/postfund/{{_id}}">
         <div class="each-project">
 
         {{#if src}}
 <img src="{{src}}" style=" height:25%; width:25% " />
 
         {{/if}}
-          <p><a href="/prefund/{{_id}}"><strong>{{name}}</strong></a></p>
+          <p><a href="/postfund/{{_id}}"><strong>{{name}}</strong></a></p>
           <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{ownerName}}</a></p>
           <p> <i class="glyphicon glyphicon-pencil" > </i> {{write}}</p>
           <p> <i class="glyphicon glyphicon-facetime-video" > </i>   {{dir}}</p>

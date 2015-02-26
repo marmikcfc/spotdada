@@ -16,6 +16,7 @@ return postFund.find()
         event.preventDefault();
         event.stopPropagation();
         projectImage = $(event.target).find("[name=imageInput]")[0].files[0];
+        
         reader = new FileReader();
     
         reader.onload = function(e) {
@@ -41,7 +42,6 @@ return postFund.find()
             email:Meteor.user().profile.usermail,
             contact:Meteor.user().profile.usernumber,
             src: e.target.result
-            
         };
 
    return postFund.insert(fundData, function(err, doc) {

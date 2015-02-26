@@ -3,13 +3,13 @@
             {{#if authorIsCurrentUser}}
                 {{#with user}}
                     <a class="" href="pathFor 'profile' username=this.author">
-                        <img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}">
+                        <img class="media-object img-rounded" src="{{profile.avatar}}" alt="{{username}}">
                     </a>
                 {{/with}}
             {{else}}
                 {{#with user}}
                     <a class="pull-left" href="pathFor 'profile' username=this.author">
-                        <img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}">
+                        <img class="media-object img-rounded" src="{{profile.avatar}}" alt="{{username}}">
                     </a>
                 {{/with}}
             {{/if}}

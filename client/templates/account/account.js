@@ -1,5 +1,5 @@
 Template.account.events({
-    'blur .form-control': function(event){
+    'submit form': function(event){
         var el = $(event.currentTarget)[0];
         var data = {
             "username": $("#username").val().trim(),
