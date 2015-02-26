@@ -30,7 +30,7 @@
             <div class="tab-content">
                 <div id="sectionA" class="tab-pane fade in active">
                     <h3>Pre Production</h3>
-                    <div class="events-table">
+                   <!--  <div class="events-table">
                         <table class="table table-striped table-responsive">
                             <caption>Showing preproduction projects in need of funding</caption>
                             <thead>
@@ -81,11 +81,38 @@
                             {{/each}}
                             </tbody>
                         </table>
-                    </div>
+                    </div> -->
+
+<div class="projects row">
+
+
+    {{#each displayprefund}}
+      
+<div class="col-sm-4 col-md-3 project-grid" style=" padding: 10px;
+box-shadow: -2px 2px 10px #DEDEDE; ">
+<a href="/prefund/{{_id}}">
+        <div class="each-project">
+
+        {{#if src}}
+<img src="{{src}}" style=" height:25%; width:25% " />
+
+        {{/if}}
+          <p><a href="/prefund/{{_id}}"><strong>{{name}}</strong></a></p>
+          <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{ownerName}}</a></p>
+          <p> <i class="glyphicon glyphicon-pencil" > </i> {{write}}</p>
+          <p> <i class="glyphicon glyphicon-facetime-video" > </i>   {{dir}}</p>
+        </div>
+
+  </a>
+      </div>
+    {{/each}}
+  </div>
+
+
                 </div>
                 <div id="sectionB" class="tab-pane fade">
                     <h3>Post Production</h3>
-                    <div class="events-table">
+<!--                     <div class="events-table">
                         <table class="table table-striped table-responsive">
                             <caption>Showing postproduction projects in need of funding</caption>
                             <thead>
@@ -149,7 +176,35 @@
                             {{/each}}
                             </tbody>
                         </table>
-                    </div>
+                    </div> -->
+
+
+<div class="projects row">
+
+
+    {{#each displaypostfund}}
+      
+<div class="col-sm-4 col-md-3 project-grid" style=" padding: 10px;
+box-shadow: -2px 2px 10px #DEDEDE; ">
+<a href="/prefund/{{_id}}">
+        <div class="each-project">
+
+        {{#if src}}
+<img src="{{src}}" style=" height:25%; width:25% " />
+
+        {{/if}}
+          <p><a href="/prefund/{{_id}}"><strong>{{name}}</strong></a></p>
+          <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{ownerName}}</a></p>
+          <p> <i class="glyphicon glyphicon-pencil" > </i> {{write}}</p>
+          <p> <i class="glyphicon glyphicon-facetime-video" > </i>   {{dir}}</p>
+        </div>
+
+  </a>
+      </div>
+    {{/each}}
+  </div>
+
+
                 </div>
             </div>
         </div>
