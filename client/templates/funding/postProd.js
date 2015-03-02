@@ -20,7 +20,15 @@ return postFund.find()
         reader = new FileReader();
     
         reader.onload = function(e) {
-        var fundData = {
+
+          var link= $('#tlink').val();
+          var firstpart="https://www.youtube.com/embed/";
+          var lastpart= link.substr(32);
+          var finallink=firstpart+lastpart
+        /*  console.log("ORIGINAL LINK=   "+link);
+          console.log("Final link=   "+finallink); */
+      
+          var fundData = {
             name: $('#name').val(),
             syn: $('#rsyn').val(),
             cbud: $('#cbudget').val(),
@@ -36,7 +44,7 @@ return postFund.find()
             producer: $('#producer').val(),
             md: $('#md').val(),
             censor: $('#censor').val(),
-            tlink: $('#tlink').val(),
+            tlink: finallink,
             ownerName: Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname,
             ownerId: Meteor.userId(),
             email:Meteor.user().profile.usermail,

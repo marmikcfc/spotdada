@@ -10,12 +10,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        {{if currentUser}}
-        <a class="navbar-brand" href="{{pathFor 'dashboard'}">spotDada</a>
+        {{#if currentUser}}
+        <a class="navbar-brand" href="{{pathFor 'dashboard'}}">spotDada</a>
 
         {{else}}
 
-<a class="navbar-brand" href="{{pathFor 'home'}">spotDada</a>
+<a class="navbar-brand" href="{{pathFor 'home'}}">spotDada</a>
 
 {{/if}}
       </div>
