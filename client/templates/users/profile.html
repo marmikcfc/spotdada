@@ -11,6 +11,7 @@
                     <img src="/default.jpg" class="avatar img-circle" alt="avatar">
                 {{/if}}
 
+
                         </div>
                         <div class="col-sm-6 col-md-8">
                             <h4>{{profile.firstname}} {{profile.lastname}}</h4>
@@ -83,7 +84,15 @@
 {{#if projects}}
     <div>
       <div class="projects row">
-        {{#each projects}}
+{{#if notYourself}}
+    <br />
+    {{else}}
+
+ <span class="btn btn-danger">  <a href="{{ pathFor 'postRecipe' }}" rel="Upload Projects">  Upload Project</a>   </span>
+
+  {{/if}}
+
+       {{#each projects}}
           <div class="col-sm-4 col-md-3 project-grid">
             <div class="each-project">
               <p><a href="{{pathFor 'projectPage'}}"><strong>{{title}}</strong></a></p>
