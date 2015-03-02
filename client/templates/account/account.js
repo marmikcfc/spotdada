@@ -1,6 +1,8 @@
 Template.account.events({
     'submit form': function(event){
         var el = $(event.currentTarget)[0];
+        var fname=$("#user-firstname").val();
+        var lname=$("#user-lastname").val();
         var data = {
             "username": $("#username").val().trim(),
             "profile": {
@@ -24,12 +26,12 @@ Template.account.events({
             {
                 $set: data
             },
-            function(err, doc){
-            if (err){
-                console.log(err);
+            function(error, doc){
+            if (error){
+                alert(error);
             }
             else {
-                //console.log(Meteor.user());
+                console.log(Meteor.user());
             }
         });
     },
@@ -64,3 +66,5 @@ Template.account.rendered = function(){
     });
     $('#user-birthday').datepicker();
 };
+
+

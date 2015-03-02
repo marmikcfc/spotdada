@@ -21,11 +21,11 @@ EasySearch.createSearchIndex('users', {
     }
 });
 
-Users.deny({
+/*Users.deny({
     insert: denyPermission,
     update: denyPermission,
     remove: denyPermission
-});
+});*/
 
 
 Meteor.methods({
