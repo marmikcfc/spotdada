@@ -103,7 +103,7 @@ return user.count();
     return Meteor.users.findOne({username:uname}).profile.avatar;
   },
 
-  projectscount: function(){
+projectscount: function(){
  
  return Meteor.projects.find({author:username}).count();
 

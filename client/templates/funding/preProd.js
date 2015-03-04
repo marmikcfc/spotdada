@@ -71,7 +71,7 @@ Template.preProd.events({
         }
       });
     }
-    console.log(eventData);
+    
     return $("#add-event-modal").modal("hide");
   }
 });

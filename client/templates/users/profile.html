@@ -137,7 +137,7 @@ Projects
                     <h6> {{followerscount}} Followers </h6>
                               {{#each followers}}
               
-              <li style="listyle">
+              <li style="list-style:none">
      <a class="media-left" href="{{pathFor 'profile' username=followername}}">
       {{#if getUserAvatar followingname}}
                     <img src="{{getUserAvatar followingname}}" class="avatar img-rounded" alt="avatar" style="width: 70px;height: 70px">
@@ -172,7 +172,7 @@ Projects
   <h6> {{followingscount}} Followings </h6>
 
    {{#each followings}}
-<li style="listyle">
+ <li style="list-style:none">
      <a class="media-left" href="{{pathFor 'profile' username=followingname}}">
       {{#if getUserAvatar followingname}}
                     <img src="{{getUserAvatar followingname}}" class="avatar img-rounded" alt="avatar" style="width: 70px;height: 70px">
