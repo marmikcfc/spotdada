@@ -14,7 +14,32 @@
 
                         </div>
                         <div class="col-sm-6 col-md-8">
-                            <h4>{{profile.firstname}} {{profile.lastname}}</h4>
+                    
+      <ul class="nav nav-tabs events-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#sectionA">
+                        <i class="fa fa-list-ul"></i> About {{username}} 
+                    </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#sectionB">
+                        <i class="fa fa-bookmark"></i> {{username}}'s Followers
+                    </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#sectionC">
+                        <i class="fa fa-search"></i> {{username}}'s Followings
+                    </a>
+                </li>
+            </ul>
+
+
+
+
+ <div class="tab-content">
+                <div id="sectionA" class="tab-pane fade in active">
+                    <h3>About {{username}} </h3>
+                     <h4>{{profile.firstname}} {{profile.lastname}}</h4>
                             <br> <h6> @{{username}}</h6>  
                               <span class="pm-editable">{{> privateMessageCreateEditableButton}} </span>
 
@@ -62,21 +87,63 @@
                             <p>Organization<i class="fa fa-info-circle"></i> {{profile.org}}</p>
  
                             {{/if}}
-                            <!-- Split button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary">
-                                    Social</button>
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                    <span class="caret"></span><span class="sr-only">Social</span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">Google +</a></li>
-                                    <li><a href="#">Facebook</a></li>
-                                   
-                                </ul>
-                            </div>
+                </div>
+                <div id="sectionB" class="tab-pane fade">
+                    <h3>{{username}}'s Followers</h3>
+                    <h6> {{followerscount}} Followers </h6>
+<div id="fol">
+  
+
+</div>
+
+                  
+   {{#if followers}}
+      
+
+                    <h6> {{followerscount}} Followers </h6>
+                              {{#each followers}}
+                        
+                           {{username}} 
+
+                      {{/each}}    
+
+
+     
+
+      {{else}}            
+                   <h4> Fucker Follow someone!</h4>
+
+
+  {{/if}}  
+                </div>
+                <div id="sectionC" class="tab-pane fade">
+                    {{#if followings}}
+                    <h1>{{username}}'s Followings</h1>
+
+   {{#each followings}}
+
+       <!--   {{users.followings.username}} -->
+q1
+                      {{/each}}    
+
+{{else}}
+
+<h4>
+  Awwww! Nobody follows you bro! :(
+</h4>
+{{/if}}
+                </div>
+            </div>
+
+
+
+
+
+
+
                         </div>
+
+ 
                     </div>
                 </div>
             </div>

@@ -140,7 +140,7 @@ var NewProjectsController = ProjectsListController.extend({
   },
   subscriptions: function() {
     this.projectsSub = Meteor.subscribe("myProjects", this.params.username, this.findOptions());
-    return [this.projectsSub, Meteor.subscribe('oneUser', this.params.username)];
+    return [this.projectsSub, Meteor.subscribe('oneUser', this.params.username), Meteor.subscribe('followings', this.params.username), Meteor.subscribe('followers', this.params.username)];
   },
   user: function() {
     return Meteor.users.find({
@@ -149,6 +149,19 @@ var NewProjectsController = ProjectsListController.extend({
   },
   projects: function() {
     return Projects.find({});
+  },
+   followings: function() {
+  username=this.params.username;
+
+//        console.log("   "+Meteor.users.findOne({followings:username}).fetch());
+
+    return Meteor.users.findOne({followings:username});
+  },
+  followers: function() {
+      username=this.params.username;
+
+//console.log("   "+ Meteor.users.findOne({followings: this.params.username}).fetch());
+    return Meteor.users.findOne({followers:username});
   },
   nextPath: function() {
     return Router.routes.profile.path({
@@ -159,12 +172,13 @@ var NewProjectsController = ProjectsListController.extend({
   data: function() {
     var hasMore;
     hasMore = this.projects().count() === this.postsLimit();
-    console.log("user inside router "+ this.user().toString());
     return {
       projects: this.projects(),
       user: this.user(),
       ready: this.projectsSub.ready,
-      nextPath: (hasMore ? this.nextPath() : null)
+      nextPath: (hasMore ? this.nextPath() : null),
+      followers:this.followers(),
+      followings:this.followings()
     };
   }
 });
@@ -355,6 +369,10 @@ this.route('/projects/:_id/edit', {
 this.route('/post-project', {
   name: 'postRecipe'
 });
+
+
+//followings
+
 this.route('/users/:username/followings', {
   name: 'followings',
   waitOn: function() {
@@ -366,6 +384,9 @@ this.route('/users/:username/followings', {
     });
   }
 });
+
+//followers
+
 this.route('/users/:username/followers', {
   name: 'followers',
   waitOn: function() {

@@ -18,6 +18,13 @@
         <li><a href="{{pathFor 'followings' username=signedInUser}}">{{signedInUser}}'s Portfolio</a></li>
         <li><a href="{{pathFor 'fundings'}}">Fundings</a></li>
         <li><a href="{{pathFor 'resources'}}">Resources</a></li>
+
+ <li>  <a href="{{pathFor 'followers' username=currentUser.username}}" > {{currentUser.username}}'s Followers</a>
+ </li>
+
+<li>  <a href="{{pathFor 'followings' username=currentUser.username}}"> {{currentUser.username}}' Followings</a>
+ </li>
+
 <!--         <li>
             
              <div class="messages-block {{#if navTabIsActive 'privateMessagesList'}}active{{/if}}">
