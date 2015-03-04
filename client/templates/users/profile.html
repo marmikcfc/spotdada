@@ -6,12 +6,47 @@
                     <div class="row">
                         <div class="col-sm-6 col-md-4">
                           {{#if profile.avatar}}
-                            <img src="{{profile.avatar}}" class="avatar img-rounded" alt="avatar" style="max-width: 200px;max-height: 200px">
+                            <img src="{{profile.avatar}}" class="avatar img-rounded" alt="avatar" style="width: 200px;height: 200px">
                          {{else}}
                     <img src="/default.jpg" class="avatar img-circle" alt="avatar">
                 {{/if}}
 
+<table>
+  
+  <tr>
+  <td>
+    Followers
+  </td>
+    
+    <td>
+      
+      Followings
 
+    </td>
+
+    <td>
+      
+Projects
+    </td>
+
+  </tr>
+
+<tr>
+  <td> {{followerscount}}  </td>
+
+<td>  {{followingscount}} </td>
+
+{{#if projectscount }}
+<td> {{projectscount}} </td>
+
+{{else}}
+
+<td> 0 </td>
+
+{{/if}}
+</tr>
+
+</table>
                         </div>
                         <div class="col-sm-6 col-md-8">
                     
@@ -101,8 +136,20 @@
 
                     <h6> {{followerscount}} Followers </h6>
                               {{#each followers}}
-                        
-                           {{followername}} 
+              
+              <li style="listyle">
+     <a class="media-left" href="{{pathFor 'profile' username=followername}}">
+      {{#if getUserAvatar followingname}}
+                    <img src="{{getUserAvatar followingname}}" class="avatar img-rounded" alt="avatar" style="width: 70px;height: 70px">
+                {{else}}
+                  <img src="/default.jpg" class="avatar img-circle" alt="avatar" style="width: 70px;">
+                {{/if}}   <span style="margin-top: 5px;">  {{followername}} </span> 
+
+                </a>
+</li>
+
+
+                          
 
                       {{/each}}    
 
@@ -125,9 +172,16 @@
   <h6> {{followingscount}} Followings </h6>
 
    {{#each followings}}
+<li style="listyle">
+     <a class="media-left" href="{{pathFor 'profile' username=followingname}}">
+      {{#if getUserAvatar followingname}}
+                    <img src="{{getUserAvatar followingname}}" class="avatar img-rounded" alt="avatar" style="width: 70px;height: 70px">
+                {{else}}
+                  <img src="/default.jpg" class="avatar img-circle" alt="avatar" style="width: 70px;">
+                {{/if}}   <span style="margin-top: 5px;"> {{followingname}}  </span> 
 
-       {{followingname}}
-
+                </a>
+</li>
                       {{/each}}    
 
 {{else}}

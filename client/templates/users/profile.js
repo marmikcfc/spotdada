@@ -97,6 +97,18 @@ return user.count();
 
 },
 
+
+'getUserAvatar': function(uname) {
+//    console.log("INTO USER AVATAR");
+    return Meteor.users.findOne({username:uname}).profile.avatar;
+  },
+
+  projectscount: function(){
+ 
+ return Meteor.projects.find({author:username}).count();
+
+  }
+
 });
 
 
