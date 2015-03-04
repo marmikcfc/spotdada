@@ -8,12 +8,20 @@ Template.profile.rendered = function(){
 Template.profile.helpers({
  followers: function() {
  var user=Meteor.users.find({followers: username});
+ console.log(user);
 
-/* result = { "followers":[]};
+result= [];
+/*//result.push({followername:user.username});
+result.push({followername:"Raichu"});
+result.push({followername:"Pichu"});
+*/
+
+
 user.forEach(function (user) {
-result.followers.push({username:user.username})
+result.push({followername:user.username})
 });
 
+/* result = { "followers":[]};
 console.log("result");
 
 console.log(result.followers[1].username);
@@ -47,12 +55,6 @@ console.log(result);
 
 
 
-result= [];
-result.push("Pikachu");
-result.push("Raichu");
-result.push("Pichu");
-
-console.log(result[0]);
 
 return result;
 
@@ -71,11 +73,29 @@ return user.count();
 },
 followings: function() {
 var user=Meteor.users.find({followings: username}).fetch();
-//console.log(user);
 
-return user;
+result=[];
+user.forEach(function (user) {
+result.push({followingname:user.username})
+});
 
-}
+
+return result;
+
+},
+
+followingscount: function() {
+ var user=Meteor.users.find({followings: username});
+
+//console.log(typeof user);
+
+//console.log(user.count());
+
+
+
+return user.count();
+
+},
 
 });
 

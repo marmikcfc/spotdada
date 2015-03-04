@@ -90,7 +90,6 @@
                 </div>
                 <div id="sectionB" class="tab-pane fade">
                     <h3>{{username}}'s Followers</h3>
-                    <h6> {{followerscount}} Followers </h6>
 <div id="fol">
   
 
@@ -103,7 +102,7 @@
                     <h6> {{followerscount}} Followers </h6>
                               {{#each followers}}
                         
-                           {{username}} 
+                           {{followername}} 
 
                       {{/each}}    
 
@@ -118,12 +117,17 @@
                 </div>
                 <div id="sectionC" class="tab-pane fade">
                     {{#if followings}}
+
+
+
                     <h1>{{username}}'s Followings</h1>
+
+  <h6> {{followingscount}} Followings </h6>
 
    {{#each followings}}
 
-       <!--   {{users.followings.username}} -->
-q1
+       {{followingname}}
+
                       {{/each}}    
 
 {{else}}
