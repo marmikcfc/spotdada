@@ -12,7 +12,7 @@
         </button>
         {{#if currentUser}}
         <a class="navbar-brand" href="{{pathFor 'dashboard'}}">spotDada</a>
-{{>userSearch}}
+
         {{else}}
 
 <a class="navbar-brand" href="{{pathFor 'home'}}">spotDada</a>
@@ -45,12 +45,18 @@
         {{/if}}
 <ul class="nav navbar-nav navbar-right">
                         {{#if currentUser}}
-                            <li class="new-page account-page" >
+
+<li style=" margin-top : 10px;">
+  {{>userSearch}}
+
+</li>
+
+                            <li class="new-page account-page">
                                 <!-- <a>Hi, {{currentUser.username}}.</a> -->
 
                                 <a href="{{ pathFor 'postRecipe' }}" rel="Upload Projects"> <i class="glyphicon glyphicon-upload" > </i> </a>  
                             </li>
-         <li>
+         <li style=" margin-top : 5px;">
             
              <div class="messages-block {{#if navTabIsActive 'privateMessagesList'}}active{{/if}}" style="padding: 10px;">
                 <a href="{{pathFor 'privateMessagesList'}}">
@@ -64,7 +70,7 @@ color: black; ">{{#if msgnotificationCount}}
             </div>
 
         </li>
-<li class="notification" >    {{> notifications}}  </li>
+<li class="notification" style=" margin-top : 5px;" >    {{> notifications}}  </li>
                             <li class="new-page account-page"><a href="{{pathFor 'account'}}" id="btn-profile">Account</a></li>                           
                         {{/if}}
                     </ul> 

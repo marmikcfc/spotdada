@@ -13,6 +13,9 @@
 
 {{#if notYourself}}
     <br />
+
+<span class="pm-editable">{{> privateMessageCreateEditableButton}} </span>
+
     {{else}}
 
  <span class="btn btn-danger">  <a href="{{ pathFor 'postRecipe' }}" rel="Upload Projects">  Upload Project</a>   </span>
@@ -95,7 +98,7 @@ Projects
                     <h3>About {{username}} </h3>
                      <h4>{{profile.firstname}} {{profile.lastname}}</h4>
                             <br> <h6> @{{username}}</h6>  
-                              <span class="pm-editable">{{> privateMessageCreateEditableButton}} </span>
+                              
 
                            {{#if profile.usermail}}    
                             <p><i class="fa fa-envelope-o"></i> {{profile.usermail}}</p>

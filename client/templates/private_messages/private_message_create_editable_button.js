@@ -1,8 +1,8 @@
 Template.privateMessageCreateEditableButton.rendered = function () {
     "use strict";
     Session.set('pmCreateEditable', false);
-    var recipientsUsername = this.data.username, participants, privateMessageAttributes;
-
+    var recipientsUsername = username, participants, privateMessageAttributes;
+console.log(username);
     if (Meteor.user().username !== recipientsUsername) {
         $('.private-message-create-editable').editable({
             title: 'Please fill out all details',
@@ -146,8 +146,8 @@ Template.privateMessageCreateEditableButton.helpers({
     });
 
     Pm.defaults = $.extend({}, $.fn.editabletypes.abstractinput.defaults, {
-        tpl: '<div class="editable-pm"><label><span>Subject: </span><input type="text" name="subject" class="input-small"></label></div>' +
-        '<div class="editable-pm"><label><span>Message: </span><input type="text" name="message" class="input-small"></label></div>',
+        tpl: '<div class="editable-pm"><label><span>Subject: </span><input type="text" name="subject" placeholder="Subject" class="input-small"></label></div>' +
+        '<div class="editable-pm"><label><span>Message: </span><input type="text" name="message" placeholder="Message" class="input-small"></label></div>',
 
         inputclass: ''
     });

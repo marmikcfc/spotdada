@@ -180,7 +180,13 @@ var NewProjectsController = ProjectsListController.extend({
       followers:this.followers(),
       followings:this.followings()
     };
-  }
+  },
+
+ waitOn: function () {
+            "use strict";
+            return [Meteor.subscribe('userProfile', this.params.username)];
+        }
+
 });
 
 //Message Participants
