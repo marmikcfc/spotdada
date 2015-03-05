@@ -5,9 +5,19 @@ Template.newEvent.rendered = function(){
 };
 
 Template.newEvent.events({
-    'click #btn-submit-event': function(event) {
-        event.preventDefault();
+    "click .customImageUploadBtn": function(e) {
+    e.preventDefault();
+    return document.getElementById("imageInput").click();
+  },
+    'submit form': function(event) {
+
+       event.preventDefault();
         event.stopPropagation();
+        projectImage = $(event.target).find("[name=imageInput]")[0].files[0];
+        
+        reader = new FileReader();
+     reader.onload = function(e) {
+
         var eventData = {
             name: $('#event-name').val(),
             description: $('#event-description').val(),
@@ -18,21 +28,48 @@ Template.newEvent.events({
             ownerName: Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname,
             ownerId: Meteor.userId(),
             cost: $('#event-cost').val(),
-            imageSrc: $('#event-imageSrc').val(),
             attendees: [],
-            tags: tags
+            tags: tags,
+            src: e.target.result
         };
-        console.log(eventData); // TODO for debugging. Need to be removed later
-        Events.insert(eventData, function(err, doc){
-            if (err) {
-                console.log(err);
-            }
-            else {
-                Router.go('/');
-            }
-        });
-        $('#add-event-modal').modal('hide');
-    },
+     //   console.log(eventData); // TODO for debugging. Need to be removed later
+       return Events.insert(eventData, function(err, doc) {
+        if (err) {
+          return console.log(err);
+        } else {
+          return Router.go("/fundings");
+        }
+      });
+    };
+    if (projectImage) {
+      reader.readAsDataURL(projectImage);
+    } else {
+
+ var eventData = {
+            name: $('#event-name').val(),
+            description: $('#event-description').val(),
+            startTime: new Date($('#event-start-time').val()),
+            endTime: new Date($('#event-end-time').val()),
+            location: $('#event-location').val(),
+            createdAt: new Date(),
+            ownerName: Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname,
+            ownerId: Meteor.userId(),
+            cost: $('#event-cost').val(),
+            attendees: [],
+            tags: tags,
+            src: ""
+        };
+
+         return Events.insert(eventData, function(err, doc) {
+        if (err) {
+          return console.log(err);
+        } else {
+          return Router.go("/fundings");
+        }
+      });
+
+    }
+},
     'click #btn-add-tag': function(event){
         var tag = $("#tagInput").val().trim();
         if (!isDuplicated(tag, tags)) tags.push(tag);

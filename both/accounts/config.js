@@ -1,6 +1,9 @@
 AccountsTemplates.configureRoute('signIn', {layoutTemplate: 'appLayout'});
 AccountsTemplates.configureRoute('signUp', {layoutTemplate: 'appLayout'});
 AccountsTemplates.configureRoute('ensureSignedIn', {layoutTemplate: 'appLayout'});
+AccountsTemplates.configureRoute('forgotPwd');
+AccountsTemplates.configureRoute('resetPwd');
+AccountsTemplates.configureRoute('verifyEmail');
 
 AccountsTemplates.removeField('email');
 AccountsTemplates.addFields([
@@ -20,3 +23,32 @@ AccountsTemplates.addFields([
       errStr: 'Invalid email',
   }
 ]);
+
+
+AccountsTemplates.configure({
+    // Behaviour
+    confirmPassword: true,
+    enablePasswordChange: true,
+    overrideLoginErrors: true,
+    sendVerificationEmail: true,
+
+    // Appearance
+    showAddRemoveServices: false,
+    showForgotPasswordLink: true,
+    showLabels: true,
+    showPlaceholders: true,
+
+
+    // Redirects
+    homeRoutePath: '/',
+    redirectTimeout: 4000,
+
+
+    // Texts
+    texts: {
+     
+      title: {
+          forgotPwd: "Recover Your Passwod"
+      },
+    },
+});

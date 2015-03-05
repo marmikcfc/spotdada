@@ -30,68 +30,14 @@
             <div class="tab-content">
                 <div id="sectionA" class="tab-pane fade in active">
                     <h3>Pre Production</h3>
-                   <!--  <div class="events-table">
-                        <table class="table table-striped table-responsive">
-                            <caption>Showing preproduction projects in need of funding</caption>
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Genre</th>
-                                <th>Writers</th>
-                                <th>Director</th>
-                                <th>Synopsis</th>
-                                <th>Statement</th>
-                                <th>Current Budget</th>
-                                <th>Required Budget</th>
-                                <th>Language</th>
-                                <th>Posted By</th>
-                                <th>Contact No</th>
-                                <th>Email</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {{#each displayprefund}}
-                                <tr >
-                                    <td class="col-md-1">
-                                         <a href="/prefund/{{_id}}"> {{name}} </a> 
-                                        
-                                    </td>
-                                    <td class="col-md-1">{{gen}}</td>
-                                    <td class="col-md-1">{{write}}</td>
-                                    <td class="col-md-1">{{dir}}</td>
-                                    <td class="col-md-5">
-                                        <div style="max-height: 100px; overflow-y: scroll">
-                                            {{syn}}
-                                        </div>
-                                    </td>
+ 
 
-                                    <td class="col-md-5">
-                                        <div style="max-height: 100px; overflow-y: scroll">
-                                            {{dirst}}
-                                        </div>
-                                    </td>
+<div class="wrap">
 
-                                    <td class="col-md-1">{{cbud}}</td>
-                                    <td class="col-md-1">{{rbud}}</td>
-                                    <td class="col-md-1">{{lang}}</td>
-                                   <td class="col-md-2">{{ownerName}}</td>
-                                    <td class="col-md-2">{{email}}</td>
-                                    <td class="col-md-2">{{contact}}</td>
-                                </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div> -->
-
-<div class="projects row project-grid2" style="margin-top: 81px;
-position: relative;
-max-width: 100%;
-width: 100%;">
-
-
+<div id="columnss">
     {{#each displayprefund}}
       
-<div class="white-panel" style=" padding: 10px;
+<div class="pin" style=" padding: 10px;
 box-shadow: -2px 2px 10px #DEDEDE; ">
 <a href="/prefund/{{_id}}">
         <div class="each-project">
@@ -109,6 +55,7 @@ box-shadow: -2px 2px 10px #DEDEDE; ">
 <br />
 <br />
 
+
 <br />
 </div>
 
@@ -125,91 +72,24 @@ box-shadow: -2px 2px 10px #DEDEDE; ">
       </div>
     {{/each}}
   </div>
-
+</div>
 
                 </div>
                 <div id="sectionB" class="tab-pane fade">
                     <h3>Post Production</h3>
-<!--                     <div class="events-table">
-                        <table class="table table-striped table-responsive">
-                            <caption>Showing postproduction projects in need of funding</caption>
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Genre</th>
-                                <th>Writers</th>
-                                <th>Director</th>
-                                <th>Synopsis</th>
-                                <th>Statement</th>
-                                <th>Current Budget</th>
-                                <th>Required Budget</th>
-                                <th>Language</th>
-                                <th>Cast</th>
-                                <th>Banner</th>
-                                <th>Producer</th>
-                                <th>Music Director</th>
-                                <th>Censor</th>
-                                <th>Posted By</th>
-                                <th>Contact No</th>
-                                <th>Email</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {{#each displaypostfund}}
-                                <tr >
-                                    <td class="col-md-1">
-                                   <a href="/postfund/{{_id}}"> {{name}} </a> 
-                                        
-                                    </td>
-                                    <td class="col-md-1">{{gen}}</td>
-                                    <td class="col-md-1">{{write}}</td>
-                                    <td class="col-md-1">{{dir}}</td>
-                                    <td class="col-md-5">
-                                        <div style="max-height: 100px; overflow-y: scroll">
-                                            {{syn}}
-                                        </div>
-                                    </td>
-
-                                    <td class="col-md-5">
-                                        <div style="max-height: 100px; overflow-y: scroll">
-                                            {{dirst}}
-                                        </div>
-                                    </td>
-
-                                    <td class="col-md-1">{{cbud}}</td>
-                                    <td class="col-md-1">{{rbud}}</td>
-                                    <td class="col-md-1">{{lang}}</td>
-                                   <td class="col-md-2">{{ownerName}}</td>
-                                    <td class="col-md-2">{{email}}</td>
-
-                                <td class="col-md-1">{{cast}}</td>
-                                    <td class="col-md-1">{{banner}}</td>
-                                   <td class="col-md-2">{{producer}}</td>
-                                    <td class="col-md-2">{{md}}</td>
-                                    <td class="col-md-2">{{censor}}</td>
-
-                                    <td class="col-md-2">{{contact}}</td>
-
-                                </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div> -->
 
 
-<div class="projects row project-grid1" style="margin-top: 81px;
-position: relative;
-max-width: 100%;
-width: 100%;
-">
 
+<section class="wrap" style="">
+
+<div id="columnss">
 
     {{#each displaypostfund}}
       
-<div class="white-panel" style=" padding: 10px;
+<article class="pin" style=" padding: 10px;
 box-shadow: -2px 2px 10px #DEDEDE;">
 <a href="/postfund/{{_id}}">
-        <div class="each-project">
+      
 
         {{#if src}}
 <!-- <img src="{{src}}" style=" height:25%; width:25% " /> -->
@@ -232,16 +112,22 @@ box-shadow: -2px 2px 10px #DEDEDE;">
 <br />
 <br />
 
+<div>
           <p><a href="/postfund/{{_id}}"><strong>{{name}}</strong></a></p>
           <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{ownerName}}</a></p>
           <p> <i class="glyphicon glyphicon-pencil" > </i> {{write}}</p>
           <p> <i class="glyphicon glyphicon-facetime-video" > </i>   {{dir}}</p>
-        </div>
+        
+</div>
+
+
 
   </a>
-      </div>
+      </article>
     {{/each}}
-  </div>
+</div>
+
+  </section>
 
 
                 </div>
@@ -252,21 +138,24 @@ box-shadow: -2px 2px 10px #DEDEDE;">
 <script>
         $(document).ready(function() {
 
-            $('.project-grid1').pinterest_grid({
+            $('.pro').pinterest_grid({
                 no_columns: 4,
                 padding_x: 10,
                 padding_y: 10,
                 margin_bottom: 50,
                 single_column_breakpoint: 700
             });
-   $('.project-grid2').pinterest_grid({
-                no_columns: 4,
+
+   $('.proj').pinterest_grid1({
+                no_columns: 3,
                 padding_x: 10,
                 padding_y: 10,
                 margin_bottom: 50,
                 single_column_breakpoint: 700
             });
-        });
+
+              });
+ 
     </script>
 
 

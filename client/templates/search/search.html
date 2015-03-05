@@ -12,15 +12,35 @@
 </template>
 
 <template name="searchResult">
-  <div class="projects row">
+
+  <div class="wrap">
+
+<div id="columnss">
     {{#each searchResult}}
-      <div class="col-sm-4 col-md-3 project-grid">
+      <div class="pin" style=" padding: 10px; box-shadow: -2px 2px 10px #DEDEDE; ">
         <div class="each-project">
 
-        {{#if hasImage}}
-<img src="{{src}}" height="100px" width="100px" />
+   {{#if hasImage}}
+
+<div style=" background: url({{src}}); margin: -4%; ">
+
+<br />
+
+<br />
+
+<br />
+<br />
+<br />
+<br />
+
+
+<br />
+</div>
 
         {{/if}}
+
+<br />
+<br />
           <p><a href="{{pathFor 'projectPage'}}"><strong>{{title}}</strong></a></p>
           <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{author}}</a></p>
           <p>{{pluralize commentsCount "comment"}}</p>
@@ -29,5 +49,6 @@
         <a href="#" class="upvote btn {{upvotedClass}}">{{#if canVote}}&#11014;{{else}}&#11015;{{/if}}</a>
       </div>
     {{/each}}
+  </div>
   </div>
 </template>

@@ -52,15 +52,20 @@
                 {{/each}}
             </div>
             <div class="col-md-12 event-description well container">
+
+            {{#if src}}
                 <div class="event-description-image">
-                    <img class="img-responsive img-thumbnail" src="{{imageSrc}}" alt=""/>
+                    <img class="img-responsive img-thumbnail" src="{{src}}" alt=""/>
                 </div>
+
+                {{/if}}
                 <p>{{description}}</p>
             </div>
         </div>
         <div class="col-md-2">
             <p>LIST OF ATTENDEES <span class="badge">{{attendeesLength}}</span></p>
-            <ul class="list-group">
+        
+           <!--  <ul class="list-group">
                 {{#each attendeesList}}
                     <li class="list-group-item">
                         <a href="/users/{{_id}}">
@@ -68,7 +73,8 @@
                         </a>
                     </li>
                 {{/each}}
-            </ul>
+            </ul> -->
+        
         </div>
     </div>
     <div class="container col-md-8 col-md-offset-2 event-comments">

@@ -1,0 +1,67 @@
+<template name="postpro">
+
+      <h3>Post Production</h3>
+
+
+
+<section class="projeee" style="margin-top: 81px;
+position: relative;
+max-width: 100%;
+width: 100%;
+">
+
+
+    {{#each displaypostfund}}
+      
+<article class="white-panel" style=" padding: 10px;
+box-shadow: -2px 2px 10px #DEDEDE;">
+<a href="/postfund/{{_id}}">
+        <div class="each-project">
+
+        {{#if src}}
+<!-- <img src="{{src}}" style=" height:25%; width:25% " /> -->
+
+<div style=" background: url({{src}}); margin: -4%; ">
+
+<br />
+
+<br />
+
+<br />
+<br />
+<br />
+<br />
+
+<br />
+</div>
+
+        {{/if}}
+<br />
+<br />
+
+          <p><a href="/postfund/{{_id}}"><strong>{{name}}</strong></a></p>
+          <p>by<a href="{{pathFor 'profile' username=this.author}}"> {{ownerName}}</a></p>
+          <p> <i class="glyphicon glyphicon-pencil" > </i> {{write}}</p>
+          <p> <i class="glyphicon glyphicon-facetime-video" > </i>   {{dir}}</p>
+        </div>
+
+  </a>
+      </article>
+    {{/each}}
+  </section>
+
+<script>
+        $(document).ready(function() {
+
+   $('.projeee').pinterest_grid({
+                no_columns: 4,
+                padding_x: 10,
+                padding_y: 10,
+                margin_bottom: 50,
+                single_column_breakpoint: 700
+            });
+
+              });
+ 
+    </script>
+  </template>
