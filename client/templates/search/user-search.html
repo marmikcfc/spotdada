@@ -1,0 +1,29 @@
+ <template name="userSearch">
+    <div id="memberSearch" class="form-search search-only">
+        <i class="search-icon fa fa-search"></i>
+        {{> esInput id="userSearch" index="users" classes="form-control search-query" }}
+<ul>
+{{#ifEsIsSearching id="userSearch" index="users"}}
+        <div class="alert alert-info alert-dismissable">
+            Loading…
+        </div>
+    {{else}}
+        {{#unless totalResultSetEmpty}}
+                {{#esEach id="userSearch" index="users"}}
+                <div id="member-multiple-select">
+                    <a href="/users/{{username}}"> {{username}} </a>
+                     
+                </div>
+                {{/esEach}}
+        {{/unless}}
+    {{/ifEsIsSearching}}
+
+    {{#ifEsHasNoResults id="userSearch" index="users"}}
+        <div class="alert alert-danger alert-dismissable">
+            No results found!
+        </div>
+    {{/ifEsHasNoResults}}
+    </ul>
+
+    </div>
+</template> 

@@ -236,7 +236,20 @@ this.route('/postProd', {
   name: 'postProd'
 });
 
+this.route('/about', {
+  name: 'about',
+  layoutTemplate: "homeLayout"
+});
 
+this.route('/contact', {
+  name: 'contact',
+   layoutTemplate: "homeLayout"
+});
+
+this.route('/blog', {
+  name: 'blog',
+   layoutTemplate: "homeLayout"
+});
 this.route('preFund', {
         path: '/prefund/:prefundId',
         data: function(){

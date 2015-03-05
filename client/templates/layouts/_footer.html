@@ -1,9 +1,30 @@
 <template name="_footer">
   <footer>
     <div class="container">
-      <p class="text-center text-muted">
-        &copy; Copyright Project Title
-      </p>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    
+                    <a href="{{pathFor 'about'}}">About</a> |
+                    <a href="{{pathFor 'contact'}}">Contact</a> | 
+                    <a href="{{pathFor 'blog'}}">Blog</a> <br> <br>
+                    <!-- <a href="{{pathFor 'about'}}" class="btn btn-success"><i class="fa fa-dashboard"></i>About Us</a> -->
+                    Copyright © 2014 spotdada.com. All rights reserved.
+                </div>
+                
+                    <div class="col-md-3 widget">
+                        <h5 class="widget-title">Follow me</h5>
+                        <div class="widget-body">
+                            <p class="follow-me-icons">
+                                <a href=""><i class="fa fa-twitter fa-2"></i></a>
+                                <a href=""><i class="fa fa-dribbble fa-2"></i></a>
+                                <a href=""><i class="fa fa-facebook fa-2"></i></a>
+                            </p>
+                        </div>
+                    </div>
+            </div>
+
+
     </div>
   </footer>
 </template>

@@ -13,7 +13,6 @@ Template.searchResult.helpers
           {tags: query}
           
         ]
-
       )
       result
     else 

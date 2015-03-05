@@ -32,7 +32,7 @@
                         {{#each recipients}}
                             <tr>
                                 <td>{{index}}</td>
-                                <td><a href="{{pathFor 'profile' username=this.author}}" target="_blank">{{username}}</a></td>
+                                <td><a href="{{pathFor 'profile' username=this.username}}" target="_blank">{{username}}</a></td>
                                 <td>
                                     <button class="fa fa-remove remove-recipient" name="{{_id}}"></button>
                                 </td>

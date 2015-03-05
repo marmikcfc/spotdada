@@ -26,7 +26,7 @@ Template.newEvent.events({
             location: $('#event-location').val(),
             createdAt: new Date(),
             ownerName: Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname,
-            ownerId: Meteor.userId(),
+            ownerUname: Meteor.user().username,
             cost: $('#event-cost').val(),
             attendees: [],
             tags: tags,
