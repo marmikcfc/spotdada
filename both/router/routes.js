@@ -252,10 +252,7 @@ this.route('/contact', {
    layoutTemplate: "homeLayout"
 });
 
-this.route('/blog', {
-  name: 'blog',
-   layoutTemplate: "homeLayout"
-});
+
 this.route('preFund', {
         path: '/prefund/:prefundId',
         data: function(){
