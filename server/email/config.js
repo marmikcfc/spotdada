@@ -34,7 +34,7 @@ Accounts.emailTemplates.resetPassword.text = function (user, url) {
     //if (president)
     //    president = Meteor.users.findOne(president.presidentId);
     //    signature = president.profile.displayName + ", the MySite President.";
-    return "Dear " + user.profile.firstname +user.profile.lastname+ ",\n\n" +
+    return "Dear " + user.username+ ",\n\n" +
         "Click the following link to set your new password:\n" +
         url + "\n\n" +
         "Please never forget it again!!!\n\n\n" +
@@ -47,8 +47,8 @@ Accounts.emailTemplates.verifyEmail.text = function (user, url) {
     //var president = President.findOne();
     //if (president)
     //    president = Meteor.users.findOne(president.presidentId);
-    //    signature = president.profile.displayName + ", the MySite President.";
-    return "Dear " + user.profile.firstname + user.profile.lastname+ ",\n\n" +
+        signature = "Marmik PAndya" + ", the spotDada CTO";
+    return "Dear " + user.username+ ",\n\n" +
         "Click the following link to set your new password:\n" +
         url + "\n\n" +
         "Please never forget it again!!!\n\n\n" +

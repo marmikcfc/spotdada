@@ -1,7 +1,7 @@
-Meteor.publish "posts",(userId) ->
+Meteor.publish "postss",(userId) ->
   check userId, String
   check userId, Match.Any
-  Posts.find({})
+  Postss.find({})
 
 
 # Meteor.publish "likes",() ->

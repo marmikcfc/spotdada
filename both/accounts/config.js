@@ -30,10 +30,9 @@ AccountsTemplates.configure({
     confirmPassword: true,
     enablePasswordChange: true,
     overrideLoginErrors: true,
-    sendVerificationEmail: true,
+    sendVerificationEmail: false,
 
     // Appearance
-    showAddRemoveServices: false,
     showForgotPasswordLink: true,
     showLabels: true,
     showPlaceholders: true,

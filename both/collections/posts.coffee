@@ -1,4 +1,4 @@
-@Posts = new Meteor.Collection 'posts'
+@Postss = new Meteor.Collection 'postss'
 
 Meteor.methods
   'addPost': (postAttributes) ->
@@ -16,11 +16,11 @@ Meteor.methods
       date: new Date()
     }
     
-    postId = Posts.insert post
+    postId = Postss.insert post
     
     {_id: postId}
   
   'removePost': (id) ->
     check Meteor.userId(), String
     check id, String
-    Posts.remove {_id:id,userId:Meteor.userId()}
+    Postss.remove {_id:id,userId:Meteor.userId()}
