@@ -1,7 +1,4 @@
-Router.route('/', {
-  name: 'home',
-  layoutTemplate: "homeLayout"
-});
+
 
 /*Router.route('/dashboard');
 
@@ -218,6 +215,12 @@ Router.map(function() {
 
 
 */
+
+  this.route('/', {
+  name: 'home',
+  layoutTemplate: "homeLayout"
+});
+  
 this.route('/dashboard', {
   name: 'dashboard'
 });
@@ -335,8 +338,8 @@ this.route('newEvent', {
         controller: 'ProfileController',
         
     });
-    this.route('notifications', {
-        path: '/notifications',
+    this.route('notificationss', {
+        path: '/notificationss',
         onBeforeAction: function(){
             if (!Meteor.userId()){
                 Session.set('login-required-msg', 'Please log in before viewing your notifications.');

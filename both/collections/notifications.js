@@ -1,6 +1,6 @@
-Notifications = new Meteor.Collection('notifications');
+Notificationss = new Meteor.Collection('notificationss');
 
-Notifications.allow({
+Notificationss.allow({
   update: function(userId, doc, fieldNames) {
     return ownsRecipe(userId, doc) && fieldNames.length === 1 && fieldNames[0] === 'read';
   }
@@ -9,7 +9,7 @@ this.createCommentNotification = function(comment) {
   var project;
   project = Projects.findOne(comment.projectId);
   if (comment.userId !== project.userId) {
-    return Notifications.insert({
+    return Notificationss.insert({
       userId: project.userId,
       projectId: project._id,
       commentId: comment._id,

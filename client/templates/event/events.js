@@ -85,7 +85,7 @@ Template.events.events({
                     link: "/events/" + updatedEvent._id,
                     isChecked: false
                 };
-                Notifications.insert(notificationData, function(err, doc){
+                Notificationss.insert(notificationData, function(err, doc){
                     if (err) console.log(err);
                     else {
                         // done inserting notification

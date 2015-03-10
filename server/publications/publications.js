@@ -1,5 +1,5 @@
-Meteor.publish('notifications', function() {
- return Notifications.find({
+Meteor.publish('notificationss', function() {
+ return Notificationss.find({
     userId: this.userId,
     read: false
   });

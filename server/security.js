@@ -46,7 +46,7 @@ postFund.allow({
     }
 });
 
-Notifications.allow({
+Notificationss.allow({
     insert: function (userId, doc) {
         return userId;
     },

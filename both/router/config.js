@@ -15,7 +15,7 @@ Router.configure({
                 Meteor.user().msgnotifications), 
                 Meteor.subscribe('privateMessages', Meteor.userId()), 
                 Meteor.subscribe('allParticipantsAvatarsInvolved', Meteor.userId()),
-                Meteor.subscribe('notifications'),
+                Meteor.subscribe('notificationss'),
                 Meteor.subscribe('usernames')
                 ];
             }

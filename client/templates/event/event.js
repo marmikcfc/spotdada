@@ -1,5 +1,5 @@
 Meteor.subscribe('users-basic-info');
-Meteor.subscribe('Notifications');
+Meteor.subscribe('Notificationss');
 Template.event.rendered = function(){
     $('ul li.active').removeClass('active');
 };
@@ -84,7 +84,7 @@ Template.event.events({
                     link: "/events/" + updatedEvent._id,
                     isChecked: false
                 };
-                Notifications.insert(notificationData, function(err, doc){
+                Notificationss.insert(notificationData, function(err, doc){
                     if (err) console.log(err);
                     else {
                         // done inserting notification
@@ -148,7 +148,7 @@ var username = Meteor.user().username
       });
 */
 
-Notifications.insert({
+Notificationss.insert({
       userId: Meteor.userId(),
       projectId: updatedEvent._id,
       commentId:'',

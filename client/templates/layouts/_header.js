@@ -1,4 +1,4 @@
-Meteor.subscribe('notifications', Meteor.userId());
+Meteor.subscribe('notificationss', Meteor.userId());
 
 Template._header.events({
     'click ul li.new-page': function(event){

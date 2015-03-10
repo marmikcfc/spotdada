@@ -47,7 +47,6 @@ mrt:reactive-publish
 matteodem:easy-search
 reactive-var
 natestrauser:x-editable-bootstrap
-ryw:blog
 
 
 
@@ -57,3 +56,4 @@ ryw:blog
 
 npm-container
 service-configuration
+ryw:blog

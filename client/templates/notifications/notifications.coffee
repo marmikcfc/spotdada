@@ -1,11 +1,11 @@
-Template.notifications.helpers
+Template.notificationss.helpers
   notifications: ->
-    Notifications.find
+    Notificationss.find
       userId: Meteor.userId()
       read: false
 
   notificationCount: ->
-    Notifications.find(
+    Notificationss.find(
       userId: Meteor.userId()
       read: false
     ).count()

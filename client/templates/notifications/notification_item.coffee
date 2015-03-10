@@ -5,6 +5,6 @@ Template.notificationItem.helpers
 
 Template.notificationItem.events
   'click a': ->
-    Notifications.update @_id, 
+    Notificationss.update @_id, 
       $set:
         read: true
