@@ -1,3 +1,8 @@
+
+var userid = Meteor.userId();
+var tags = []; // for temporary store the tags assigned to an event
+var user=Meteor.users.findOne({_id: userid});
+tags=user.profile.tags;
 Template.account.events({
     'submit form': function(event){
         var el = $(event.currentTarget)[0];
@@ -18,6 +23,7 @@ Template.account.events({
                 "uservs": $("#vstat").val(),
                 "userfund": $("#fund").val(),
                 "userfwa": $("#fwa").val(),
+                 "tags": tags,
                 "org": $("#user-org").val()
 
             }
@@ -54,6 +60,33 @@ Template.account.events({
             Meteor.call('avatar-upload', userId, file, reader.result);
         };
         reader.readAsDataURL(file);
+    },
+      'click #btn-add-tag': function(event){
+        var tag = $("#tagInput").val().trim();
+        if (!isDuplicated(tag, tags)) tags.push(tag);
+        $("#tagInput").val('');
+        // re-render
+        var tagsMarkup = getTagsMarkup(tags);
+        $(".tags-list").html(tagsMarkup);
+    },
+    'keydown #tagInput': function(event){
+        if (event.keyCode == 13){
+            var tag = $("#tagInput").val().trim();
+            if (!isDuplicated(tag, tags)) tags.push(tag);
+            $("#tagInput").val('');
+            // re-render
+            var tagsMarkup = getTagsMarkup(tags);
+            $(".tags-list").html(tagsMarkup);
+        }
+      console.log(username);
+    },
+    'click .dismiss-tag': function(event){
+        var element = $(event.currentTarget);
+        var tagContent = element.parent().text();
+        tags.splice(tags.indexOf(tagContent), 1);
+        // re-render
+        var tagsMarkup = getTagsMarkup(tags);
+        $(".tags-list").html(tagsMarkup);
     }
 });
 
@@ -66,5 +99,25 @@ Template.account.rendered = function(){
     });
     $('#user-birthday').datepicker();
 };
+
+
+//helpers for adding tags
+function getTagsMarkup(data){
+    var tagDismissButtonMarkup = '<i class="fa fa-times dismiss-tag"></i>';
+    var res = '';
+    data.forEach(function(element){
+        var temp = '<span class="tag">';
+        temp = temp + element + tagDismissButtonMarkup;
+        temp += '</span>';
+        res += temp;
+    });
+    return res;
+}
+
+function isDuplicated(tag, tags){
+    var index = tags.indexOf(tag);
+    return (index !== -1);
+}
+
 
 

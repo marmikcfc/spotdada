@@ -59,43 +59,43 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">City</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="user-city" placeholder="City" required="true" value="{{currentUser.city}}">
+                            <input type="text" class="form-control" id="user-city" placeholder="City" required="true" value="{{currentUser.profile.city}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Languages</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="language" placeholder="Languages spoken"  value="{{currentUser.lang}}">
+                            <input type="text" class="form-control" id="language" placeholder="Languages spoken"  value="{{currentUser.profile.lang}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Contact Number</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="cnnumber" placeholder="Phone number" value="{{currentUser.usernumber}}">
+                            <input type="text" class="form-control" id="cnnumber" placeholder="Phone number" value="{{currentUser.profile.usernumber}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Email ID</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="email" placeholder="Email ID" value="{{currentUser.usermail}}">
+                            <input type="text" class="form-control" id="email" placeholder="Email ID" value="{{currentUser.profile.usermail}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Vital Stats</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="vstat" placeholder="Actors can mention their vital stats" value="{{currentUser.uservs}}">
+                            <input type="text" class="form-control" id="vstat" placeholder="Actors can mention their vital stats" value="{{currentUser.profile.uservs}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Are you interested in funding projects?</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="fund" placeholder="For Producers" value="{{currentUser.userfund}}">
+                            <input type="text" class="form-control" id="fund" placeholder="For Producers" value="{{currentUser.profile.userfund}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">FWA membership number</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="fwa" placeholder="For Writer's" value="{{currentUser.userfwa}}">
+                            <input type="text" class="form-control" id="fwa" placeholder="For Writer's" value="{{currentUser.profile.userfwa}}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -114,6 +114,32 @@
                             </select>
                         </div>
                     </div>
+                  
+                        <div class="form-group">
+                <label for="event-tags">Occupation</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="tagInput" placeholder="Eg Actor, Dancer, Pokemon Catcher,">
+                                <span class="input-group-btn">
+                                    <button id="btn-add-tag" class="btn btn-primary" type="button">
+                                        Add
+                                    </button>
+                                </span>
+                </div>
+              
+                          
+                   <div class="tags-list col-md-12">
+                Tags:
+                {{#each currentUser.profile.tags}}
+                    <span class="tag">
+                         <i class="fa fa-times dismiss-tag"></i>  <span class="tag">   {{this}}  </span>
+                    </span>
+                {{/each}}
+            </div>
+                          
+                          
+            </div>
+                     
+                  
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="user-bio">Biography</label>
                         <div class="col-lg-8">

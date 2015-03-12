@@ -46,17 +46,17 @@
 <ul class="nav navbar-nav navbar-right">
                         {{#if currentUser}}
 
-<li style=" margin-top : 10px;">
+<li style=" margin-top : 15px;">
   {{>userSearch}}
 
 </li>
-
-                            <li class="new-page account-page">
+  <li></li>
+                            <li class="new-page account-page" style="margin-top : 5px;">
                                 <!-- <a>Hi, {{currentUser.username}}.</a> -->
 
-                                <a href="{{ pathFor 'postRecipe' }}" rel="Upload Projects"> <i class="glyphicon glyphicon-upload" > </i> </a>  
+                                <a href="{{ pathFor 'postRecipe' }}" rel="Upload Projects" > <i class="glyphicon glyphicon-open"> </i>UPLOAD </a>   
                             </li>
-         <li style=" margin-top : 5px;">
+         <li style=" margin-top : 10px;">
             
              <div class="messages-block {{#if navTabIsActive 'privateMessagesList'}}active{{/if}}" style="padding: 10px;">
                 <a href="{{pathFor 'privateMessagesList'}}">
@@ -70,8 +70,8 @@ color: black; ">{{#if msgnotificationCount}}
             </div>
 
         </li>
-<li class="notification" style=" margin-top : 5px;" >    {{> notificationss}}  </li>
-                            <li class="new-page account-page"><a href="{{pathFor 'account'}}" id="btn-profile">Account</a></li>                           
+<li class="notification" style=" margin-top : -1px;" >    {{> notificationss}}  </li>
+                            <li class="new-page account-page" style=" margin-top : 5px;"><a href="{{pathFor 'account'}}" id="btn-profile"><i class="glyphicon glyphicon-user"> </i></a></li>    <li></li>                       
                         {{/if}}
                     </ul> 
 
