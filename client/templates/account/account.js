@@ -1,8 +1,5 @@
-
-var userid = Meteor.userId();
 var tags = []; // for temporary store the tags assigned to an event
-var user=Meteor.users.findOne({_id: userid});
-tags=user.profile.tags;
+
 Template.account.events({
     'submit form': function(event){
         var el = $(event.currentTarget)[0];
@@ -23,7 +20,6 @@ Template.account.events({
                 "uservs": $("#vstat").val(),
                 "userfund": $("#fund").val(),
                 "userfwa": $("#fwa").val(),
-                 "tags": tags,
                 "org": $("#user-org").val()
 
             }
@@ -62,17 +58,65 @@ Template.account.events({
         reader.readAsDataURL(file);
     },
       'click #btn-add-tag': function(event){
+        
+//Retrive Tags        
+        var uid = Meteor.userId();
+        var user=Meteor.users.findOne({_id: uid});
+        tags=user.profile.tags;
         var tag = $("#tagInput").val().trim();
         if (!isDuplicated(tag, tags)) tags.push(tag);
         $("#tagInput").val('');
+
+        //Add into Database
+              Meteor.users.update({_id: uid},
+            {
+                $set: {
+                  
+                  "profile.tags": tags
+                  
+                }
+            },
+            function(error, doc){
+            if (error){
+                alert(error);
+            }
+            else {
+                console.log(Meteor.user());
+            }
+        });
+        
         // re-render
         var tagsMarkup = getTagsMarkup(tags);
         $(".tags-list").html(tagsMarkup);
     },
     'keydown #tagInput': function(event){
         if (event.keyCode == 13){
+            
+          //Retrive Tags
+            var uid = Meteor.userId();
+            var user=Meteor.users.findOne({_id: uid});
+            tags=user.profile.tags;
             var tag = $("#tagInput").val().trim();
             if (!isDuplicated(tag, tags)) tags.push(tag);
+                
+          //Add into Database
+              Meteor.users.update({_id: uid},
+            {
+                $set: {
+                  
+                  "profile.tags": tags
+                  
+                }
+            },
+            function(error, doc){
+            if (error){
+                alert(error);
+            }
+            else {
+                console.log(Meteor.user());
+            }
+        });
+ 
             $("#tagInput").val('');
             // re-render
             var tagsMarkup = getTagsMarkup(tags);
@@ -81,9 +125,35 @@ Template.account.events({
       console.log(username);
     },
     'click .dismiss-tag': function(event){
+
+//Retrive Tags        
+        var uid = Meteor.userId();
+        var user=Meteor.users.findOne({_id: uid});
+        tags=user.profile.tags;            
         var element = $(event.currentTarget);
         var tagContent = element.parent().text();
         tags.splice(tags.indexOf(tagContent), 1);
+      
+             //Add into Database
+              Meteor.users.update({_id: uid},
+            {
+                $set: {
+                  
+                  "profile.tags": tags
+                  
+                }
+            },
+            function(error, doc){
+            if (error){
+                alert(error);
+            }
+            else {
+                console.log(Meteor.user());
+            }
+        });
+ 
+      
+      
         // re-render
         var tagsMarkup = getTagsMarkup(tags);
         $(".tags-list").html(tagsMarkup);
@@ -118,6 +188,15 @@ function isDuplicated(tag, tags){
     var index = tags.indexOf(tag);
     return (index !== -1);
 }
+
+function getTags(userid){
+
+
+//var user=Meteor.users.findOne({_id: userid});
+//tags=user.profile.tags;
+//  return tags;
+}
+
 
 
 

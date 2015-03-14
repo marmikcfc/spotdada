@@ -125,7 +125,16 @@ Projects
                              {{#if profile.usernumber}}
                             <p>Ph Number<i class="fa fa-info-circle"></i> {{profile.usernumber}}</p>
                             {{/if}}
-
+                       {{#if profile.tags}}
+                   <div class="tags-list col-md-12">
+               Occupation:
+                {{#each profile.tags}}
+                    <span class="tag">
+                         <span class="tag">   {{this}}  </span>
+                    </span>
+                {{/each}}
+            </div>
+          {{/if}}
                              {{#if profile.uservs}}
                             <p>Vital Stats<i class="fa fa-info-circle"></i> {{profile.uservs}}</p>
                             {{/if}}
