@@ -1,3 +1,12 @@
+/*Meteor.publish("postss", function(userId) {
+  check(userId, String);
+  check(userId, Match.Any);
+  return Postss.find({}, {
+    limit: limit
+  });
+}); */
+
+
 Meteor.publish('notificationss', function() {
  return Notificationss.find({
     userId: this.userId,

@@ -76,6 +76,8 @@ meteor-platform@1.2.1
 meteorhacks:async@1.0.0
 meteorhacks:fast-render@2.3.1
 meteorhacks:inject-data@1.2.2
+meteorhacks:kadira@2.11.11
+meteorhacks:kadira-binary-deps@1.2.0
 meteorhacks:npm@1.2.2
 meteorhacks:picker@1.0.1
 meteorhacks:search-source@1.2.0
@@ -102,6 +104,7 @@ npm-bcrypt@0.7.7
 npm-container@1.0.0
 observe-sequence@1.0.4
 ordered-dict@1.0.2
+percolate:paginated-subscription@0.2.4
 raix:eventemitter@0.1.1
 rajit:bootstrap3-datepicker@1.4.1
 random@1.0.2

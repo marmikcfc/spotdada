@@ -1,9 +1,16 @@
+#Meteor.publish "postss", (userId, limit) ->
+#  check userId, String
+#  check userId, Match.Any
+#  Postss.find {},
+#    limit: limit
+
+
 Meteor.publish "postss",(userId) ->
   check userId, String
   check userId, Match.Any
   Postss.find({})
-
-
+  
+  
 # Meteor.publish "likes",() ->
 #  check postId, Match.Any
 #  Likes.find({post:postId})

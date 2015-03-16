@@ -17,6 +17,7 @@ Router.configure({
                 Meteor.subscribe('allParticipantsAvatarsInvolved', Meteor.userId()),
                 Meteor.subscribe('notificationss'),
                 Meteor.subscribe('usernames')
+              
                 ];
             }
         }

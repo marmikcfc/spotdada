@@ -1,14 +1,10 @@
-
-
 /*Router.route('/dashboard');
-
 */
 
 /*Router.configure({
   progressSpinner: false,
   layoutTemplate: 'main',
   loadingTemplate: 'loading',
-
 });*/
 
 //controller for  project list
@@ -212,8 +208,6 @@ Router.map(function() {
  /*  this.route('/', {
   name: 'home'
 });
-
-
 */
 
   this.route('/', {
@@ -477,8 +471,6 @@ redirectHome = function() {
 this.onBeforeAction(requireLogin, {
   except: 'home'
 });
-
-
 this.onBeforeAction(redirectHome, {
   only: 'home'
 });*/
