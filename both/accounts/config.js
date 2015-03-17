@@ -6,25 +6,48 @@ AccountsTemplates.configureRoute('forgotPwd');
 AccountsTemplates.configureRoute('resetPwd');
 AccountsTemplates.configureRoute('verifyEmail');
 
-AccountsTemplates.removeField('email');
-AccountsTemplates.addFields([
-  {
-      _id: "username",
-      type: "text",
-      displayName: "username",
-      required: true,
-      minLength: 5,
-  },
-  {
-      _id: 'email',
-      type: 'email',
-      required: true,
-      displayName: "email",
-      re: /.+@(.+){2,}\.(.+){2,}/,
-      errStr: 'Invalid email',
-  }
-]);
+//Fields
 
+AccountsTemplates.removeField('email');
+AccountsTemplates.addField({
+    _id: 'email',
+    type: 'email',
+    required: true,
+    re: /.+@(.+){2,}\.(.+){2,}/,
+    errStr: 'error.accounts.Invalid email',
+    trim: true,
+    lowercase: true
+});
+
+
+AccountsTemplates.addField({
+    _id: 'username',
+    type: 'text',
+    displayName: 'username',
+    required: true,
+    minLength: 3,
+    errStr: 'error.minChar'
+});
+
+
+
+AccountsTemplates.removeField('password');
+AccountsTemplates.addField({
+    _id: 'password',
+    type: 'password',
+    required: true,
+    minLength: 8,
+    errStr: 'error.minChar'
+});
+
+/*
+ AccountsTemplates.addField({
+ _id: 'username_and_email',
+ type: 'text',
+ displayName: 'Name or Email',
+ placeholder: 'name or email',
+ });
+ */
 
 AccountsTemplates.configure({
     // Behaviour
