@@ -43,21 +43,21 @@ Meteor.methods({
             }
 
             // check if collection is empty
-            counterDoc = Counter.findOne();
+            counterDoc = Counter.findOneFaster();
             firstInsert = false;
             if (!counterDoc) {
                 cId = Counter.insert({'privateMessageCounterForUniqueURLs': 0});
                 firstInsert = true;
-                counterDoc = Counter.findOne({_id: cId});
+                counterDoc = Counter.findOneFaster({_id: cId});
             }
             if (!firstInsert && counterDoc) {
                 Counter.update({_id: counterDoc._id}, {$inc: {'privateMessageCounterForUniqueURLs': 1}});
             }
-            counterVar = Counter.findOne().privateMessageCounterForUniqueURLs;
+            counterVar = Counter.findOneFaster().privateMessageCounterForUniqueURLs;
 
 
             participantsIds = [];
-            Users.find({username: {$in: privateMessageAttributes.participants}}).forEach(function (user) {
+            Users.findFaster({username: {$in: privateMessageAttributes.participants}}).forEach(function (user) {
                 participantsIds.push(user._id);
             });
 
@@ -98,10 +98,10 @@ Meteor.methods({
                 throw new Meteor.Error(422, "Please fill in a subject", "Subject is empty");
             }
             participantsIds = [];
-            Users.find({username: {$in: participants}}).forEach(function (user) {
+            Users.findFaster({username: {$in: participants}}).forEach(function (user) {
                 participantsIds.push(user._id);
             });
-            pm = PrivateMessages.findOne({_id: pmId});
+            pm = PrivateMessages.findOneFaster({_id: pmId});
             slug = pm.slug.substr(0, pm.slug.indexOf('-') + 1) + slugify(subject);
             participantsToAdd = _.difference(participantsIds, pm.participants);
             participantsToRemove = _.difference(pm.participants, participantsIds);
@@ -109,7 +109,7 @@ Meteor.methods({
             Users.update({_id: {$in: participantsToAdd}}, {$push: {privateMessages: pmId}}, {multi: true});
             Users.update({_id: {$in: participantsToRemove}}, {$pull: {privateMessages: pmId}}, {multi: true});
             participantsToRemoveUsername = [];
-            Users.find({_id: {$in: participantsToRemove}}).forEach(function (user) {
+            Users.findFaster({_id: {$in: participantsToRemove}}).forEach(function (user) {
                 participantsToRemoveUsername.push(user.username);
             });
             devTeamInv = [];
@@ -117,12 +117,12 @@ Meteor.methods({
             _.each(pm.messages, function (m) {
                 if (_.has(m, "invitations")) {
                     if (_.has(m.invitations, "developmentTeam")) {
-                        Invitations.find({_id: {$in: m.invitations.developmentTeam}}).forEach(function (inv) {
+                        Invitations.findFaster({_id: {$in: m.invitations.developmentTeam}}).forEach(function (inv) {
                             devTeamInv.push(inv);
                         });
                     }
                     if (_.has(m.invitations, "scrumMaster")) {
-                        Invitations.find({_id: m.invitations.scrumMaster}).forEach(function (inv) {
+                        Invitations.findFaster({_id: m.invitations.scrumMaster}).forEach(function (inv) {
                             scrumMasterInv.push(inv);
                         });
                     }
@@ -153,15 +153,15 @@ Meteor.methods({
                 throw new Meteor.Error(422, "You cannot send an empty message", "Message is empty");
             }
             PrivateMessages.update({_id: messageId}, {$push: {messages: message}});
-            var userId = Users.findOne({username: message.author})._id,
-                slug = PrivateMessages.findOne({_id: messageId}).slug;
+            var userId = Users.findOneFaster({username: message.author})._id,
+                slug = PrivateMessages.findOneFaster({_id: messageId}).slug;
             createPrivateMessagemsgNotification(slug, userId);
         }
     },
     removePrivateMessage: function (messageId) {
         "use strict";
         if (Meteor.isServer) {
-            var message = PrivateMessages.findOne({_id: messageId});
+            var message = PrivateMessages.findOneFaster({_id: messageId});
             Users.update({_id: {$in: message.participants}}, {$pull: {privateMessages: messageId}}, {multi: true});
             PrivateMessages.remove({_id: messageId});
         }
@@ -176,18 +176,18 @@ Meteor.methods({
     updatePrivateMessageStatus: function (productId, participantsToRemove) {
         "use strict";
         if (Meteor.isServer) {
-            var pm = PrivateMessages.findOne({productId: productId}),
+            var pm = PrivateMessages.findOneFaster({productId: productId}),
                 devTeamInv = [],
                 scrumMasterInv = [];
             _.each(pm.messages, function (m) {
                 if (_.has(m, "invitations")) {
                     if (_.has(m.invitations, "developmentTeam")) {
-                        Invitations.find({_id: {$in: m.invitations.developmentTeam}}).forEach(function (inv) {
+                        Invitations.findFaster({_id: {$in: m.invitations.developmentTeam}}).forEach(function (inv) {
                             devTeamInv.push(inv);
                         });
                     }
                     if (_.has(m.invitations, "scrumMaster")) {
-                        Invitations.find({_id: m.invitations.scrumMaster}).forEach(function (inv) {
+                        Invitations.findFaster({_id: m.invitations.scrumMaster}).forEach(function (inv) {
                             scrumMasterInv.push(inv);
                         });
                     }
@@ -214,14 +214,14 @@ Meteor.methods({
 createPrivateMessagemsgNotification = function (slug, userId) {
     "use strict";
     if (Meteor.isServer) {
-        var pm = PrivateMessages.findOne({slug: slug}),
+        var pm = PrivateMessages.findOneFaster({slug: slug}),
             participantsIds,
             newParticipants,
             msgnotificationId;
-        if (msgNotifications.find({pmId: pm._id}).count() > 0) {
+        if (msgNotifications.findFaster({pmId: pm._id}).count() > 0) {
             msgNotifications.update({pmId: pm._id}, {$set: {userId: userId, submitted: new Date}});
         } else {
-            participantsIds = PrivateMessages.findOne({_id: pm._id}).participants;
+            participantsIds = PrivateMessages.findOneFaster({_id: pm._id}).participants;
             newParticipants = _.without(participantsIds, userId);
             if (newParticipants.length > 0) {
                 msgnotificationId = msgNotifications.insert({

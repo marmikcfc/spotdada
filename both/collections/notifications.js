@@ -7,7 +7,7 @@ Notificationss.allow({
 });
 this.createCommentNotification = function(comment) {
   var project;
-  project = Projects.findOne(comment.projectId);
+  project = Projects.findOneFaster(comment.projectId);
   if (comment.userId !== project.userId) {
     return Notificationss.insert({
       userId: project.userId,

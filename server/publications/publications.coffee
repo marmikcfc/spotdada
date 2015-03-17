@@ -8,7 +8,7 @@
 Meteor.publish "postss",(userId,limit) ->
   check userId, String
   check userId, Match.Any
-  Postss.findFaster({},{limit: limit})
+  Postss.findFaster({},{sort: {date: -1}},{limit: limit})
   
   
 # Meteor.publish "likes",() ->
@@ -28,7 +28,7 @@ Meteor.publish "all-postprod", ->
 
 Meteor.publish "users-basic-info", ->
   @unblock()
-  Meteor._sleepForMs(60 * 60)
+  Meteor._sleepForMs(600)
   Meteor.users.findFaster {},
     fields:
       _id: 1
@@ -43,8 +43,6 @@ Meteor.publish 'projects', (options)->
   check options,
     sort: Object
     limit: Number
-  @unblock()
-  Meteor._sleepForMs(60 * 60)
   Projects.findFaster {}, options
 
 Meteor.publish 'oneRecipe', (id)->
@@ -64,30 +62,22 @@ Meteor.publish 'comments', (projectId)->
 
 Meteor.publish 'oneUser', (username)->
   check username, String
-  @unblock()
-  Meteor._sleepForMs(60 * 60)
   Meteor.users.findFaster
     username: username
 
 Meteor.publish 'followers', (username)->
   check username, String
-  @unblock()
-  Meteor._sleepForMs( 60 * 60)
   Meteor.users.findFaster
     followings: username
   
 
 Meteor.publish 'followings', (username)->
   check username, String
-  @unblock()
-  Meteor._sleepForMs( 60 * 60)
   Meteor.users.findFaster
     followers: username
 
 Meteor.publish 'myProjects', (username, options)->
   check username, String
-  @unblock()
-  Meteor._sleepForMs(60 * 60)  
   Projects.findFaster
     author: username
   , options

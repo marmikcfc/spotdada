@@ -12,7 +12,7 @@ Meteor.methods
       commentBody: String
 
     user = Meteor.user()
-    project = Projects.findOne commentAttributes.projectId
+    project = Projects.findOneFaster commentAttributes.projectId
 
     unless project
       throw new Meteor.Error('invalid-comment', 'you must comment on a project')

@@ -1,1 +1,1 @@
-Kadira.connect('WQYenRtXQ23gjnLFG', '1f57abbc-fd70-45c7-83b3-05aa8483a1bc');
+//Kadira.connect('WQYenRtXQ23gjnLFG', '1f57abbc-fd70-45c7-83b3-05aa8483a1bc');

@@ -32,11 +32,11 @@ Meteor.methods({
     markAllmsgNotificationsAsRead: function (userId) {
         "use strict";
         if (Meteor.isServer) {
-            var usermsgNotifications = Users.findOne({_id: userId}).msgnotifications;
+            var usermsgNotifications = Users.findOneFaster({_id: userId}).msgnotifications;
             // removing all references
             Users.update({_id: userId}, {$set: {msgnotifications: []}});
             _.each(usermsgNotifications, function (item) {
-                if (Users.find({msgnotifications: {$in: [item]}}).count() === 0) {
+                if (Users.findFaster({msgnotifications: {$in: [item]}}).count() === 0) {
                     // no users with this notification -> delete main notification
                     msgNotifications.remove({_id: item});
                 }
@@ -48,7 +48,7 @@ Meteor.methods({
         if (Meteor.isServer) {
             // removing reference
             Users.update({_id: userId}, {$pull: {msgnotifications: msgnotificationId}});
-            if (Users.find({msgnotifications: {$in: [msgnotificationId]}}).count() === 0) {
+            if (Users.findFaster({msgnotifications: {$in: [msgnotificationId]}}).count() === 0) {
                 // no users with this notification -> delete main notification
                 msgNotifications.remove({_id: msgnotificationId});
             }

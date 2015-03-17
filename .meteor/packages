@@ -7,7 +7,8 @@ meteor-platform
 less
 nemo64:bootstrap
 coffeescript
-useraccounts:bootstrap
+d0minikk:materialize-meteor
+useraccounts:materialize
 ian:accounts-ui-bootstrap-3
 accounts-password
 sacha:spin

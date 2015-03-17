@@ -36,6 +36,7 @@ chuangbo:cookie@1.1.0
 cmather:handlebars-server@0.2.0
 coffeescript@1.0.5
 cunneen:mailgun@0.9.1
+d0minikk:materialize-meteor@1.95.1
 dburles:collection-helpers@1.0.2
 dburles:factory@0.3.7
 ddp@1.0.14
@@ -134,8 +135,8 @@ twbs:bootstrap@3.3.1
 ui@1.0.5
 underscore@1.0.2
 url@1.0.3
-useraccounts:bootstrap@1.8.1
 useraccounts:core@1.8.1
+useraccounts:materialize@1.8.1
 vsivsi:file-collection@0.3.3
 webapp@1.1.6
 webapp-hashing@1.0.2
