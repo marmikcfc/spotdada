@@ -8,7 +8,7 @@
 
 
 Meteor.publish('notificationss', function() {
- return Notificationss.find({
+ return Notificationss.findFaster({
     userId: this.userId,
     read: false
   });
@@ -18,7 +18,7 @@ Meteor.publish('notificationss', function() {
 
 Meteor.publish('usernamesRoles', function () {
     "use strict";
-    return Users.find({}, {
+    return Users.findFaster({}, {
         fields: {'username': 1, 'roles': 1}
     });
 });
@@ -27,7 +27,7 @@ Meteor.publish('usernamesRoles', function () {
 
 Meteor.publish('msgnotifications', function (id) {
     "use strict";
-    return msgNotifications.find({_id: {$in: id}});
+    return msgNotifications.findFaster({_id: {$in: id}});
 });
 
 Meteor.publish(null, function () {
@@ -43,17 +43,18 @@ Meteor.publish(null, function () {
 Meteor.publish('userProfile', function (username) {
     "use strict";
       check(username, String);
-
-    return Users.find({username: username}, {fields: {'profile': 1, 'username': 1, 'roles': 1}});
+     this.unblock();
+    Meteor._sleepForMs( 60 * 60);
+    return Users.findFaster({username: username}, {fields: {'profile': 1, 'username': 1, 'roles': 1}});
 });
 
-Meteor.reactivePublish('privateMessages', function (userId) {
+Meteor.publish('privateMessages', function (userId) {
     "use strict";
       check(userId, String);
 
-    var user = Users.findOne({_id: userId}, {reactive: true});
+    var user = Users.findOneFaster({_id: userId});
     if (user) {
-        return PrivateMessages.find({_id: {$in: user.privateMessages}});
+        return PrivateMessages.findFaster({_id: {$in: user.privateMessages}});
     }
     this.ready();
 });
@@ -61,6 +62,7 @@ Meteor.reactivePublish('privateMessages', function (userId) {
 
 Meteor.publish('usernames', function () {
     "use strict";
+  
     return Users.find({}, {
         fields: {'username': 1}
     });
@@ -68,9 +70,10 @@ Meteor.publish('usernames', function () {
 
 Meteor.publish('privateMessage', function (slug) {
     "use strict";
+  
       check(slug, String);
 
-    var pm = PrivateMessages.find({slug: slug});
+    var pm = PrivateMessages.findFaster({slug: slug});
     if (pm.count() > 0) {
         return pm;
     }
@@ -81,8 +84,9 @@ Meteor.publish('privateMessage', function (slug) {
 Meteor.publish('privateMessageParticipants', function (slug) {
     "use strict";
       check(slug, String);
-
-    var pm = PrivateMessages.find({slug: slug}, {fields: {'participants': 1}});
+ this.unblock();
+    Meteor._sleepForMs(60 * 60);
+    var pm = PrivateMessages.findFaster({slug: slug}, {fields: {'participants': 1}});
     if (pm.count() > 0) {
         return pm;
     }
@@ -92,10 +96,13 @@ Meteor.publish('privateMessageParticipants', function (slug) {
 Meteor.publish('participantsAvatars', function (slug) {
     "use strict";
       check(slug, String);
-
-    var pm = PrivateMessages.findOne({slug: slug});
+  
+     this.unblock();
+    Meteor._sleepForMs(60 * 60);
+  
+  var pm = PrivateMessages.findOneFaster({slug: slug});
     if (pm) {
-        return Users.find({_id: {$in: pm.participants}}, {
+        return Users.findFaster({_id: {$in: pm.participants}}, {
             fields: {
                 'profile.image': 1,
                 'username': 1
@@ -105,25 +112,23 @@ Meteor.publish('participantsAvatars', function (slug) {
     this.ready();
 });
 
-Meteor.reactivePublish('allParticipantsAvatarsInvolved', function (userId) {
+Meteor.publish('allParticipantsAvatarsInvolved', function (userId) {
     "use strict";
       check(userId, String);
 
-    var user = Users.findOne({_id: userId}, {reactive: true}),
+    var user = Users.findOneFaster({_id: userId}),
         participantsArr;
     if (user) {
         participantsArr = [];
-        PrivateMessages.find({_id: {$in: user.privateMessages}}, {reactive: true}).forEach(function (message) {
+        PrivateMessages.findFaster({_id: {$in: user.privateMessages}}).forEach(function (message) {
             participantsArr = _.union(participantsArr, message.participants);
         });
-        return Users.find({_id: {$in: participantsArr}}, {
+        return Users.findFaster({_id: {$in: participantsArr}}, {
             fields: {
                 'profile.image': 1,
-                'username': 1,
-                'profile.online': 1,
-                'profile.color': 1
+                'username': 1
             }
-        }, {reactive: true});
+        });
     }
     this.ready();
 });
@@ -134,12 +139,12 @@ Meteor.publish('invitationsPM', function (slug) {
     "use strict";
       check(slug, String);
 
-    var pm = PrivateMessages.findOne({slug: slug}),
+    var pm = PrivateMessages.findOneFaster({slug: slug}),
         invIds = [];
     if (pm) {
     
         if (invIds.length > 0) {
-            return Invitations.find({_id: {$in: invIds}});
+            return Invitations.findFaster({_id: {$in: invIds}});
         }
     }
     this.ready();
@@ -148,6 +153,7 @@ Meteor.publish('invitationsPM', function (slug) {
 Meteor.publish('ownUser', function (id) {
     "use strict";
       check(id, String);
-
-    return Users.find({_id: id});
+       this.unblock();
+    Meteor._sleepForMs(60 * 60);
+    return Users.findFaster({_id: id});
 });

@@ -24,7 +24,7 @@ var ProjectsListController = RouteController.extend({
     this.projectsSub = Meteor.subscribe("projects", this.findOptions());
   },
   projects: function() {
-    return Projects.find({}, this.findOptions());
+    return Projects.findFaster({}, this.findOptions());
   },
   data: function() {
     var hasMore;
@@ -136,12 +136,12 @@ var NewProjectsController = ProjectsListController.extend({
     return [this.projectsSub, Meteor.subscribe('oneUser', this.params.username), Meteor.subscribe('followings', this.params.username), Meteor.subscribe('followers', this.params.username)];
   },
   user: function() {
-    return Meteor.users.find({
+    return Meteor.users.findFaster({
       username: this.params.username
     });
   },
   projects: function() {
-    return Projects.find({});
+    return Projects.findFaster({});
   },
    followings: function() {
   username=this.params.username;
@@ -154,7 +154,7 @@ var NewProjectsController = ProjectsListController.extend({
       username=this.params.username;
 
 //console.log("   "+ Meteor.users.findOne({followings: this.params.username}).fetch());
-    return Meteor.users.findOne({followers:username});
+    return Meteor.users.findOneFaster({followers:username});
   },
   nextPath: function() {
     return Router.routes.profile.path({
@@ -188,7 +188,7 @@ var participantsFilter = function () {
     "use strict";
     if (Meteor.user()) {
         Meteor.subscribe('privateMessageParticipants', this.params.slug);
-        var pm = PrivateMessages.findOne({slug: this.params.slug});
+        var pm = PrivateMessages.findOneFaster({slug: this.params.slug});
         if (pm) {
             if (!_.contains(pm.participants, Meteor.userId())) {
                 this.render('noAccessPrivateMessage');
@@ -254,9 +254,9 @@ this.route('preFund', {
         path: '/prefund/:prefundId',
         data: function(){
             var prefundId = this.params.prefundId;
-            Meteor.subscribe('users-basic-info');
+         //   Meteor.subscribe('users-basic-info');
             Meteor.subscribe('all-preprod');
-            var res = preFund.findOne({_id: prefundId});
+            var res = preFund.findOneFaster({_id: prefundId});
            
             return res;
         }
@@ -268,9 +268,9 @@ this.route('postFund', {
         path: '/postfund/:postfundId',
         data: function(){
             var postfundId = this.params.postfundId;
-            Meteor.subscribe('users-basic-info');
+           // Meteor.subscribe('users-basic-info');
             Meteor.subscribe('all-postprod');
-            var res = postFund.findOne({_id: postfundId});
+            var res = postFund.findOneFaster({_id: postfundId});
            
             return res;
         }
@@ -316,8 +316,8 @@ this.route('newEvent', {
         path: '/events/:eventId',
         data: function(){
             var eventId = this.params.eventId;
-            Meteor.subscribe('users-basic-info');
-            var res = Events.find({_id: eventId}).map(function(event, num){
+        //    Meteor.subscribe('users-basic-info');
+            var res = Events.findFaster({_id: eventId}).map(function(event, num){
                 event.timeLeft = moment(new Date(event.startTime)).from(new Date());
                 event.readableStartTime = moment(event.startTime).format('MMMM Do YYYY, h:mm a');
                 event.readableEndTime = moment(event.endTime).format('MMMM Do YYYY, h:mm a');
@@ -367,7 +367,7 @@ this.route('/projects/:_id', {
     return [Meteor.subscribe('oneRecipe', this.params._id), Meteor.subscribe('comments', this.params._id)];
   },
   data: function() {
-    return Projects.findOne(this.params._id);
+    return Projects.findOneFaster(this.params._id);
   }
 });
 this.route('/projects/:_id/edit', {
@@ -376,7 +376,7 @@ this.route('/projects/:_id/edit', {
     return Meteor.subscribe('oneRecipe', this.params._id);
   },
   data: function() {
-    return Projects.findOne(this.params._id);
+    return Projects.findOneFaster(this.params._id);
   }
 });
 this.route('/post-project', {
@@ -392,7 +392,7 @@ this.route('/users/:username/followings', {
     return [Meteor.subscribe('oneUser', this.params.username), Meteor.subscribe('followings', this.params.username)];
   },
   data: function() {
-    return Meteor.users.find({
+    return Meteor.users.findFaster({
       followers: this.params.username
     });
   }
@@ -406,7 +406,7 @@ this.route('/users/:username/followers', {
     return [Meteor.subscribe('oneUser', this.params.username), Meteor.subscribe('followers', this.params.username)];
   },
   data: function() {
-    return Meteor.users.find({
+    return Meteor.users.findFaster({
       followings: this.params.username
     });
   }
@@ -437,14 +437,14 @@ this.route('privateMessagesList', {
         },
         data: function () {
             "use strict";
-            return PrivateMessages.findOne({slug: this.params.slug});
+            return PrivateMessages.findOneFaster({slug: this.params.slug});
         }
     });
     this.route('privateMessageEdit', {
         path: '/private-messages/:slug/edit',
         data: function () {
             "use strict";
-            return PrivateMessages.findOne({slug: this.params.slug});
+            return PrivateMessages.findOneFaster({slug: this.params.slug});
         }
     });
 

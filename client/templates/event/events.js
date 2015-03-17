@@ -1,5 +1,5 @@
 Meteor.subscribe('all-events');
-Meteor.subscribe('users-basic-info');
+//Meteor.subscribe('users-basic-info');
 
 // Create search source for events in the client
 var options = {

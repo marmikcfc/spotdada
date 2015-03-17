@@ -43,18 +43,15 @@ meteorhacks:npm
 mrt:jquery-ui-bootstrap
 natestrauser:font-awesome
 mrt:jquery-ui
-mrt:reactive-publish
 matteodem:easy-search
 reactive-var
 natestrauser:x-editable-bootstrap
 
 
-
-
-
-
+meteorhacks:unblock
 meteorhacks:kadira
 npm-container
 service-configuration
 ryw:blog
 percolate:paginated-subscription
+arunoda:find-faster

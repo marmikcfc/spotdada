@@ -5,10 +5,10 @@
 #    limit: limit
 
 
-Meteor.publish "postss",(userId) ->
+Meteor.publish "postss",(userId,limit) ->
   check userId, String
   check userId, Match.Any
-  Postss.find({})
+  Postss.findFaster({},{limit: limit})
   
   
 # Meteor.publish "likes",() ->
@@ -18,16 +18,18 @@ Meteor.publish "postss",(userId) ->
 
 
 Meteor.publish "all-events", ->
-  Events.find {}
+  Events.findFaster {}
 
 Meteor.publish "all-preprod", ->
-  preFund.find {}
+  preFund.findFaster {}
 
 Meteor.publish "all-postprod", ->
-  postFund.find {}
+  postFund.findFaster {}
 
 Meteor.publish "users-basic-info", ->
-  Meteor.users.find {},
+  @unblock()
+  Meteor._sleepForMs(60 * 60)
+  Meteor.users.findFaster {},
     fields:
       _id: 1
       username: 1
@@ -41,15 +43,17 @@ Meteor.publish 'projects', (options)->
   check options,
     sort: Object
     limit: Number
-  Projects.find {}, options
+  @unblock()
+  Meteor._sleepForMs(60 * 60)
+  Projects.findFaster {}, options
 
 Meteor.publish 'oneRecipe', (id)->
   check id, String
-  Projects.find id
+  Projects.findFaster id
 
 Meteor.publish 'comments', (projectId)->
   check projectId, String
-  Comments.find 
+  Comments.findFaster 
     projectId: projectId
 
 #Meteor.publish 'notifications', ->
@@ -60,23 +64,31 @@ Meteor.publish 'comments', (projectId)->
 
 Meteor.publish 'oneUser', (username)->
   check username, String
-  Meteor.users.find 
+  @unblock()
+  Meteor._sleepForMs(60 * 60)
+  Meteor.users.findFaster
     username: username
 
 Meteor.publish 'followers', (username)->
   check username, String
-  Meteor.users.find
+  @unblock()
+  Meteor._sleepForMs( 60 * 60)
+  Meteor.users.findFaster
     followings: username
   
 
 Meteor.publish 'followings', (username)->
   check username, String
-  Meteor.users.find
+  @unblock()
+  Meteor._sleepForMs( 60 * 60)
+  Meteor.users.findFaster
     followers: username
 
 Meteor.publish 'myProjects', (username, options)->
   check username, String
-  Projects.find
+  @unblock()
+  Meteor._sleepForMs(60 * 60)  
+  Projects.findFaster
     author: username
   , options
 
@@ -103,9 +115,9 @@ Meteor.publish 'followingProjects', (username, options)->
 
 ###
 Meteor.publish 'followingProjects', (username, options)->
-  thisUser = Meteor.users.findOne(username: username)
+  thisUser = Meteor.users.findOneFaster(username: username)
   if thisUser and thisUser.followings
-    Projects.find
+    Projects.findFaster
       author: 
         $in: thisUser.followings
     , options

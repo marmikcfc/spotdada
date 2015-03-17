@@ -1,4 +1,4 @@
-Meteor.subscribe('users-basic-info');
+//Meteor.subscribe('users-basic-info');
 Meteor.subscribe('all-postprod');
 
 Template.preFund.rendered = function(){

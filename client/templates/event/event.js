@@ -1,4 +1,4 @@
-Meteor.subscribe('users-basic-info');
+//Meteor.subscribe('users-basic-info');
 Meteor.subscribe('Notificationss');
 Template.event.rendered = function(){
     $('ul li.active').removeClass('active');

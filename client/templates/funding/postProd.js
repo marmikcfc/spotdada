@@ -1,5 +1,5 @@
 Meteor.subscribe('all-postprod');
-Meteor.subscribe('users-basic-info');
+//Meteor.subscribe('users-basic-info');
 
   Template.postProd.helpers({
 'display': function(){

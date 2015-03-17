@@ -1,5 +1,5 @@
 Meteor.subscribe("all-prepod");
-Meteor.subscribe("users-basic-info");
+//Meteor.subscribe("users-basic-info");
 Template.preProd.helpers({
   display: function() {
     return preFund.find();

@@ -14,7 +14,7 @@ Router.configure({
                 Meteor.subscribe('msgnotifications',
                 Meteor.user().msgnotifications), 
                 Meteor.subscribe('privateMessages', Meteor.userId()), 
-                Meteor.subscribe('allParticipantsAvatarsInvolved', Meteor.userId()),
+              //  Meteor.subscribe('allParticipantsAvatarsInvolved', Meteor.userId()),
                 Meteor.subscribe('notificationss'),
                 Meteor.subscribe('usernames')
               
@@ -22,6 +22,13 @@ Router.configure({
             }
         }
 //    return [Meteor.subscribe('notifications')];
+  },
+  data: function(){
+     return [
+       Meteor.subscribe('users-basic-info')
+
+     ]
+    
   }
 });
 
