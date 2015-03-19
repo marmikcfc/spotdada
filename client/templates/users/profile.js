@@ -1,6 +1,6 @@
 
 Template.profile.rendered = function(){
-    $('ul li.active').removeClass('active');
+  
 };
 
 

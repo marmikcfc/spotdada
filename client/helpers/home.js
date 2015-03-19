@@ -1,7 +1,7 @@
 Template.dashboard.rendered = function() {
   return Tracker.autorun(function() {
     check(Meteor.userId(), String);
-Meteor.subscribeWithPagination("postss", Meteor.userId(), 5);
+Meteor.subscribeWithPagination("postss", Meteor.userId(), 2);
     return Meteor.subscribe("likes");
   });
 };

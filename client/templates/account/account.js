@@ -161,13 +161,25 @@ Template.account.events({
 });
 
 Template.account.rendered = function(){
+  
+   $(document).ready(function() {
+//$('.gen').material_select();
+  });
+  
+  
     Tracker.autorun(function(){
         if (Meteor.user()){
             var user = Meteor.user();
             $("#user-gender").val(user.profile.gender);
         }
     });
-    $('#user-birthday').datepicker();
+   // $('#user-birthday').datepicker();
+  
+   $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+  
 };
 
 
