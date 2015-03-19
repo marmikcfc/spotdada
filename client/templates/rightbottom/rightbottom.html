@@ -1,4 +1,5 @@
-<template name="rightbottom">
+  
+    <template name="rightbottom">
   <script type="text/javascript">
     $(document).ready(function(){
     $('.tooltipped').tooltip({delay: 50});
@@ -15,11 +16,13 @@
       
       
       
-      <li><a class="btn-floating yellow darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Create an Event" href="{{pathFor 'newEvent'}}"><i class="large mdi-action-event"></i> </a></li>
+     <!--  <li><a class="btn-floating yellow darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Create an Event" href="{{pathFor 'newEvent'}}"><i class="large mdi-action-event"></i> </a></li>
      
-         <li><a class="btn-floating blue darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Crowd funding" href="{{pathFor 'fundings'}}"><i class="large mdi-av-movie"></i> </a></li>
+         <li><a class="btn-floating blue darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Crowd funding" href="{{pathFor 'fundings'}}"><i class="large mdi-av-movie"></i> </a></li> -->
      
-      
+       <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Account"  href="{{pathFor 'account'}}" ><i class="large mdi-action-account-circle"></i> </a></li>
+
+
       <li><a class="btn-floating green tooltipped" data-position="left" data-delay="50" data-tooltip="Messages"  href="{{pathFor 'privateMessagesList'}}" ><i class="large mdi-communication-message"></i>
         
         {{#if msgnotificationCount}}

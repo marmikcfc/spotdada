@@ -59,7 +59,7 @@
             
                            <div class="input-field col s6">
                                 <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="user-firstname" required="true"      style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" placeholder="First Name" value="{{currentUser.profile.firstname}}">
+                                <input type="text" class="validate" id="user-firstname" required="true"      style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.firstname}}">
                                   <label for="icon_prefix" style="font-size:14px">First Name</label> 
                                     </div>
                       {{/if}}
@@ -96,16 +96,16 @@
                       {{#if currentUser.profile.city }}
                       
                    <div class="input-field col s6"> 
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="user-city" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.city}}">
+                                    <i class="mdi-social-location-city prefix"></i>
+                                <input type="text" class="validate" id="user-city"  style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.city}}">
      <!--                              <label for="icon_prefix" style="font-size:14px">City</label>
  -->                                    </div>
                       
                       {{else}}
                   
                             <div class="input-field col s6"> 
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="user-city" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.city}}">
+                                    <i class="mdi-social-location-city prefix"></i>
+                                <input type="text" class="validate" id="user-city"  style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.city}}">
                                  <label for="icon_prefix" style="font-size:14px">City</label>
                                     </div>
                       {{/if}}
@@ -117,16 +117,16 @@
                        {{#if currentUser.profile.lang}}
                        
                     <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="language" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.lang}}">
+                                    <i class="mdi-action-translate prefix"></i>
+                                <input type="text" class="validate" id="language"  style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.lang}}">
 <!--                                   <label for="icon_prefix" style="font-size:14px">Languages</label> -->
                                     </div>
                        
                        {{else}}
       
                        <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="language" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.lang}}">
+                                    <i class="mdi-action-translate prefix"></i>
+                                <input type="text" class="validate" id="language" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.lang}}">
                                    <label for="icon_prefix" style="font-size:14px">Languages</label> 
                                     </div>
                        
@@ -139,16 +139,16 @@
           
            {{#if currentUser.profile.usernumber}}
              <div class="input-field col s6">
-           <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="cnnumber" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.usernumber}}">
+           <i class="mdi-communication-phone prefix"></i>
+                                <input type="text" class="validate" id="cnnumber" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.usernumber}}">
 <!--                                   <label for="icon_prefix" style="font-size:14px">Contact Number</label> -->
                                     </div>
            
            {{else}}
            
                         <div class="input-field col s6">
-           <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="cnnumber" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.usernumber}}">
+           <i class="mdi-communication-phone prefix"></i>
+                                <input type="text" class="validate" id="cnnumber" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.usernumber}}">
                                    <label for="icon_prefix" style="font-size:14px">Contact Number</label> 
                                     </div>
            
@@ -159,7 +159,7 @@
                      <div class="form-group">
                   {{#if currentUser.profile.usermail}}
                          <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
+                                    <i class="mdi-communication-email prefix"></i>
                                 <input type="text" class="validate" id="email" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.usermail}}">
 <!--                                   <label for="icon_prefix" style="font-size:14px">Email ID</label> -->
                                     </div>
@@ -167,9 +167,9 @@
                        {{else}}
 
                                       <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="email" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.usermail}}">
-<!--                                   <label for="icon_prefix" style="font-size:14px">Email ID</label> -->
+                                    <i class="mdi-communication-email prefix"></i>
+                                <input type="text" class="validate" id="email" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.email}}">
+                            <!--      <label for="icon_prefix" style="font-size:14px">Email ID</label> -->
                                     </div>
                        {{/if}}
                   </div>
@@ -177,15 +177,15 @@
                                <div class="form-group">
 {{#if currentUser.profile.uservs }}
                                  <div class="input-field col s6">
-                                 <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="vstat" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.uservs}}">
+                                 <i class="mdi-action-turned-in prefix"></i>
+                                <input type="text" class="validate" id="vstat"  style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.uservs}}">
 <!--                                   <label for="icon_prefix" style="font-size:14px">Vital Stats</label> -->
                                     </div>
          {{else}}
                                  
                                    <div class="input-field col s6">
-                                 <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="vstat" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.uservs}}">
+                                 <i class="mdi-action-turned-in prefix"></i>
+                                <input type="text" class="validate" id="vstat" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.uservs}}">
                                    <label for="icon_prefix" style="font-size:14px">Vital Stats</label> 
                                     </div>
                                  {{/if}}
@@ -196,16 +196,16 @@
            {{#if currentUser.profile.userfund}}            
                        
                     <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="fund" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.userfund}}">
+                                    <i class="mdi-editor-attach-money prefix"></i>
+                                <input type="text" class="validate" id="fund" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.userfund}}">
 <!--                                   <label for="icon_prefix" style="font-size:14px">Are you interested in funding projects?</label> -->
                        </div>
                        
                        {{else}}
                      
                     <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="fund" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.userfund}}">
+                                    <i class="mdi-editor-attach-money prefix"></i>
+                                <input type="text" class="validate" id="fund" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.userfund}}">
                                 <label for="icon_prefix" style="font-size:14px">Are you interested in funding projects?</label> 
                        </div>               
                        {{/if}}
@@ -214,14 +214,14 @@
                           <div class="form-group">
 {{#if currentUser.profile.userfwa}}                            
                     <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="fwa" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.userfwa}}">
+                                    <i class="mdi-editor-mode-edit prefix"></i>
+                                <input type="text" class="validate" id="fwa" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.userfwa}}">
 <!--                                   <label for="icon_prefix" style="font-size:14px"> FWA Membership Number </label> -->
                                     </div>
     {{else}}
                 <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" class="validate" id="fwa" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.userfwa}}">
+                                    <i class="mdi-editor-mode-edit prefix"></i>
+                                <input type="text" class="validate" id="fwa" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.userfwa}}">
                                    <label for="icon_prefix" style="font-size:14px"> FWA Membership Number </label>     
                   </div>
         
@@ -232,7 +232,7 @@
                       <div class="form-group">
                   
                           <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
+                                    <i class="mdi-action-event prefix"></i>
                                 <input type="date" class="datepicker" id="user-birthday" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.birthday}}">
                                   <label for="icon_prefix" style="font-size:14px">Birthday </label>
                                     </div>
@@ -240,7 +240,19 @@
                   </div>
          
                    <div class="form-group">
- <i class="mdi-action-account-circle prefix"></i> <label for="user-gender" style="font-size:14px">Gender</label>
+                     
+                     <script type="text/javascript">
+  
+   $(document).ready(function() {
+    $('#user-gender').material_select();
+  });
+   
+</script>
+
+                     
+ <i class="mdi-action-account-child prefix"></i> 
+                     
+                     <label for="user-gender" style="font-size:14px">Gender</label>
                        
                             <select class="form-control" style="width: 50%;" id="user-gender">
                                 <option value="male">Male</option>
@@ -253,8 +265,8 @@
                         <div class="form-group">
 
                          <div class="input-field col s6">
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                <input type="date" class="datepicker" id="tagInput" required="true" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px">
+                                    <i class="mdi-action-work prefix"></i>
+                                <input type="text" id="tagInput"  style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px">
                                  <label for="icon_prefix" style="font-size:14px">Occupation </label>
                                                                    <span class="input-group-btn">
                                     <button id="btn-add-tag" class="btn btn-primary" type="button">
@@ -281,32 +293,71 @@
                         
                     <div class="form-group">
 
+                 {{#if currentUser.profile.bio}}     
+                          <div class="input-field col s6">
+                        <i class="mdi-editor-mode-edit prefix"></i>
+                          
+                            
+       <textarea id="user-bio" value="{{currentUser.profile.bio}}" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" placeholder="Biography" class="materialize-textarea"></textarea>
+                            
+                        </div>
+
+                      {{else}}
                       
-                          <div class="input-field col s6">
-                        <label class="col-lg-3 control-label" for="user-bio">Biography</label>
-                        <i class="mdi-action-account-circle prefix"></i>
-                            <textarea class="form-control" id="user-bio" placeholder="Biography" value="{{currentUser.profile.bio}}" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" ></textarea>
+                           <div class="input-field col s6">
+                        <i class="mdi-editor-mode-edit prefix"></i>
+                          
+                            
+       <textarea id="user-bio" value="{{currentUser.profile.bio}}" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" class="materialize-textarea"></textarea>
+        <label for="icon_prefix2">Biography</label>
+                            
                         </div>
-
+{{/if}}
+                      
+                      
                     </div>
                   
+                  
+                  
+                  
+                  
+                  
+                  
+                          <div class="form-group">
 
-
- <div class="form-group">
-
+                 {{#if currentUser.profile.org}}     
                           <div class="input-field col s6">
-                        <label class="col-lg-3 control-label" for="user-org">Organization/Designation</label>
-                        <i class="mdi-action-account-circle prefix"></i>
-                            <textarea class="form-control" id="user-org" placeholder="Organization/Designation" value="{{currentUser.profile.org}}" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" ></textarea>
+                        <i class="mdi-editor-mode-edit prefix"></i>
+                          
+                            
+       <textarea id="user-org" value="{{currentUser.profile.org}}" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" placeholder="Organization/Designation" class="materialize-textarea"></textarea>
+                            
                         </div>
 
+                      {{else}}
+                      
+                           <div class="input-field col s6">
+                        <i class="mdi-editor-mode-edit prefix"></i>
+                          
+                            
+       <textarea id="user-org" value="{{currentUser.profile.org}}" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" class="materialize-textarea"></textarea>
+        <label for="icon_prefix2">Organization/Designation</label>
+                            
+                        </div>
+{{/if}}
+                      
+                      
                     </div>
                   
+                  
+                  
+                  
+                  
 
-                    <!--<div class="form-group">-->
+         <!--<div class="form-group">-->
                     <!--<label class="col-md-3 control-label"></label>-->
                     <!--<div class="col-md-8">-->
-                    <input type="submit" class="btn btn-primary" value="Save Changes">
+                    <input type="submit" class="btn waves-effect waves-light" value="Save Changes">
                     <!--<span></span>-->
                     <!--<input type="reset" class="btn btn-default" value="Cancel">-->
                     <!--</div>-->
