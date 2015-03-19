@@ -13,7 +13,11 @@
     <ul>
       <li><a class="btn-floating red tooltipped" data-position="left" data-delay="50" data-tooltip="create project" href="{{ pathFor 'postRecipe' }}" > <i class="large mdi-file-file-upload"> </i> </a></li>
       
-      <li><a class="btn-floating yellow darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Create an Event"><i class="large mdi-editor-format-quote"></i></a></li>
+      
+      
+      <li><a class="btn-floating yellow darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Create an Event" href="{{pathFor 'newEvent'}}"><i class="large mdi-action-event"></i> </a></li>
+     
+         <li><a class="btn-floating blue darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Crowd funding" href="{{pathFor 'fundings'}}"><i class="large mdi-av-movie"></i> </a></li>
      
       
       <li><a class="btn-floating green tooltipped" data-position="left" data-delay="50" data-tooltip="Messages"  href="{{pathFor 'privateMessagesList'}}" ><i class="large mdi-communication-message"></i>
