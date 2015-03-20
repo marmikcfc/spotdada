@@ -2,7 +2,7 @@
     <div id="memberSearch" class="form-search search-only">
         <i class="search-icon fa fa-search"></i>
         {{> esInput id="userSearch" index="users" classes="form-control search-query" }}
-<ul>
+<ul class="z-depth-5" style="overflow:auto; height: 30%">
 {{#ifEsIsSearching id="userSearch" index="users"}}
         <div class="alert alert-info alert-dismissable">
             Loading…
@@ -10,7 +10,7 @@
     {{else}}
         {{#unless totalResultSetEmpty}}
                 {{#esEach id="userSearch" index="users"}}
-                <div id="member-multiple-select">
+                <div id="member-multiple-select ">
                     <a href="/users/{{username}}"> {{username}} </a>
                      
                 </div>

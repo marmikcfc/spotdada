@@ -1,0 +1,20 @@
+ul.side-nav.fixed li{
+  
+    line-height: 44px;
+  
+}
+
+a:hover{
+  
+  text-decoration:none;
+  
+}
+
+
+.page-footer{
+  
+  margin-left: 17%;
+  width: 84%;
+
+  
+}

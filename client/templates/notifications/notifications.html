@@ -1,15 +1,18 @@
 <template name="notificationss">
-  <div class="dropdown">
-  <a class="menu-item-divided list-group-item each-list" data-toggle="collapse" aria-expanded="false" href="#collapseNotifications" aria-controls="collapseNotifications">
-    <span class="glyphicon glyphicon-bell">
-      
-    </span>
-    {{#if notificationCount}}
+
+
+
+<a class='dropdown-button' href='#' data-activates='dropdown1'> <i class="large mdi-social-cake"></i>
+
+ {{#if notificationCount}}
       <span class="badge badge-inverse">{{notificationCount}}</span>
     {{/if}}
-    <b class="caret"></b>
-  </a>
-  <ul class="custom-dropdown collapse" id="collapseNotifications">
+
+ </a>
+
+    
+
+  <ul class="dropdown-content" id="dropdown1">
     {{#if notificationCount}}
       {{#each notifications}}
         {{> notificationItem}}
@@ -20,5 +23,16 @@
       </a>
     {{/if}}
   </ul>
-  </div>
+
+<script type="text/javascript">
+  
+  
+      $(document).ready(function(){
+    $('.dropdown-button').dropdown({hover: false,
+                                   belowOrigin: false,
+                                   constrain_width: false});
+  });
+
+</script>
+
 </template>

@@ -3,7 +3,16 @@
 Template.post.helpers({
   'getUserAvatar': function(userId) {
  /*   console.log("INTO USER AVATAR"); */
-    return Meteor.users.findOne(userId).profile.avatar;
+    if(Meteor.users.findOne(userId).profile.avatar)
+    {
+      
+      return Meteor.users.findOne(userId).profile.avatar;
+  }
+    
+  else{
+    
+    return "";
+  }  
   }
 });
 
@@ -11,7 +20,16 @@ Template.post.helpers({
 Template.postComment.helpers({
   'getUserAvatar': function(userId) {
 //    console.log("INTO USER AVATAR");
-    return Meteor.users.findOne(userId).profile.avatar;
+    if(Meteor.users.findOne(userId).profile.avatar)
+    {
+      
+      return Meteor.users.findOne(userId).profile.avatar;
+  }
+    
+  else{
+    
+    return "";
+  }  
   }
 });
 

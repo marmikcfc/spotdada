@@ -1,85 +1,71 @@
-<template name="_header">
+ <template name="_header">
 
-  <nav class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
-
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        {{#if currentUser}}
-        <a class="navbar-brand" href="{{pathFor 'dashboard'}}">spotDada</a>
-
-        {{else}}
-
-<a class="navbar-brand" href="{{pathFor 'home'}}">spotDada</a>
-
-{{/if}}
-      </div>
-
-      <div class="collapse navbar-collapse" id="main-nav">
-
-
-      
-        {{#if currentUser}}
-          <ul class="nav navbar-nav navbar-right">
-            
-{{> atNavButton}}
-          <!--   <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-user"></i> {{ currentUser.username }} <i class="fa fa-caret-down"></i>
-              </a>
-               <ul class="dropdown-menu" role="menu">
-                <li><a href="#" data-action="logout"><i class="fa fa-lock"></i> Sign Out</a></li>
-              </ul>
-             </li> -->
-          </ul>
-        {{else}}
-          <div class="navbar-right">
-            <a href="{{ pathFor 'atSignIn' }}" class="btn btn-default navbar-btn">Sign in</a>
-            <a href="{{ pathFor 'atSignUp' }}" class="btn btn-primary navbar-btn">Register</a>
-          </div>
-        {{/if}}
-<ul class="nav navbar-nav navbar-right">
-                        {{#if currentUser}}
-
-<li style=" margin-top : 15px;">
-  {{>userSearch}}
-
-</li>
-  <li></li>
-                            <li class="new-page account-page" style="margin-top : 5px;">
-                                <!-- <a>Hi, {{currentUser.username}}.</a> -->
-
-                                <a href="{{ pathFor 'postRecipe' }}" rel="Upload Projects" > <i class="glyphicon glyphicon-open"> </i>UPLOAD </a>   
-                            </li>
-         <li style=" margin-top : 10px;">
-            
-             <div class="messages-block {{#if navTabIsActive 'privateMessagesList'}}active{{/if}}" style="padding: 10px;">
-                <a href="{{pathFor 'privateMessagesList'}}">
- 
- <span class=" glyphicon glyphicon-envelope messages-link" style=" font-size: 17px;
-color: black; ">{{#if msgnotificationCount}}
-        <span class="badge badge-inverse msgnotifications-counter">{{msgnotificationCount}}</span>
-    {{/if}}</span>
-                     
-                </a>
-            </div>
-
+<header>
+      <nav class="top-nav" style="height:100%">
+        <div class="container">
+          <div class="nav-wrapper" style="margin-left:15%;" >
+      <ul> 
+        <li style="  width: 64%; margin-left: 20%;">         {{>userSearch}} </li>
+   
+    <li style="  margin-left: 10%;">  {{>notificationss}}
         </li>
-<li class="notification" style=" margin-top : -1px;" >    {{> notificationss}}  </li>
-                            <li class="new-page account-page" style=" margin-top : 5px;"><a href="{{pathFor 'account'}}" id="btn-profile"><i class="glyphicon glyphicon-user"> </i></a></li>    <li></li>                       
-                        {{/if}}
-                    </ul> 
+        
+        
+        
+        </ul>
+
 
 
         
-      </div>
+            
+         </div>
+          
+          
+        </div>
+      </nav>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a></div>
+      <ul id="nav-mobile" class="side-nav fixed">
+        <li class="logo"><a id="logo-container" href="{{pathFor 'dashboard'}}" class="brand-logo">
+            spotDada</a></li>
 
-    </div>
-  </nav>
+        
+         <li class="logo">
+        
+        {{#if currentUser.profile.avatar}}
+                    <img src="{{currentUser.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="width: 100px;height: 100px">
+                {{else}}
+                  <img src="/default.jpg" class="avatar img-circle" alt="avatar" style="width: 100px;">
+                {{/if}}
+        
+        </li>
+        
+        
+        <li class="bold"><a href="{{pathFor 'events'}}" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="{{pathFor 'followings' username=signedInUser}}" class="waves-effect waves-teal">{{signedInUser}}'s Portfolio</a></li>
+      
+        
+           <li class="bold"><a href="{{pathFor 'search'}}" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="{{pathFor 'fundings'}}" class="waves-effect waves-teal">Fundings</a></li>
+        
+           <li class="bold"><a href="{{pathFor 'resources'}}" class="waves-effect waves-teal">Resources</a></li>
+        <li class="bold"><a href="/blog" class="waves-effect waves-teal">Blog</a></li>
+        
+      </ul>
+    </header>
 
-</template>
+
+    <script type="text/javascript">
+  
+    $(document).ready(function(){
+     $(".button-collapse").sideNav();
+   });
+   
+    
+    
+    
+
+</script>
+
+
+
+ </template>

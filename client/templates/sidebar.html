@@ -1,4 +1,4 @@
-<template name="sidebar">
+<!-- <template name="sidebar">
     <ul class="nav nav-pills nav-stacked">
 
 
@@ -7,42 +7,47 @@
                 {{else}}
                   <img src="/default.jpg" class="avatar img-circle" alt="avatar" style="width: 100px;">
                 {{/if}}
-        <!-- <li class="active"><a href="{{pathFor 'home'}}">Home</a></li>
-       --> <!-- <li> <a href="{{pathFor 'privateMessagesList'}}">
-                    <span class="fa fa-comments"></span><span class="messages-link">Messages</span>
-                </a></li> -->
+       
         <li><a href="{{pathFor 'events'}}">Events</a></li>
-        <!-- <li><a href="{{ pathFor 'postRecipe' }}">Projects</a></li> -->
+      
         <li><a href="{{pathFor 'search'}}">Browse Projects</a></li>
-<!--         <li> <a href="{{pathFor 'projectLists'}}">Trending Projects</a></li>
- -->
+
 
          <li><a href="{{pathFor 'followings' username=signedInUser}}">{{signedInUser}}'s Portfolio</a></li>
         <li><a href="{{pathFor 'fundings'}}">Fundings</a></li>
         <li><a href="{{pathFor 'resources'}}">Resources</a></li>
  <li><a href="/blog">Blog</a></li>
- <!-- <li>  <a href="{{pathFor 'followers' username=currentUser.username}}" > {{currentUser.username}}'s Followers</a>
- </li>
-<li>  <a href="{{pathFor 'followings' username=currentUser.username}}"> {{currentUser.username}}' Followings</a>
- </li>
- -->
-<!--         <li>
-            
-             <div class="messages-block {{#if navTabIsActive 'privateMessagesList'}}active{{/if}}">
-                <a href="{{pathFor 'privateMessagesList'}}">
-                    <span class="fa fa-comments"></span><span class="messages-link">Messages</span>
-                     {{#if msgnotificationCount}}
-        <span class="badge badge-inverse msgnotifications-counter">{{msgnotificationCount}}</span>
-    {{/if}}
-                </a>
-            </div>
-        </li> -->
-<!-- <li>
-    
- <div class="msgnotifications-block {{#if navTabIsActive 'privateMessagesList'}}active{{/if}}">
-                <span class="msgnotifications">{{> msgnotifications}}</span>
-            </div>
-</li>
- -->
+
     </ul>
+</template> -->
+
+
+<template name="sidebar">
+
+
+<script type="text/javascript">
+      $(document).ready(function(){
+      // Initialize collapse button
+  $(".button-collapse").sideNav();
+  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+  $('.collapsible').collapsible();
+        
+    });
+
+
+</script>
+
+ 
+  
+    <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a></div>
+      <ul id="nav-mobile" class="side-nav fixed">
+        <li class="logo"><a id="logo-container" href="{{pathFor 'dashboard'}}" class="brand-logo">
+          spotDada </a> </li>
+        <li class="bold"><a href="{{pathFor 'events'}}" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="{{pathFor 'followings' username=signedInUser}}" class="waves-effect waves-teal">{{signedInUser}}'s Portfolio</a></li>
+        
+        <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-teal">Mobile</a></li>
+        <li class="bold"><a href="showcase.html" class="waves-effect waves-teal">Showcase</a></li>
+      </ul>
+  
 </template>
