@@ -1,11 +1,10 @@
-AccountsTemplates.configureRoute('signIn', {layoutTemplate: 'appLayout',
+AccountsTemplates.configureRoute('signIn', {layoutTemplate: 'homeLayout',
                                            redirect: '/dashboard'});
-AccountsTemplates.configureRoute('signUp', {layoutTemplate: 'appLayout',redirect: '/account'});
+AccountsTemplates.configureRoute('signUp', {layoutTemplate: 'homeLayout',redirect: '/account'});
 AccountsTemplates.configureRoute('ensureSignedIn', {layoutTemplate: 'appLayout'});
 AccountsTemplates.configureRoute('forgotPwd');
 AccountsTemplates.configureRoute('resetPwd');
 AccountsTemplates.configureRoute('verifyEmail');
-
 //Fields
 
 AccountsTemplates.removeField('email');
@@ -69,9 +68,15 @@ AccountsTemplates.configure({
 
     // Texts
     texts: {
-     
+      
       title: {
-          forgotPwd: "Recover Your Passwod"
+          forgotPwd: "Recover Your Passwrod"
       },
     },
 });
+
+if (Meteor.isClient) {
+    Meteor.startup(function(){
+        AccountsTemplates.knownRoutes.push('/sign-out');
+    });
+}

@@ -215,6 +215,21 @@ Router.map(function() {
   layoutTemplate: "homeLayout"
 });
   
+  
+
+// User Logout
+
+  Router.route('/sign-out', {
+    name: 'signOut',
+    onBeforeAction: function() {
+      Meteor.logout(function() {
+      });
+      this.next();
+    }
+  });
+  
+  
+  
 this.route('/dashboard', {
   name: 'dashboard'
 });

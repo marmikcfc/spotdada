@@ -8,11 +8,12 @@ Template._header.events({
         Session.set('loginErr', null);
         Session.set('login-required-msg', null);
     },
-    'click #btn-signout': function(event){
+    'click .logoutbutton': function(event){
         event.preventDefault();
         event.stopPropagation();
         Meteor.logout(function(err){
             if(err) {
+                alert("MAAA CHUDAV");
                 console.log(err);
             }
             else {
