@@ -55,3 +55,4 @@ service-configuration
 ryw:blog
 percolate:paginated-subscription
 arunoda:find-faster
+edgee:slingshot

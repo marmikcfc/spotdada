@@ -3,23 +3,62 @@
         <h1>Create a new event</h1>
         <hr>
         <form name="add-event-form" style="font-size:100%;">
+            
             <div class="form-group input-field">
                 <label for="event-name" style="font-size:100%;" >Name</label>
                 <input type="text" class="form-control" id="event-name" style="font-size:100%;" required="true">
             </div>
+    
+
+    <div class="row">
+  
+    <div class="row">
+      <div class="input-field col s6" style="  width: 97%; margin-left: 2%;">
+       
+        <textarea id="event-description" style="font-size:100%;" class="materialize-textarea"></textarea>
+        <label for="event-description" style="font-size:100%;" >About</label>
+      </div>
+    </div>
+ 
+</div>
             <div class="form-group input-field">
-                                     <div class="input-field col s6">
-                        <i class="mdi-editor-mode-edit prefix"></i>
-                          
-                            
-       <textarea id="event-description" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:100%" class="materialize-textarea"></textarea>
-        <label for="icon_prefix2">Biography</label>
-                            
-                        </div>
+                <i class="mdi-action-event prefix"></i>
+
+              <input type="date" class="datepicker" id="event-start-time" />
+                <label for="event-start-time" style="font-size:100%;" >Start Time</label>                
+            </div>
+          
+        <div class="form-group input-field">
+                <i class="mdi-action-event prefix"></i>
+
+              <input type="date" class="datepicker" id="event-start-time" />
+                <label for="event-end-time" style="font-size:100%;" >End Time</label>                
+            </div>
+          
+            <div class="form-group input-field">
+                <label for="event-location" style="font-size:100%;" >Location</label>
+                <input type="text" style="font-size:100%;" class="form-control" id="event-location" required="true"/>
+            </div>
+           
+    <div class="form-group">
+        <label class="control-label" for="imageInput" style="font-size:100%;"  >Image</label>
+        <div class="controls post-image-button">
+         <button class="customImageUploadBtn btn btn-info" type="button" style="font-size:100%;"  > <i class="fa fa-plus-circle"></i>Image Upload</button>  
+
+         <input type="file" id="imageInput" name="imageInput" style="display:none" multiple />
+        </div>
+          </div>
+
+            <div class="form-group input-field">
+                <label for="event-cost" style="font-size:100%;" >Cost</label>
+                <input type="text" class="form-control" id="event-cost" style="font-size:100%;" required="true"/>
             </div>
 
-             <div class="form-group input-field">
-                <label for="event-tags">Tags</label>
+
+
+
+    <div class="form-group input-field">
+                <label for="event-tags" style="font-size:100%;"   >Tags</label>
               
                     <input type="text" class="form-control" id="tagInput"  style="font-size:100%;"  >
                                 <span class="input-group-btn">
@@ -31,40 +70,6 @@
                 <div class="tags-list" style="font-size:100%; margin-top: 5px"></div>
             </div>
 
-
-            <div class="form-group input-field">
-               <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <label for="event-start-time" style="font-size:100%;" >Start Time</label>
-              
-                    <input  type="date" class="datepicker" id="event-start-time" />
-                
-            </div>
-          
-            <div class="form-group input-field">
-                <label for="event-end-time" style="font-size:100%;" >End Time</label>
-                
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                    <input type="date" class="datepicker" id="event-end-time"/>
-            
-            </div>
-            <div class="form-group input-field">
-                <label for="event-location" style="font-size:100%;" >Location</label>
-                <input type="text" style="font-size:100%;" class="form-control" id="event-location" required="true"/>
-            </div>
-           
-    <div class="form-group">
-        <label class="control-label" for="imageInput">Image</label>
-        <div class="controls post-image-button">
-         <button class="customImageUploadBtn btn btn-info" type="button"> <i class="fa fa-plus-circle"></i>Image Upload</button>  
-
-         <input type="file" id="imageInput" name="imageInput" style="display:none" multiple />
-        </div>
-          </div>
-
-            <div class="form-group input-field">
-                <label for="event-cost" style="font-size:100%;" >Cost</label>
-                <input type="text" class="form-control" id="event-cost" style="font-size:100%;" required="true"/>
-            </div>
 
 <button type="submit" class="btn btn-primary">Submit</button>
 
