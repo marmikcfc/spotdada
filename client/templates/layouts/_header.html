@@ -48,13 +48,16 @@
                 {{/if}}
         
         </li>
-        
+       
+         <li class="bold"><a href="{{pathFor 'followings' username=signedInUser}}" class="waves-effect waves-teal">{{signedInUser}}'s Portfolio</a></li>
+      
+
+                   <li class="bold"><a href="{{pathFor 'search'}}" class="waves-effect waves-teal">Browse Projects</a></li>
+
         
         <li class="bold"><a href="{{pathFor 'events'}}" class="waves-effect waves-teal">Events</a></li>
-        <li class="bold"><a href="{{pathFor 'followings' username=signedInUser}}" class="waves-effect waves-teal">{{signedInUser}}'s Portfolio</a></li>
-      
+       
         
-           <li class="bold"><a href="{{pathFor 'search'}}" class="waves-effect waves-teal">Events</a></li>
         <li class="bold"><a href="{{pathFor 'fundings'}}" class="waves-effect waves-teal">Fundings</a></li>
         
            <li class="bold"><a href="{{pathFor 'resources'}}" class="waves-effect waves-teal">Resources</a></li>

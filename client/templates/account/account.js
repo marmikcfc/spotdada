@@ -2,6 +2,7 @@ var tags = []; // for temporary store the tags assigned to an event
 
 Template.account.events({
     'submit form': function(event){
+        var dp= Meteor.users.findOneFaster({_id: uid}).profile.avatar;
         var el = $(event.currentTarget)[0];
         var fname=$("#user-firstname").val();
         var lname=$("#user-lastname").val();
@@ -20,8 +21,8 @@ Template.account.events({
                 "uservs": $("#vstat").val(),
                 "userfund": $("#fund").val(),
                 "userfwa": $("#fwa").val(),
-                "org": $("#user-org").val()
-
+                "org": $("#user-org").val(),
+                "avatar": dp
             }
         };
         Meteor.users.update({_id: Meteor.userId()},
@@ -58,13 +59,17 @@ Template.account.events({
         reader.readAsDataURL(file);
     },
       'click #btn-add-tag': function(event){
-        
+         console.log("Inside button add tag");
 //Retrive Tags        
         var uid = Meteor.userId();
-        var user=Meteor.users.findOne({_id: uid});
+        var user=Meteor.users.findOneFaster({_id: uid});
         tags=user.profile.tags;
+        if(!tags) tags=[];
+          console.log("tags are"+tags);
+
         var tag = $("#tagInput").val().trim();
-        if (!isDuplicated(tag, tags)) tags.push(tag);
+       // if (!isDuplicated(tag, tags)) 
+        tags.push(tag);
         $("#tagInput").val('');
 
         //Add into Database
@@ -89,15 +94,18 @@ Template.account.events({
         var tagsMarkup = getTagsMarkup(tags);
         $(".tags-list").html(tagsMarkup);
     },
-    'keydown #tagInput': function(event){
+  
+  'keydown #tagInput': function(event){
         if (event.keyCode == 13){
             
           //Retrive Tags
             var uid = Meteor.userId();
-            var user=Meteor.users.findOne({_id: uid});
+            var user=Meteor.users.findOneFaster({_id: uid});
             tags=user.profile.tags;
+          
             var tag = $("#tagInput").val().trim();
-            if (!isDuplicated(tag, tags)) tags.push(tag);
+           // if (!isDuplicated(tag, tags)) 
+          tags.push(tag);
                 
           //Add into Database
               Meteor.users.update({_id: uid},
@@ -128,7 +136,7 @@ Template.account.events({
 
 //Retrive Tags        
         var uid = Meteor.userId();
-        var user=Meteor.users.findOne({_id: uid});
+        var user=Meteor.users.findOneFaster({_id: uid});
         tags=user.profile.tags;            
         var element = $(event.currentTarget);
         var tagContent = element.parent().text();
@@ -195,12 +203,12 @@ function getTagsMarkup(data){
     });
     return res;
 }
-
+/*
 function isDuplicated(tag, tags){
     var index = tags.indexOf(tag);
     return (index !== -1);
 }
-
+*/
 function getTags(userid){
 
 

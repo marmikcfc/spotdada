@@ -316,8 +316,16 @@ box-shadow: -2px 2px 10px #DEDEDE; ">
                     <img src="/default.jpg" class="avatar img-circle" alt="avatar">
                 {{/if}}
         <h1 class="grey-text text-lighten-5">   {{profile.firstname}} {{profile.lastname}}</h1>
-        <h5 clas="grey lighten-4 grey-text text-darken-1">web and mobile developer</h5>
-      
+                              
+                              {{#if profile.tags}}
+                              <h5 clas="grey lighten-4 grey-text text-darken-1">
+                              {{#each profile.tags}}
+                              
+         {{this}}
+                              
+                              {{/each}}
+                               </h5>
+      {{/if}}
                               </center>
                               </div>
 
