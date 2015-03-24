@@ -9,9 +9,9 @@ Template.postRecipe.events
     e.preventDefault()
     projectImage = $(e.target).find('[name=imageInput]')[0].files[0]
     title = $(e.target).find('[name=title]').val()
-    desc = $(e.target).find('[name=desc]').val()
+    desc = $(e.target).find('#desc').html()
     tags = $(e.target).find('[name=tags]').val()
- 
+    console.log(desc.toString())
     reader = new FileReader()
     reader.onload = (e) ->
       project =

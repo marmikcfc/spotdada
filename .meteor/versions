@@ -32,6 +32,7 @@ cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.0.5
 chuangbo:cookie@1.1.0
+citizenkevin:medium-editor@1.0.1
 cmather:handlebars-server@0.2.0
 coffeescript@1.0.6
 cunneen:mailgun@0.9.1
@@ -85,6 +86,7 @@ meteorhacks:subs-manager@1.2.0
 meteorhacks:unblock@1.1.0
 minifiers@1.1.4
 minimongo@1.0.7
+mizzao:bootstrap-3@3.3.1_1
 mobile-status-bar@1.0.3
 momentjs:moment@2.9.0
 mongo@1.1.0
@@ -96,6 +98,8 @@ mrt:underscore-string-latest@2.3.3
 multiply:iron-router-progress@1.0.1
 natestrauser:font-awesome@4.3.0
 natestrauser:x-editable-bootstrap@1.5.2_2
+nemo64:bootstrap@3.3.1_1
+nemo64:bootstrap-data@3.3.1_1
 npm-bcrypt@0.7.8_1
 npm-container@1.0.0
 observe-sequence@1.0.5

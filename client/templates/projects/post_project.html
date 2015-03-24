@@ -1,42 +1,79 @@
 <template name="postRecipe">
   <div class="postRecipe">
     <h1>Post your Project</h1>
-
+<br />
+<br />
     <form class="main form">
-      <div class="form-group">
-        <label class="control-label" for="title">Title</label>
-        <div class="controls">
-          <input name="title" id="title" type="text" value="" placeholder="Project title" class="form-control"/>
-        </div>
-      </div>
+      
+        <div class="form-group input-field">
+                <label for="title" style="font-size:100%;" >Title</label>
+                <input type="text" name="title" class="form-control" id="title" style="font-size:100%;" required="true">
+            </div>
+
       <div class="form-group">
         <label class="control-label" for="imageInput">Image</label>
         <div class="controls post-image-button">
          <button class="customImageUploadBtn btn btn-info" type="button">Image Upload</button>  
 
-        <input type="file" id="imageInput" name="imageInput" multiple />
+        <input type="file" id="imageInput" name="imageInput" style="display:none" multiple />
          </div>
  </div>
 
 
 
-      <div class="form-group">
-        <label class="control-label" for="desc">Description</label>
-        <div class="controls">
-          <textarea name="desc" id="desc" type="text" value="" placeholder="Description" class="form-control desc" rows="10"></textarea>
+      
+
+
+
+<div class="form-group">
+  <span style="font-size:100%"> Description </span>
+            <div class="editable" id="desc" name="desc">
+              <br />
+              <br />
+            <p>
+              
+              </p>
+           <br />
+              <br />
         </div>
+
       </div>
-      <div class="form-group">
-        <label class="control-label" for="tags">Tag</label>
-        <div class="controls">
-          <input name="tags" id="tags" type="text" value="" placeholder="Tags, Tags, Tags" class="form-control"/>
-        </div>
-      </div>
+
+      <br />
+      <br />
+      <br />
+
+
+<div class="form-group input-field">
+                <label for="tags" style="font-size:100%;" >Tags</label>
+                <input type="text" name="tags" class="form-control" id="tags" style="font-size:100%;" required="true">
+            </div>
+
+
+     
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 
+
+
+     
   <script type="text/javascript">
-    $(".desc").summernote()
+  //  $(".desc").summernote()
+    
+  var editor = new MediumEditor('.editable', {
+    anchorInputPlaceholder: 'Type a link',
+    diffLeft: 25,
+    diffTop: 10,
+    firstHeader: 'h1',
+    secondHeader: 'h2',
+    delay: 1000,
+    targetBlank: true
+});
+    
   </script>
+
 </template>
+
+
+ 

@@ -5,8 +5,9 @@
 
 meteor-platform
 less
-#nemo64:bootstrap
+nemo64:bootstrap
 coffeescript
+summernote:summernote
 materialize:materialize
 useraccounts:materialize
 accounts-password
@@ -28,7 +29,7 @@ yasinuslu:blaze-meta
 jquery
 multiply:iron-router-progress
 accounts-base
-#mizzao:bootstrap-3
+mizzao:bootstrap-3
 rajit:bootstrap3-datepicker
 tsega:bootstrap3-datetimepicker
 fortawesome:fontawesome
@@ -36,7 +37,7 @@ momentjs:moment
 meteorhacks:search-source
 underscore
 email
-summernote:summernote
+citizenkevin:medium-editor
 meteorhacks:fast-render
 
 meteorhacks:npm
