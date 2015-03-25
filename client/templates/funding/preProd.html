@@ -1,47 +1,60 @@
 <template name="preProd">
 
     <div class="new-event col-md-8 col-md-offset-2 container-fluid">
-        <h1>Create a new event</h1>
+        <h1>Put a Preproduction Film for funding</h1>
         <hr>
         <form name="add-event-form">
-            <div class="form-group">
-                <label for="event-name">Name of the Movie</label>
-                <input type="text" class="form-control" id="name" name="proname" placeholder="Name of the movie" required="true">
+            
+            <div class="input-field form-group" >
+                <label for="event-name" style="font-size:100%">Name of the Movie</label>
+                <input type="text" class="form-control" id="name" name="proname" required="true" style="font-size:100%">
             </div>
-            <div class="form-group">
-                <label for="event-description">Description</label>
-                <textarea class="form-control" id="rsyn" name="syn" placeholder="Registered Synopsis"></textarea>
+            
+            <div class="form-group input-field">
+                <label for="event-description" style="font-size:100%">Description</label>
+                <textarea class="materialize-textarea" id="rsyn" name="syn" style="font-size:100%"></textarea>
+            </div>
+
+            <div class="form-group input-field">
+                <label for="event-name" style="font-size:100%">Current Budget</label>
+                <input type="text" class="form-control" id="cbudget" name="currbudget" required="true" style="font-size:100%">
+            </div>
+            
+            <div class="form-group input-field">
+                <label for="event-name" style="font-size:100%">Director Locked-in</label>
+                <input type="text" class="form-control" id="dir" name="dirlock" required="true" style="font-size:100%">
+            </div>
+
+            <div class="form-group input-field">
+                <label for="event-name" style="font-size:100%">Writers of the film</label>
+                <input type="text" class="form-control" id="write" name="writer" required="true" style="font-size:100%">
+            </div>
+
+            <div class="form-group input-field">
+                <label for="event-name" style="font-size:100%">Directors statement</label>
+                <input type="text" class="form-control" id="dirst" name="dirstmnt" required="true" style="font-size:100%">
+            </div>
+
+            <div class="form-group input-field">
+                <label for="event-name" style="font-size:100%" >Budget Required?</label>
+                <input type="text" class="form-control" id="budre" name="budrequired" required="true" style="font-size:100%">
             </div>
 
 
-            <div class="form-group">
-                <label for="event-name">Current Budget</label>
-                <input type="text" class="form-control" id="cbudget" name="currbudget" placeholder="Current Budget" required="true">
-            </div>
-
-            <div class="form-group">
-                <label for="event-name">Directior's Locked-in</label>
-                <input type="text" class="form-control" id="dir" name="dirlock" placeholder="Name of the Director" required="true">
-            </div>
-
-            <div class="form-group">
-                <label for="event-name">Writers of the film</label>
-                <input type="text" class="form-control" id="write" name="writer" placeholder="Who are the writers of the film?" required="true">
-            </div>
-
-            <div class="form-group">
-                <label for="event-name">Directors statement</label>
-                <input type="text" class="form-control" id="dirst" name="dirstmnt" placeholder="What is the Directors statement?" required="true">
-            </div>
-
-            <div class="form-group">
-                <label for="event-name">Budget Required?</label>
-                <input type="text" class="form-control" id="budre" name="budrequired" placeholder="What is the budget required?" required="true">
-            </div>
+                 
 
       <div class="form-group">
-                <label for="event-name">Language</label>
-      <select class="form-control" id="lang" name="Language">
+            <script type="text/javascript">
+  
+                     $(document).ready(function() {
+                        $('#lang').material_select();
+                       $('#genre').material_select();
+                      });
+   
+                      </script>
+
+                <label for="lang" style="font-size:100%" >Language</label>
+      <select id="lang" name="Language">
         <option value="assamese">Assamese</option>
           <option value="badaga">Badaga</option>
           <option value="bengali">Bengali</option>
@@ -67,11 +80,9 @@
       </select>
                      </div>
 
-
-
         <div class="form-group">
-                <label for="event-name">Genre</label>
-     <select class="form-control" id="genre" name="Genre">
+                <label for="genre" style="font-size:100%">Genre</label>
+     <select id="genre" name="Genre">
           <option value="action">Action</option>
           <option value="animation">Animation</option>
           <option value="comedy">Comedy</option>
@@ -94,14 +105,16 @@
                      </div>
 
 
-      <div class="form-group">
-        <label class="control-label" for="imageInput">Image</label>
+ <div class="form-group">
+        <label class="control-label" for="imageInput" style="font-size:100%;"  >Image</label>
         <div class="controls post-image-button">
-         <button class="customImageUploadBtn btn btn-info" type="button">Image Upload</button>  
+         <button class="customImageUploadBtn btn btn-info" type="button" style="font-size:100%;"  > <i class="fa fa-plus-circle"></i>Image Upload</button>  
 
          <input type="file" id="imageInput" name="imageInput" style="display:none" multiple />
         </div>
           </div>
+
+    
 
   <button type="submit" class="btn btn-primary">Submit</button>
 
