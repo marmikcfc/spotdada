@@ -75,3 +75,10 @@ Template.preProd.events({
     return $("#add-event-modal").modal("hide");
   }
 });
+
+
+Template.account.rendered = function(){
+   // $('#user-birthday').datepicker();
+  
+  
+};

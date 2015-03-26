@@ -5,10 +5,10 @@ Meteor.subscribe('all-postprod');
 
 Template.fundings.helpers({
    'displayprefund': function(){
-            return preFund.find()
+            return preFund.findFaster()
                 },
    'displaypostfund': function(){
-            return postFund.find()
+            return postFund.findFaster()
                 }
    
 });     
