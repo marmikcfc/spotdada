@@ -23,8 +23,8 @@
 
 
 
-Accounts.emailTemplates.siteName = "MySite";
-Accounts.emailTemplates.from = "MySite <support@mysite.com>";
+Accounts.emailTemplates.siteName = "Spotdada";
+Accounts.emailTemplates.from = "Spotdada <support@spotdada.in>";
 Accounts.emailTemplates.resetPassword.subject = function (user) {
     return "Message for " + user.profile.displayName;
 };
@@ -43,13 +43,13 @@ Accounts.emailTemplates.resetPassword.text = function (user, url) {
 };
 
 Accounts.emailTemplates.verifyEmail.text = function (user, url) {
-    var signature = "MySite Bot";
+    var signature = "Spotdada Bot";
     //var president = President.findOne();
     //if (president)
     //    president = Meteor.users.findOne(president.presidentId);
         signature = "Marmik PAndya" + ", the spotDada CTO";
     return "Dear " + user.username+ ",\n\n" +
-        "Click the following link to set your new password:\n" +
+        "Thanks a lot for joining spotDada:\n" +
         url + "\n\n" +
         "Please never forget it again!!!\n\n\n" +
         "Cheers,\n" +

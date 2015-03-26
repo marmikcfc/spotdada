@@ -2,7 +2,6 @@ var tags = []; // for temporary store the tags assigned to an event
 
 Template.account.events({
     'submit form': function(event){
-        var dp= Meteor.users.findOneFaster({_id: uid}).profile.avatar;
         var el = $(event.currentTarget)[0];
         var fname=$("#user-firstname").val();
         var lname=$("#user-lastname").val();
@@ -21,8 +20,7 @@ Template.account.events({
                 "uservs": $("#vstat").val(),
                 "userfund": $("#fund").val(),
                 "userfwa": $("#fwa").val(),
-                "org": $("#user-org").val(),
-                "avatar": dp
+                "org": $("#user-org").val()
             }
         };
         Meteor.users.update({_id: Meteor.userId()},
@@ -64,7 +62,10 @@ Template.account.events({
         var uid = Meteor.userId();
         var user=Meteor.users.findOneFaster({_id: uid});
         tags=user.profile.tags;
-        if(!tags) tags=[];
+        if(!tags) 
+        {
+          tags=[];
+        }
           console.log("tags are"+tags);
 
         var tag = $("#tagInput").val().trim();
@@ -169,19 +170,10 @@ Template.account.events({
 });
 
 Template.account.rendered = function(){
-  
-   $(document).ready(function() {
-//$('.gen').material_select();
-      $('.datepicker').pickadate({
+   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
-  
-  });
-  
-  
-   // $('#user-birthday').datepicker();
-  
   
 };
 
@@ -211,7 +203,5 @@ function getTags(userid){
 //tags=user.profile.tags;
 //  return tags;
 }
-
-
 
 
