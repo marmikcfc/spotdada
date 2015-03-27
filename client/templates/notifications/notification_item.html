@@ -1,13 +1,16 @@
 <template name="notificationItem">
-  {{#if notifications.commentId}}
-  <a class="menu-item-divided list-group-item each-list" href="{{notificationPostPath}}">
-    <strong>{{commenter}}</strong> commented on your post
-  </a>
-
-  {{else}}
-
+  {{#if notifications.projectId}}
 <a class="menu-item-divided list-group-item each-list" href="/events/{{notifications.projectId}}">
     <strong>{{commenter}}</strong> commented on your post
   </a>
+
+  
+
+  {{else}}
+
+    <a class="menu-item-divided list-group-item each-list" href="{{notificationPostPath}}">
+    <strong>{{commenter}}</strong> commented on your post
+  </a>
+
 {{/if}}
 </template>

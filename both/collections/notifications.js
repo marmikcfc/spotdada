@@ -16,6 +16,8 @@ this.createCommentNotification = function(comment) {
       commenter: comment.commenter,
       read: false
     });
+    
+    
   }
 
 /*events = events.findOne(comment.eventsId);
