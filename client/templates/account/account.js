@@ -2,6 +2,7 @@ var tags = []; // for temporary store the tags assigned to an event
 
 Template.account.events({
     'submit form': function(event){
+       
         var el = $(event.currentTarget)[0];
         var fname=$("#user-firstname").val();
         var lname=$("#user-lastname").val();
@@ -50,12 +51,46 @@ Template.account.events({
     'change #avatar-upload': function(event, template){
         var file = event.currentTarget.files[0];
         var reader = new FileReader();
-        reader.onload = function(e) {
+        var progress = document.querySelector('.percent');
+        $('.percent').css('display','inline');        
+
+  function updateProgress(evt) {
+    // evt is an ProgressEvent.
+    if (evt.lengthComputable) {
+      var percentLoaded = Math.round((evt.loaded / evt.total) * 100);
+      // Increase the progress bar length.
+      if (percentLoaded < 100) {
+        progress.style.width = percentLoaded + '%';
+        progress.textContent = percentLoaded + '%';
+      }
+    }
+  }
+
+    // Reset progress indicator on new file selection.
+    progress.style.width = '0%';
+    progress.textContent = '0%';
+
+    reader.onprogress = updateProgress;
+  
+    reader.onloadstart = function(e) {
+      document.getElementById('progress_bar').className = 'loading';
+    };
+ 
+ reader.onloadend = function(e) {
             var userId = Meteor.userId();
-            Meteor.call('avatar-upload', userId, file, reader.result);
+//            Meteor.call('avatar-upload', userId, file, reader.result);
+         Meteor.users.update({_id: userId}, {
+            $set: {
+                "profile.avatar": reader.result
+            }
+        });
+            progress.style.width = '100%';
+            progress.textContent = '100%';
+            $(progress).css('display','none');
         };
         reader.readAsDataURL(file);
-    },
+
+},
       'click #btn-add-tag': function(event){
          console.log("Inside button add tag");
 //Retrive Tags        
@@ -170,6 +205,7 @@ Template.account.events({
 });
 
 Template.account.rendered = function(){
+  $('.percent').css('display','none');
    $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year

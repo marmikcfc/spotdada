@@ -43,7 +43,7 @@ Template.newEvent.events({
         if (err) {
           return console.log(err);
         } else {
-          return Router.go("/fundings");
+          return Router.go("/events");
         }
       });
     };
