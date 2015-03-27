@@ -28,7 +28,9 @@
     {{else}}
       <button class="btn btn-warning unfollow">Unfollow</button>
     {{/if}}
-   
+
+{{#if notYourself}} <span class="pm-editable">{{> privateMessageCreateEditableButton}} </span> 
+{{/if}}   
 
   {{/if}}
   
@@ -315,7 +317,10 @@ box-shadow: -2px 2px 10px #DEDEDE; ">
                          {{else}}
                     <img src="/default.jpg" class="avatar img-circle" alt="avatar">
                 {{/if}}
-        <h1 class="grey-text text-lighten-5">   {{profile.firstname}} {{profile.lastname}}</h1>
+        <h1 class="grey-text text-lighten-5">   {{profile.firstname}} {{profile.lastname}}
+
+
+        </h1>
                               
                               {{#if profile.tags}}
                               <h5 clas="grey lighten-4 grey-text text-darken-1">
@@ -327,6 +332,17 @@ box-shadow: -2px 2px 10px #DEDEDE; ">
                                </h5>
       {{/if}}
                               </center>
+
+{{#if notYourself}}
+    {{#if canFollow}}
+      <button class="btn btn-info follow">Follow</button>
+    {{else}}
+      <button class="btn btn-warning unfollow">Unfollow</button>
+    {{/if}}
+
+ {{/if}}
+                            
+                            
                               </div>
 
  <div class="container about">
@@ -550,31 +566,7 @@ box-shadow: -2px 2px 10px #DEDEDE; ">
   {{/if}}
       </div>
   </div>
-<!-- 
-<script type="text/javascript">
-    
-   $(document).ready(function(){
-            $('ul.tabs').tabs();
-          });
 
-</script>
-
-  <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">Test 1</a></li>
-        <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-        <li class="tab col s3"><a href="#test3">Test 3</a></li>
-        <li class="tab col s3"><a href="#test4">Test 4</a></li>
-      </ul>
-    </div>
-    <div id="test1" class="col s12">Test 1</div>
-    <div id="test2" class="col s12">Test 2</div>
-    <div id="test3" class="col s12">Test 3</div>
-    <div id="test4" class="col s12">Test 4</div>
-  </div>
-
- -->
 
       </div>
 

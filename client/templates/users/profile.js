@@ -8,8 +8,7 @@ Template.profile.rendered = function(){
 Template.profile.helpers({
  followers: function() {
  var user=Meteor.users.find({followers: username});
- console.log(user);
-
+ 
 result= [];
 /*//result.push({followername:user.username});
 result.push({followername:"Raichu"});

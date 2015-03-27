@@ -80,28 +80,52 @@
             </div>
 
 
-            <div class="col-md-12 event-description well container">
-                
-                {{#if src}}
-                <div class="event-description-image">
-                    <img class="img-responsive img-thumbnail" src="{{src}}" alt=""/>
-                </div>
-                {{/if}}
-                <p>{{syn}}</p>
-            </div>
+           <div class="col-md-12 event-description well container">
+               <div class="row">
+                 
+                      <script type="text/javascript">
 
+                  $(document).ready(function(){
+                  $('.materialboxed').materialbox();
+                    });
 
+            </script>
+              
+              {{#if src}}
 
-            <div class="col-md-12 event-description well container">
-                
-                {{#if tlink}}
+                 <div class="col s12 m3 l2" ><p class="flow-text">    <img class="responsive-img materialboxed" src="{{src}}" width="300px" alt=""/>
+                 </p>
+
+<p>
+                 {{#if tlink}}
 <iframe width="420" height="315"
 src="{{tlink}}" frameborder="0" allowfullscreen>
 </iframe>
                 
                 {{/if}}
+    
+</p>
+                 </div>
+                  <div class="col s12 m6 l8" > <p class="flow-text" >{{syn}}</p></div>
+
+
+                  {{else}}
+
+                    <div class="col s12">  <p class="flow-text">{{syn}}</p>  </div>
+
+                    
+
+              {{/if}}
+
+
+
             </div>
 
+            </div>
+
+
+
+   
         </div>
         <!-- <div class="col-md-2">
             <p>LIST OF Interested <span class="badge">{{interestedLength}}</span></p>
