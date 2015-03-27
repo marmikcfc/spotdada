@@ -14,6 +14,8 @@ this.createCommentNotification = function(comment) {
       projectId: project._id,
       commentId: comment._id,
       commenter: comment.commenter,
+      isEvent: false,
+      isProject:true,
       read: false
     });
     

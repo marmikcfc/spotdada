@@ -25,6 +25,7 @@ Template.newEvent.events({
      reader.onload = function(e) {
 
         var eventData = {
+            ownerId: Meteor.userId(),
             name: $('#event-name').val(),
             description: $('#event-description').val(),
             startTime: new Date($('#event-start-time').val()),

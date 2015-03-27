@@ -1,7 +1,9 @@
 <template name="notificationItem">
-  {{#if notifications.projectId}}
-<a class="menu-item-divided list-group-item each-list" href="/events/{{notifications.projectId}}">
-    <strong>{{commenter}}</strong> commented on your post
+  {{#if this.isEvent}}
+  
+  Notification is an event {{notifications.isEvent}}
+<a class="menu-item-divided list-group-item each-list" href="/events/{{this.projectId}}">
+    <strong>{{commenter}}</strong> commented on your Event
   </a>
 
   
@@ -9,7 +11,7 @@
   {{else}}
 
     <a class="menu-item-divided list-group-item each-list" href="{{notificationPostPath}}">
-    <strong>{{commenter}}</strong> commented on your post
+    <strong>{{commenter}}</strong> commented on your Project
   </a>
 
 {{/if}}

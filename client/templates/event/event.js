@@ -116,6 +116,8 @@ Template.event.events({
                 // successfully submitted new comment
                 var fromUserFullname = Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname;
                 var updatedEvent = Events.findOne(self._id);
+              var evtId=updatedEvent._id;
+              
              /*   var notificationData = {
                     fromUserId: Meteor.userId(),
                     fromUserFullname: fromUserFullname,
@@ -126,35 +128,28 @@ Template.event.events({
                     isChecked: false
                 };*/
 
-var username = Meteor.user().username
-                    var notificationData = {
-                    fromUserId: Meteor.userId(),
-                    eventsId: updatedEvent._id,
-                    comentId:'',
-                    commenter:username
-                   //fromUserFullname: fromUserFullname,
-                    //createdAt: new Date(),
-                    //userId: updatedEvent.ownerId,
-                    //content: fromUserFullname + ' has commented in your event page: ' + updatedEvent.name,
-                    //link: "/events/" + updatedEvent._id,
-                    //isChecked: false
-
-                };
-
-/*Meteor.call('createEventCommentNotification', function(error) {
-        if (error) {
-          alert(error.reason)
-        }
-      });
-*/
-
-Notificationss.insert({
-      userId: Meteor.userId(),
-      projectId: updatedEvent._id,
+var username = Meteor.user().username;
+var ownerid= updatedEvent.ownerId;    
+var commenterId= Meteor.userId();
+           
+//              console.log(up);
+        console.log("Commentor"+commenterId);
+        console.log("Owner"+ownerid);
+              
+              if(ownerid !== commenterId)
+                {
+                  console.log("Different owner and commenter");
+                  Notificationss.insert({
+      userId: updatedEvent.ownerId,
+      projectId: evtId,
       commentId:'',
       commenter: username,
+      isEvent: true,
       read: false
     });
+                  
+                }
+
 
 
                /* Notifications.insert(notificationData, function(err, doc){

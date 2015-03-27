@@ -231,33 +231,33 @@ Router.map(function() {
   
   
 this.route('/dashboard', {
-  name: 'dashboard',
-  fastRender: true
+  name: 'dashboard'
+//  fastRender: true
 });
 
 this.route('/messages', {
-  name: 'messages',
-  fastRender: true
+  name: 'messages'
+  //fastRender: true
 });
 
 this.route('/photos', {
-  name: 'projects',
-  fastRender: true
+  name: 'projects'
+  //fastRender: true
 });
 
 this.route('/fundings', {
-  name: 'fundings',
-  fastRender: true
+  name: 'fundings'
+//  fastRender: true
 });
 
 this.route('/preProd', {
-  name: 'preProd',
-  fastRender: true
+  name: 'preProd'
+//  fastRender: true
 });
 
 this.route('/postProd', {
-  name: 'postProd',
-  fastRender: true
+  name: 'postProd'
+//  fastRender: true
 });
 
 this.route('/about', {
@@ -294,15 +294,15 @@ this.route('postFund', {
             var res = postFund.findOneFaster({_id: postfundId});
            
             return res;
-        },
-        fastRender: true
+        }
+//        fastRender: true
     });
 
 
 
 this.route('/events', {
-  name: 'events',
-  fastRender: true
+  name: 'events'
+  //fastRender: true
 });
 
 this.route('/resources', {
@@ -320,8 +320,8 @@ this.route('/search', {
       },
       limit: 10
     });
-  },
-  fastRender: true
+  }
+//  fastRender: true
 });
 
 this.route('/findfriends', {
