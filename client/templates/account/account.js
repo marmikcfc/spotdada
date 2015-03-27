@@ -205,12 +205,17 @@ Template.account.events({
 });
 
 Template.account.rendered = function(){
-  $('.percent').css('display','none');
-   $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
+  $(document).ready(function(){
+    
+     $('.percent').css('display','none');
+ ///  $('.datepicker').pickadate({
+  //  selectMonths: true, // Creates a dropdown to control month
+  ///  selectYears: 15 // Creates a dropdown of 15 years to control year
+ // });
   
+    
+  });
+ 
 };
 
 

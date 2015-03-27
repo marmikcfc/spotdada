@@ -33,13 +33,21 @@
           
         </div>
       </nav>
+      
       <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a></div>
+      
+<center>
       <ul id="nav-mobile" class="side-nav fixed">
-        <li class="logo"><a id="logo-container" href="{{pathFor 'dashboard'}}" class="brand-logo">
-            spotDada</a></li>
+        <li class="logo" style="background: rgb(21, 8, 8);  height: 12%;">
+        <a id="logo-container" href="{{pathFor 'dashboard'}}" class="brand-logo">
+           <img src="/spotdadalogo.jpg" style="  height: 21%;width: 82%;" />  </a>
 
-        
-         <li class="logo">
+          
+            </li>
+
+
+              
+         <li class="logo" >
         
         {{#if currentUser.profile.avatar}}
                     <img src="{{currentUser.profile.avatar}}" class="avatar img-rounded" alt="avatar" style="width: 100px;height: 100px">
@@ -64,6 +72,8 @@
         <li class="bold"><a href="/blog" class="waves-effect waves-teal">Blog</a></li>
         
       </ul>
+
+      </center>
     </header>
 
 
