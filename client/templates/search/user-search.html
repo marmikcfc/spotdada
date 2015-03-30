@@ -2,7 +2,7 @@
     <div id="memberSearch" class="form-search search-only">
         <i class="search-icon fa fa-search"></i>
         {{> esInput id="userSearch" index="users" classes="form-control search-query" }}
-<ul class="z-depth-5" style="overflow:auto; height: 30%">
+<ul class="" style="overflow:auto; height: 30%">
 {{#ifEsIsSearching id="userSearch" index="users"}}
         <div class="alert alert-info alert-dismissable">
             Loading…
@@ -11,8 +11,18 @@
         {{#unless totalResultSetEmpty}}
                 {{#esEach id="userSearch" index="users"}}
                 <div id="member-multiple-select ">
-                    <a href="/users/{{username}}"> {{username}} </a>
+                    <a href="/users/{{username}}" style="font-size:100%">
+                      
+                      {{#if this.profile.avatar}}
+                      
+                    <img src="{{this.profile.avatar}}" class="circle responsive-img" style="height:11%; width:11%" />  {{username}} 
                      
+                  {{else}}
+                                      <img src="/default.jpg" class="circle responsive-img" style="height:13%; width:13%" />  {{username}} 
+  
+                      {{/if}}
+  
+                  </a>
                 </div>
                 {{/esEach}}
         {{/unless}}
