@@ -26,18 +26,14 @@ Meteor.publish "all-preprod", ->
 Meteor.publish "all-postprod", ->
   postFund.findFaster {}
 
+
 Meteor.publish "users-basic-info", ->
-  @unblock()
-  Meteor._sleepForMs(600)
   Meteor.users.findFaster {},
     fields:
       _id: 1
       username: 1
-      emails: 1
       profile: 1
-      privateMessages:1
-      msgnotifications:1
-
+      
 
 Meteor.publish 'projects', (options)->
   check options,

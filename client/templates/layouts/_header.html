@@ -1,9 +1,9 @@
  <template name="_header">
 
 <header>
-      <nav class="top-nav" style="height:100%">
-        <div class="container">
-          <div class="nav-wrapper" style="margin-left:15%;" >
+      <nav class="top-nav" style="height:100%; background: rgb(21, 8, 8); ">
+        <div class="container" style="height:73px">
+          <div class="nav-wrapper" style="margin-left:15%; background:rgb(21, 8, 8);" >
       <ul> 
         <li style="  width: 56%; margin-left: 20%;">         {{>userSearch}} </li>
    
@@ -34,7 +34,7 @@
         </div>
       </nav>
       
-      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a></div>
+      <div class="container" ><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a></div>
       
 <center>
       <ul id="nav-mobile" class="side-nav fixed">
@@ -63,7 +63,7 @@
                    <li class="bold"><a href="{{pathFor 'search'}}" class="waves-effect waves-teal">Browse Projects</a></li>
 
         
-        <li class="bold"><a href="{{pathFor 'events'}}" class="waves-effect waves-teal">Events</a></li>
+        <li class="bold"><a href="{{pathFor 'events'}}" class="waves-effect waves-teal" style="font-face:myFirstFont;">Events</a></li>
        
         
         <li class="bold"><a href="{{pathFor 'fundings'}}" class="waves-effect waves-teal">Fundings</a></li>
