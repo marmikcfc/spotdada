@@ -8,6 +8,7 @@ var options = {
 };
 var fields = ['name', 'location', 'ownerName', 'description'];
 EventSearch = new SearchSource('events', fields, options);
+console.log("Event SEacrch:"+ EventSearch);
 // Done creating search source
 
 Template.events.events({
@@ -105,7 +106,11 @@ Template.events.events({
                 // done removing an event
             }
         });
-    }
+    },
+  'keyup #event-search-box': _.throttle(function(e) {
+    var text = $(e.target).val().trim();
+    EventSearch.search(text);
+  }, 200)
 });
 
 Template.events.helpers({
@@ -136,7 +141,7 @@ Template.events.helpers({
     getEvents: function() {
         var x = EventSearch.getData({
             transform: function(matchText, regExp) {
-                return matchText.replace(regExp, "<b>$&</b>")
+                return matchText.replace(regExp, "$&")
             },
             sort: {startTime: 1}
         });
