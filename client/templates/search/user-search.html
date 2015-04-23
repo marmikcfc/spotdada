@@ -1,7 +1,7 @@
  <template name="userSearch">
     <div id="memberSearch" class="form-search search-only">
         <i class="search-icon fa fa-search"></i>
-        {{> esInput id="userSearch" index="users" classes="form-control search-query" }}
+        {{> esInput id="userSearch" index="users" placeholder="Search spotDada..." classes="form-control search-query" }}
 <ul class="" style="overflow:auto; height: 30%">
 {{#ifEsIsSearching id="userSearch" index="users"}}
         <div class="alert alert-info alert-dismissable">
