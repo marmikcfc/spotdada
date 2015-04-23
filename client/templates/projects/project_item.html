@@ -3,6 +3,7 @@
     <h2><a href="{{pathFor 'projectPage'}}">{{title}}</a></h2>
     <p>{{{desc}}}</p>
     <p>by <a href="{{pathFor 'profile' username=this.author}}">{{author}}</a></p>
+    <p>Role:  {{this.designation}}</p>
     <p>Date: {{submitted}}</p>
     {{#if tags}}
       <p>Tags:{{#each tags}}<span class="badge">{{this}}</span>{{/each}}</p>

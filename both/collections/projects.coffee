@@ -11,7 +11,7 @@ Projects.deny
   update: (userId, project, fieldNames) ->
     console.log('project', project)
     console.log('fieldNames', fieldNames)
-    _.without(fieldNames, "title", "desc", "tags", "src").length > 0
+    _.without(fieldNames, "title", "desc","designation", "tags", "src").length > 0
 
 Meteor.methods
 
@@ -20,6 +20,7 @@ Meteor.methods
     check postAttributes,
       title: String
       desc: String
+      designation: String
       tags: String
       src: String
 

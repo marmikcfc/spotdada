@@ -12,6 +12,12 @@
   #progress_bar.loading {
     opacity: 1.0;
   }
+
+#iron-router-progress{
+height:2px;  
+}
+
+
   #progress_bar .percent {
     background-color: #99ccff;
     height: auto;

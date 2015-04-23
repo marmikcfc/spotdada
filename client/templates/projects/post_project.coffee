@@ -10,6 +10,7 @@ Template.postRecipe.events
     projectImage = $(e.target).find('[name=imageInput]')[0].files[0]
     title = $(e.target).find('[name=title]').val()
     desc = $(e.target).find('#desc').html()
+    designation = $(e.target).find('[name=designation]').val()
     tags = $(e.target).find('[name=tags]').val()
     console.log(desc.toString())
     reader = new FileReader()
@@ -18,6 +19,7 @@ Template.postRecipe.events
         title: title 
         desc: desc
         tags: tags
+        designation: designation
         src: e.target.result
 
       Meteor.call "postInsert", project, (error, result) ->
@@ -33,6 +35,7 @@ Template.postRecipe.events
         title: title 
         desc: desc
         tags: tags
+        designation: designation
         src: 'N/A'
 
       Meteor.call "postInsert", project, (error, result) ->

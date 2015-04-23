@@ -12,6 +12,7 @@ Template.projectEdit.events
     projectImage = $(e.target).find('[name=imageInput]')[0].files[0]
     title = $(e.target).find('[name=title]').val()
     desc = $(e.target).find('[name=desc]').val()
+    designation = $(e.target).find('[name=designation]').val()
     tags = $(e.target).find('[name=tags]').val()
 
     if projectImage
@@ -22,6 +23,7 @@ Template.projectEdit.events
           title: title 
           desc: desc
           tags: tags
+          designation: designation
           src: e.target.result
 
         Projects.update currentRecipeId,
@@ -41,6 +43,7 @@ Template.projectEdit.events
         title: title 
         desc: desc
         tags: tags
+        designation: designation
         src: e.target.result
 
       console.log('Edit without image', project.tags)

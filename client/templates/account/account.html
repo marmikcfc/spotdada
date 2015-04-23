@@ -177,12 +177,12 @@
                        {{/if}}
                   </div>
                   
-                               <div class="form-group">
+          <!--                      <div class="form-group">
 {{#if currentUser.profile.uservs }}
                                  <div class="input-field col s6">
                                  <i class="mdi-action-turned-in prefix"></i>
                                 <input type="text" class="validate" id="vstat"  style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.uservs}}">
-<!--                                   <label for="icon_prefix" style="font-size:14px">Vital Stats</label> -->
+
                                     </div>
          {{else}}
                                  
@@ -193,7 +193,7 @@
                                     </div>
                                  {{/if}}
                                  
-                  </div>
+                  </div> -->
                   
                      <div class="form-group">
            {{#if currentUser.profile.userfund}}            
@@ -213,13 +213,13 @@
                        </div>               
                        {{/if}}
                                     </div>
-                 
+                 <!-- 
                           <div class="form-group">
 {{#if currentUser.profile.userfwa}}                            
                     <div class="input-field col s6">
                                     <i class="mdi-editor-mode-edit prefix"></i>
                                 <input type="text" class="validate" id="fwa" style="border:none; border-bottom: 1px solid #9e9e9e; font-size:18px" value="{{currentUser.profile.userfwa}}">
-<!--                                   <label for="icon_prefix" style="font-size:14px"> FWA Membership Number </label> -->
+
                                     </div>
     {{else}}
                 <div class="input-field col s6">
@@ -231,14 +231,16 @@
                             
                  {{/if}}           
                         
-                  </div>
+                  </div> -->
+
+
                       <div class="form-group">
                   
                         <script type="text/javascript">
                           $(document).ready(function(){
                            $('.datepicker').pickadate({
                                 selectMonths: true, // Creates a dropdown to control month
-                                selectYears: 15 // Creates a dropdown of 15 years to control year
+                                selectYears: true
                               });
   
     
