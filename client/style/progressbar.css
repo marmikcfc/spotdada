@@ -15,7 +15,9 @@
 
 #iron-router-progress{
 height:2px;  
+ background-color: green;
 }
+
 
 
   #progress_bar .percent {

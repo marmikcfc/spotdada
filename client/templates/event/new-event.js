@@ -3,11 +3,16 @@ var tags = []; // for temporary store the tags assigned to an event
 Template.newEvent.rendered = function(){
    // $('.datepicker').datetimepicker();
   
-   $('.datepicker').pickadate({
+  /* $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
-  
+  });*/
+
+ // this.$('.datetimepicker').datetimepicker();
+          this.$('#event-start-time').datetimepicker();
+          this.$('#event-end-time').datetimepicker();
+
+
 };
 
 Template.newEvent.events({

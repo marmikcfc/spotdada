@@ -20,21 +20,44 @@
       </div>
     </div>
  
-</div>
-            <div class="form-group input-field">
+</div><!-- 
+            <div class="form-group input-field datetimepicker">
                 <i class="mdi-action-event prefix"></i>
 
-              <input type="date" class="datepicker" id="event-start-time" />
+              <input type="text" class="datepicker" id="event-start-time" />
                 <label for="event-start-time" style="font-size:100%;" >Start Time</label>                
             </div>
-          
-        <div class="form-group input-field">
+ -->
+
+<div class="form-group input-field">
+    <!-- <input class="set-due-date form-control" id="event-start-time" type="text"/> -->
+  
+   <label for="event-start-time" style="font-size:100%;" >Start Time</label>
+ <input type="text" class="form-control" id="event-start-time" style="font-size:100%;" required="true">
+   
+  </div>
+
+
+
+ <!--        <div class="form-group input-field datetimepicker">
                 <i class="mdi-action-event prefix"></i>
 
-              <input type="date" class="datepicker" id="event-start-time" />
+              <input type="text" class="datepicker" id="event-end-time" />
                 <label for="event-end-time" style="font-size:100%;" >End Time</label>                
-            </div>
+            </div> -->
           
+
+<div class="form-group input-field">
+    <!-- <input class="set-due-date form-control" id="event-start-time" type="text"/> -->
+  
+   <label for="event-start-time" style="font-size:100%;" >End Time</label>
+ <input type="text" class="form-control" id="event-end-time" style="font-size:100%;" required="true">
+   
+  </div>
+
+
+
+
             <div class="form-group input-field">
                 <label for="event-location" style="font-size:100%;" >Location</label>
                 <input type="text" style="font-size:100%;" class="form-control" id="event-location" required="true"/>
@@ -77,4 +100,14 @@
         </form>
       
     </div>
+
+<script type="text/javascript">
+    
+    $(document).ready(function () {
+        $('#event-start-time').datetimepicker();
+       $('#event-end-time').datetimepicker();
+    })
+
+</script>
+
 </template>
